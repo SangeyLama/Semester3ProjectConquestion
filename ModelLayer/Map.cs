@@ -8,10 +8,10 @@ namespace ModelLayer
 {
     class Map
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public List<Node> Nodes { get; set; }
-        public int size { get; set; }
-        public string type { get; set; }
+        public int Size { get; set; }
+        public string Type { get; set; }
 
 
 
