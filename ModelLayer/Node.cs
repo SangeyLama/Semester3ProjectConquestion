@@ -8,7 +8,7 @@ namespace ModelLayer
 {
     class Node
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public List<Node> Neighbours { get; set; }
     }
 }
