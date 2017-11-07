@@ -6,5 +6,6 @@ Compare Plan driven vs agile methodologies and which one we decided to use and w
 Main principles in planning and quality assurance (XP principles, Scrum, pair programming, code reviews, code standard etc etc)
 Test Driven Development
 Non Functional requirements of our system and how they influenced our design
+Domain model
 
 Reflections on sprint 0 (how did it go, what went well, what didn't go well, how we can improve next time)
