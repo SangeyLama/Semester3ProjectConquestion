@@ -10,5 +10,6 @@ namespace ModelLayer
     {
         public string EasyQuestions { get; set; }
         public string HardQuestions { get; set; }
+        public int Difficulty { get; set; }
     }
 }
