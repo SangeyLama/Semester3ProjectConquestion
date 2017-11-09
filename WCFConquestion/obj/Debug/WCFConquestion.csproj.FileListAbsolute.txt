@@ -1,0 +1,17 @@
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\WCFConquestion.dll.config
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\WCFConquestion.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\WCFConquestion.pdb
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\DataLayer.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\LogicLayer.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\DataLayer.pdb
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\DataLayer.dll.config
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\LogicLayer.pdb
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\LogicLayer.dll.config
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.xml
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.csprojResolveAssemblyReference.cache
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.csproj.CoreCompileInputs.cache
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.pdb
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.SqlServer.xml
