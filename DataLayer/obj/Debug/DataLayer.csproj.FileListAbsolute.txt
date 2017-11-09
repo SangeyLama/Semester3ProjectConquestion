@@ -1,0 +1,6 @@
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\Tamás\Desktop\project\Semester3ProjectConquestion\DataLayer\obj\Debug\DataLayer.pdb
