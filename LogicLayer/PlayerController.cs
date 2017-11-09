@@ -12,9 +12,8 @@ namespace LogicLayer
     public class PlayerController
     {
         ConquestionDBContext db = new ConquestionDBContext();
-        public Player CreatePlayer(string name)
+        public Player CreatePlayer(Player player)
         {
-            Player player = new Player(name);
             db.Players.Add(player);
             db.SaveChanges();
             return player;

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ConquestionWebApp.Models;
+using ConquestionWebApp.RemoteWCFConquestionService;
 
 namespace ConquestionWebApp.Controllers
 {
     public class HomeController : Controller
     {
+        ConquestionServiceClient client = new ConquestionServiceClient();
         [HttpPost]
         public ActionResult SavePlayer(Player player)
         {
+            client.CreatePlayer(player);
             return View(player);
         }
 

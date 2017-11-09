@@ -12,6 +12,6 @@ namespace WCFConquestion
     public interface IConquestionService
     {
         [OperationContract]
-        void CreatePlayer(string name);
+        void CreatePlayer(Player player);
     }
 }
