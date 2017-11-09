@@ -1,0 +1,14 @@
+﻿@using ConquestionWebApp.Models
+@Model Player
+@{
+    ViewBag.Title = "CreateNewPlayer";
+}
+
+<h2>CreateNewPlayer</h2>
+
+@using (Html.BeginForm("SavePlayer", "Home", FormMethod.Post))
+{
+    // @Html.TextBoxFor(x => x.name, new { @class = "form-control", placeholder = "UserName", @type = ""})
+    <input type="Text" name ="name" id="name"/>
+    <button type ="submit">Save</button>
+}
