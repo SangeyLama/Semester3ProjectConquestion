@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{E19BA2A4-91ED-46FB-AE91-5B1190ED4A9F}"
 EndProject
@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{D5039854-031A-4B78-9F43-F5FD2EF62D25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionWebApp", "ConquestionWebApp\ConquestionWebApp.csproj", "{39C790E1-5122-4FB0-9EAD-0F8CDDD35335}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB98B942-01CE-4F8C-8B14-3BDFAEDC8862} = {CB98B942-01CE-4F8C-8B14-3BDFAEDC8862}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

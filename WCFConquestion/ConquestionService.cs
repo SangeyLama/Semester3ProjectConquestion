@@ -15,10 +15,10 @@ namespace WCFConquestion
     public class ConquestionService : IConquestionService
     {
 
-        public void CreatePlayer(string name)
+        public void CreatePlayer(Player player)
         {
             PlayerController ctr = new PlayerController();
-            Player player = ctr.CreatePlayer(name);   
+            ctr.CreatePlayer(player);   
         }
     }
 }
