@@ -10,17 +10,18 @@ namespace DataLayer.Tests
     [TestFixture]
     public class PlayerTests
     {
-        /*
+        
         [Test]
         public void NameIsAString(int id)
         {
+            //Arrange
             var name = Player.getName(id);
             bool isString = false;
-
+            //Act
             if(name is String)
                 isString = true;
           
-
+            //Assert
             Assert.AreEqual(true, isString);
         }
         
@@ -37,16 +38,17 @@ namespace DataLayer.Tests
             Assert.AreEqual(false, empty);
 
         }
-        */
+        
         [Test]
-        public void NameIsNotLongerThan20()
+        public void NameIsNotLongerThan20(int id)
         {
-            string name = "as";
+            //Arrange
+            string name = Player.GetName(id);
             bool isLonger = true;
-
+            //Act
             if (name.Length < 21)
                 isLonger = false;
-
+            //Assert
             Assert.AreEqual(false, isLonger);
         }
 
