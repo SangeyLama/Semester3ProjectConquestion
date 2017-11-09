@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLayer
+namespace DataLayer.Tests
 {
-    class Node
+    public class Class1
     {
-        public int Id { get; set; }
-        public List<Node> Neighbours { get; set; }
     }
 }
