@@ -13,3 +13,5 @@ C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestio
 C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.csproj.CoreCompileInputs.cache
 C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.dll
 C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\obj\Debug\WCFConquestion.pdb
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\maddie\Desktop\GitProjectCode\Semester3ProjectConquestion\WCFConquestion\bin\Debug\EntityFramework.SqlServer.xml
