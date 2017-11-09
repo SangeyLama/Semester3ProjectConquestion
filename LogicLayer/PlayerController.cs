@@ -16,6 +16,7 @@ namespace LogicLayer
         {
             Player player = new Player(name);
             db.Players.Add(player);
+            db.SaveChanges();
             return player;
         }
     }
