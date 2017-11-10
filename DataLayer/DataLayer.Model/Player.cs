@@ -14,9 +14,10 @@ namespace DataLayer.DataLayer.Model
         [DataMember]
         public string Name { get; set; }
 
-        public Player(string name)
-        {
-            this.Name = name;
-        }
+        public List<Game> Games { get; set; }
+
+
+        
+
     }
 }
