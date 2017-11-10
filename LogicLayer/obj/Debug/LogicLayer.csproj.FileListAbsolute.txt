@@ -26,3 +26,17 @@ C:\Users\sange\Desktop\UITest\Semester3ProjectConquestion\LogicLayer\obj\Debug\L
 C:\Users\sange\Desktop\UITest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.csproj.CoreCompileInputs.cache
 C:\Users\sange\Desktop\UITest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.dll
 C:\Users\sange\Desktop\UITest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.pdb
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\LogicLayer.dll.config
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\LogicLayer.dll
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\LogicLayer.pdb
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\DataLayer.dll
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\EntityFramework.dll
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\DataLayer.pdb
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\DataLayer.dll.config
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\EntityFramework.xml
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.dll
+C:\Users\purke\Desktop\GitTest\Semester3ProjectConquestion\LogicLayer\obj\Debug\LogicLayer.pdb
