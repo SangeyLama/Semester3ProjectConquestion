@@ -9,6 +9,7 @@ namespace DataLayer
     public class ConquestionDBContext : DbContext
     {
         public virtual DbSet<Player> Players { get; set; }
+        public virtual DbSet<Game> Games { get; set; }
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
         // 'DataLayer.Model1' database on your LocalDb instance. 

@@ -13,5 +13,9 @@ namespace WCFConquestion
     {
         [OperationContract]
         void CreatePlayer(Player player);
+        [OperationContract]
+        void CreateGame(Game game);
+        [OperationContract]
+        void AddPlayer(Game game, Player player);
     }
 }
