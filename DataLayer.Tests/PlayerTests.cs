@@ -11,7 +11,7 @@ namespace DataLayer.Tests
     [TestFixture]
     public class PlayerTests
     {
-        static Player player = new Player(1);
+        static Player player = new Player("Jake");
         [Test]
         public void NameIsAString()
         {
