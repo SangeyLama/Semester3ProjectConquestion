@@ -56,10 +56,10 @@ namespace LogicLayer.Tests
             Game chosenGame = new Game();
 
             //Act
-            chosenGame = ctr.ChooseGame("Mimi's game");
+            chosenGame = ctr.ChooseGame("Test");
             
             //Assert
-            Assert.AreEqual(4, chosenGame.Id);
+            Assert.AreEqual(1, chosenGame.Id);
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace LogicLayer.Tests
             activeGame = ctr.ActiveGames();
 
             //Assert
-            Assert.AreEqual(2, activeGame.Count);
+            Assert.AreEqual(1, activeGame.Count);
         }
     }
 }
