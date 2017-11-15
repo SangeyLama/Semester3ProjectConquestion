@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{E19BA2A4-91ED-46FB-AE91-5B1190ED4A9F}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer", "LogicLayer\LogicLayer.csproj", "{D5039854-031A-4B78-9F43-F5FD2EF62D25}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicLayer.Tests", "LogicLayer.Tests\LogicLayer.Tests.csproj", "{C005692D-AA0D-41AE-BAA9-FEEC5CC8320E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChooseGameTUI", "ChooseGameTUI\ChooseGameTUI.csproj", "{6002ED8B-7657-4E45-945E-A779DFE06B3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{C005692D-AA0D-41AE-BAA9-FEEC5CC8320E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C005692D-AA0D-41AE-BAA9-FEEC5CC8320E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C005692D-AA0D-41AE-BAA9-FEEC5CC8320E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6002ED8B-7657-4E45-945E-A779DFE06B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6002ED8B-7657-4E45-945E-A779DFE06B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6002ED8B-7657-4E45-945E-A779DFE06B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6002ED8B-7657-4E45-945E-A779DFE06B3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

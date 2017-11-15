@@ -40,5 +40,27 @@ namespace LogicLayer
 
         }
 
+        public Game ChooseGame(string name)
+        {
+            Game chosenGame = new Game();
+
+            chosenGame = db.Games
+                .Where(x => x.Name == name)
+                .FirstOrDefault();
+
+            return chosenGame;
+        }
+
+        public List<Game> ActiveGames()
+        {
+            List<Game> activeGames = new List<Game>();
+
+            activeGames = db.Games.ToList();
+
+            return activeGames;
+        }
+
+        
+
     }
 }

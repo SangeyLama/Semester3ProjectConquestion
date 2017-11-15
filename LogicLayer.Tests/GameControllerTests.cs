@@ -48,5 +48,31 @@ namespace LogicLayer.Tests
             db.Games.Remove(game);
             db.SaveChanges();
         }
+
+        [Test]
+        public void ChooseGame()
+        {
+           //Arrange
+            Game chosenGame = new Game();
+
+            //Act
+            chosenGame = ctr.ChooseGame("Mimi's game");
+            
+            //Assert
+            Assert.AreEqual(4, chosenGame.Id);
+        }
+
+        [Test]
+        public void ActiveGames()
+        {
+            //Arrange
+            List<Game> activeGame = new List<Game>();
+
+            //Act
+            activeGame = ctr.ActiveGames();
+
+            //Assert
+            Assert.AreEqual(2, activeGame.Count);
+        }
     }
 }
