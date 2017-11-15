@@ -50,6 +50,7 @@
     <Compile Include="GameController.cs" />
     <Compile Include="PlayerController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionSetController.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataLayer\DataLayer.csproj">
