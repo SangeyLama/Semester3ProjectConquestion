@@ -43,12 +43,9 @@ namespace LogicLayer.Tests
             ctr.AddPlayer(game, player);
 
             //Assert
-            var gameEntity = db.Games.Where(g => g.Name == game.Name).FirstOrDefault();
-            db.Entry(gameEntity).Collection(g => g.Players).Load();
-            var playerEntity = db.Players.Where(p => p.Name == player.Name).FirstOrDefault();
-            Assert.Contains(playerEntity, gameEntity.Players);
-            db.Players.Remove(playerEntity);
-            db.Games.Remove(gameEntity);
+            Assert.Contains(player, game.Players);
+            db.Players.Remove(player);
+            db.Games.Remove(game);
             db.SaveChanges();
         }
     }
