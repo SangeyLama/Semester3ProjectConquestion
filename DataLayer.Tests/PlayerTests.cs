@@ -11,7 +11,7 @@ namespace DataLayer.Tests
     [TestFixture]
     public class PlayerTests
     {
-        static Player player = new Player("Jake");
+        static Player player = new Player {Name ="Jake" };
         [Test]
         public void NameIsAString()
         {
@@ -20,8 +20,9 @@ namespace DataLayer.Tests
             bool isString = false;
             //Act
             if (name is String)
+            {
                 isString = true;
-
+            }
             //Assert
             Assert.AreEqual(true, isString);
         }
@@ -34,7 +35,9 @@ namespace DataLayer.Tests
             bool empty = true;
             //Act
             if (!player.Name.Equals(string.Empty))
+            {
                 empty = false;
+            }
             //Assert
             Assert.AreEqual(false, empty);
 
@@ -48,7 +51,9 @@ namespace DataLayer.Tests
             bool isLonger = true;
             //Act
             if (name.Length < 21)
+            {
                 isLonger = false;
+            }
             //Assert
             Assert.AreEqual(false, isLonger);
         }

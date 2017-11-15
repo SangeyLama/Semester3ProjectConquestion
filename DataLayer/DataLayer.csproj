@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLayer.Model\Game.cs" />
     <Compile Include="DataLayer.Model\Player.cs" />
     <Compile Include="DataLayer.EF\Migrations\Configuration.cs" />
     <Compile Include="DataLayer.EF\ConquestionDBContext.cs" />
