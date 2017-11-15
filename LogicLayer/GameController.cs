@@ -28,9 +28,9 @@ namespace LogicLayer
             {
                 if (game.Players == null)
                     game.Players = new List<Player>();
-                if (!game.Players.Contains((Player)player))
+                if (!game.Players.Contains(player))
                 {
-                    game.Players.Add((Player)player);
+                    game.Players.Add(player);
                     db.Entry(game).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }

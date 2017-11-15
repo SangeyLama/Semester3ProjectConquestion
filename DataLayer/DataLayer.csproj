@@ -49,10 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataLayer.Model\Answer.cs" />
     <Compile Include="DataLayer.Model\Game.cs" />
     <Compile Include="DataLayer.Model\Player.cs" />
     <Compile Include="DataLayer.EF\Migrations\Configuration.cs" />
     <Compile Include="DataLayer.EF\ConquestionDBContext.cs" />
+    <Compile Include="DataLayer.Model\Question.cs" />
+    <Compile Include="DataLayer.Model\QuestionSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
