@@ -29,5 +29,12 @@ namespace LogicLayer
             return chosenMap;
         }
 
+        public List<Map> RetrieveAllMaps()
+        {
+            List<Map> maps = new List<Map>();
+            maps = db.Maps.ToList();
+            return maps;
+        }
+
     }
 }

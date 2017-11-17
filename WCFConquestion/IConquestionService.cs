@@ -23,5 +23,7 @@ namespace WCFConquestion
         Game ChoseGame(string name);
         [OperationContract]
         List<QuestionSet> RetrieveAllQuestionSets();
+        [OperationContract]
+        List<Map> RetrieveAllMaps();
     }
 }
