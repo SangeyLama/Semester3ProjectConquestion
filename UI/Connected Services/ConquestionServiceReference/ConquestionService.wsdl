@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ConquestionService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:1234/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:1234/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1234/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IConquestionService_CreatePlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayer" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CreatePlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CreateGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGame" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CreateGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_AddPlayer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayer" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_AddPlayer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlayerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ActiveGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveGames" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ActiveGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActiveGamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ChoseGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChoseGame" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ChoseGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChoseGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_RetrieveAllQuestionSets_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAllQuestionSets" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_RetrieveAllQuestionSets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAllQuestionSetsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IConquestionService">
+    <wsdl:operation name="CreatePlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayer" message="tns:IConquestionService_CreatePlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayerResponse" message="tns:IConquestionService_CreatePlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreateGame" message="tns:IConquestionService_CreateGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/CreateGameResponse" message="tns:IConquestionService_CreateGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlayer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/AddPlayer" message="tns:IConquestionService_AddPlayer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/AddPlayerResponse" message="tns:IConquestionService_AddPlayer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActiveGames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/ActiveGames" message="tns:IConquestionService_ActiveGames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/ActiveGamesResponse" message="tns:IConquestionService_ActiveGames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChoseGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/ChoseGame" message="tns:IConquestionService_ChoseGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/ChoseGameResponse" message="tns:IConquestionService_ChoseGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllQuestionSets">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/RetrieveAllQuestionSets" message="tns:IConquestionService_RetrieveAllQuestionSets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/RetrieveAllQuestionSetsResponse" message="tns:IConquestionService_RetrieveAllQuestionSets_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreatePlayer">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/CreatePlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGame">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/CreateGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPlayer">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/AddPlayer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActiveGames">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/ActiveGames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChoseGame">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/ChoseGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllQuestionSets">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/RetrieveAllQuestionSets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConquestionService">
+    <wsdl:port name="BasicHttpBinding_IConquestionService" binding="tns:BasicHttpBinding_IConquestionService">
+      <soap:address location="http://localhost:1234/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

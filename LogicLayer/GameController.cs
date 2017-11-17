@@ -23,6 +23,7 @@ namespace LogicLayer
 
         public void AddPlayer(Game game, Player player)
         {
+
             game.Players = new List<Player>();
             game.Players.Add(player);
             if (game != null)

@@ -12,10 +12,16 @@ namespace WCFConquestion
     public interface IConquestionService
     {
         [OperationContract]
-        void CreatePlayer(Player player);
+        Player CreatePlayer(Player player);
         [OperationContract]
         void CreateGame(Game game);
         [OperationContract]
         void AddPlayer(Game game, Player player);
+        [OperationContract]
+        List<Game> ActiveGames();
+        [OperationContract]
+        Game ChoseGame(string name);
+        [OperationContract]
+        List<QuestionSet> RetrieveAllQuestionSets();
     }
 }
