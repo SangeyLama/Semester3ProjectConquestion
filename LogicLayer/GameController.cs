@@ -23,29 +23,29 @@ namespace LogicLayer
 
         public void AddPlayer(Game game, Player player)
         {
-            game.Players = new List<Player>();
-            game.Players.Add(player);
-            if (game != null)
+            var gameEntity = db.Games.Include("Players").Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
+            if (gameEntity != null)
             {
-                if (game.Players == null)
-                    game.Players = new List<Player>();
-                if (!game.Players.Contains(player))
+                if (gameEntity.Players == null)
+                    gameEntity.Players = new List<Player>();
+                if (!gameEntity.Players.Contains(playerEntity))
                 {
-                    game.Players.Add(player);
-                    db.Entry(game).State = System.Data.Entity.EntityState.Modified;
+                    gameEntity.Players.Add(playerEntity);
+                    db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
                     db.SaveChanges();
                 }
 
-
             }
-
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public Game ChooseGame(string name)
         {
-            Game chosenGame = new Game();
-
-            chosenGame = db.Games
+            Game chosenGame = db.Games
                 .Where(x => x.Name == name)
                 .FirstOrDefault();
 
@@ -55,18 +55,7 @@ namespace LogicLayer
         public List<Game> ActiveGames()
         {
             List<Game> activeGames = new List<Game>();
-
-            foreach(Game g in db.Games)
-            {
-                if(g.GameStatus == Game.GameStatusEnum.starting)
-                {
-                    activeGames.Add(g);
-                }
-            }
-
-
-
-            //activeGames = db.Games.ToList();
+            activeGames = db.Games.Where(g => g.GameStatus == Game.GameStatusEnum.starting).ToList();
 
             return activeGames;
         }
