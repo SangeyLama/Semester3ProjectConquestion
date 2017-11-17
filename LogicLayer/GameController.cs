@@ -14,6 +14,7 @@ namespace LogicLayer
 
         public Game CreateGame(Game game)
         {
+            game.GameStatus = Game.GameStatusEnum.starting;
             db.Games.Add(game);
             db.SaveChanges();
             return game;
@@ -55,7 +56,17 @@ namespace LogicLayer
         {
             List<Game> activeGames = new List<Game>();
 
-            activeGames = db.Games.ToList();
+            foreach(Game g in db.Games)
+            {
+                if(g.GameStatus == Game.GameStatusEnum.starting)
+                {
+                    activeGames.Add(g);
+                }
+            }
+
+
+
+            //activeGames = db.Games.ToList();
 
             return activeGames;
         }

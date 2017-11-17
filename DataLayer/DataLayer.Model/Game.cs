@@ -10,11 +10,20 @@ namespace DataLayer.DataLayer.Model
     [DataContract]
     public class Game
     {
+        public enum GameStatusEnum
+        {
+            starting=0,
+            ongoing=1,
+            finished=2
+        };
+
+
         public int Id { get; set; }
         [DataMember]
         public String Name { get; set; }
         [DataMember]
         public List<Player> Players { get; set; }
+        public GameStatusEnum GameStatus { get; set; }
 
     }
 }

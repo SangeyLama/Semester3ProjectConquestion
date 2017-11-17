@@ -21,7 +21,7 @@ namespace DataLayer
         // If you wish to target a different database and/or database provider, modify the 'Model1' 
         // connection string in the application configuration file.
         public ConquestionDBContext()
-            : base("name=ConquestionConnectionMimi")
+            : base("name=ConquestionConnectionSangey")
         {
 
         }
