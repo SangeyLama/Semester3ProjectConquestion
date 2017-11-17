@@ -1,4 +1,5 @@
-﻿using DataLayer.DataLayer.Model;
+﻿using DataLayer;
+using DataLayer.DataLayer.Model;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -13,41 +14,39 @@ namespace LogicLayer.Tests
     public class GameControllerTests
     {
         GameController ctr = new GameController();
-        DataLayer.ConquestionDBContext db = new DataLayer.ConquestionDBContext();
+        ConquestionDBContext db = new ConquestionDBContext();
 
         [Test]
         public void AddAPlayerToAGame()
         {
             //Arrange
-            Game game = new Game { Id = 1, Name = "Test Game", Players = new List<Player>() };
+            Game game = new Game { Id = 4, Name = "TestGame", Players = new List<Player>() };
+            //var game = db.Games.Where(g => g.Name.Equals("TestGame")).FirstOrDefault();
             Player player = new Player{ Id = 1, Name = "TestPlayer", Games = new List<Game>()};
 
             //Act
             ctr.AddPlayer(game, player);
 
             //Assert
-            Assert.Contains(player, game.Players);  
+            var dbGame = db.Games.Include("Players").Where(g => g.Id == 4).FirstOrDefault();
+            var dbPlayer = db.Players.Where(p => p.Id == 1).FirstOrDefault();
+            Assert.Contains(dbPlayer, dbGame.Players);  
         }
 
         [Test]
-        public void AddPlayerToGameAndSaveToDatabase()
+        public void AddPlayerToNullGame_ShouldThrowException()
         {
             //Arrange
-            Game game = new Game { Id = 1, Name = "Test Game1", Players = new List<Player>() };
-            Player player = new Player { Id = 1, Name = "TestPlayer1", Games = new List<Game>() };
-            db.Players.Add(player);
-            db.Games.Add(game);
-            db.SaveChanges();
+            Game game = new Game { Id = 4, Name = "FailTest", Players = new List<Player>() }; ;
+            Player player = new Player { Id = 1, Name = "TestPlayer", Games = new List<Game>() };
 
             //Act
-            ctr.AddPlayer(game, player);
+            //ctr.AddPlayer(game, player);
 
             //Assert
-            Assert.Contains(player, game.Players);
-            db.Players.Remove(player);
-            db.Games.Remove(game);
-            db.SaveChanges();
+            Assert.Throws<Exception>(() => ctr.AddPlayer(game, player));
         }
+
 
         [Test]
         public void ChooseGame()
@@ -63,6 +62,19 @@ namespace LogicLayer.Tests
         }
 
         [Test]
+        public void ChooseGame_NullGame()
+        {
+            //Arrange
+            Game chosenGame = new Game();
+
+            //Act
+            chosenGame = ctr.ChooseGame("FailTest");
+
+            //Assert
+            Assert.Null(chosenGame);
+        }
+
+        [Test]
         public void ActiveGames()
         {
             //Arrange
@@ -72,7 +84,7 @@ namespace LogicLayer.Tests
             activeGame = ctr.ActiveGames();
 
             //Assert
-            Assert.AreEqual(1, activeGame.Count);
+            Assert.AreEqual(2, activeGame.Count);
         }
     }
 }
