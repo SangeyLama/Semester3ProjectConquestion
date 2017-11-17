@@ -24,6 +24,8 @@ namespace DataLayer.DataLayer.Model
         [DataMember]
         public List<Player> Players { get; set; }
         public GameStatusEnum GameStatus { get; set; }
+        [DataMember]
+        public Map CurrentMap { get; set; }
 
     }
 }

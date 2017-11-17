@@ -13,6 +13,7 @@ namespace DataLayer
         public DbSet<QuestionSet> QuestionSets { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
+        public DbSet<Map> Maps { get; set; }
 
         // Your context has been configured to use a 'Model1' connection string from your application's 
         // configuration file (App.config or Web.config). By default, this connection string targets the 
