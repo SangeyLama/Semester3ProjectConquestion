@@ -17,7 +17,8 @@ namespace UI
         public CreateGame()
         {
             InitializeComponent();
-            // comboBox1.DataSource = service.getMaps();
+            comboBox1.DataSource = service.RetrieveAllMaps();
+            comboBox1.DisplayMember = "Name";
             comboBox2.DataSource = service.RetrieveAllQuestionSets();
             comboBox2.DisplayMember = "Title";
         }

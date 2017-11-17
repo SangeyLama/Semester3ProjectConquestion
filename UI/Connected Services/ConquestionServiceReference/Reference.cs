@@ -68,6 +68,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Map CurrentMapField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -80,6 +83,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Map CurrentMap {
+            get {
+                return this.CurrentMapField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CurrentMapField, value) != true)) {
+                    this.CurrentMapField = value;
+                    this.RaisePropertyChanged("CurrentMap");
+                }
             }
         }
         
@@ -105,6 +121,51 @@ namespace UI.ConquestionServiceReference {
                 if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
                     this.PlayersField = value;
                     this.RaisePropertyChanged("Players");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Map", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.SerializableAttribute()]
+    public partial class Map : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -373,6 +434,12 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllQuestionSets", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllQuestionSetsResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.QuestionSet[]> RetrieveAllQuestionSetsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllMaps", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllMapsResponse")]
+        UI.ConquestionServiceReference.Map[] RetrieveAllMaps();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllMaps", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllMapsResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Map[]> RetrieveAllMapsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -448,6 +515,14 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.QuestionSet[]> RetrieveAllQuestionSetsAsync() {
             return base.Channel.RetrieveAllQuestionSetsAsync();
+        }
+        
+        public UI.ConquestionServiceReference.Map[] RetrieveAllMaps() {
+            return base.Channel.RetrieveAllMaps();
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Map[]> RetrieveAllMapsAsync() {
+            return base.Channel.RetrieveAllMapsAsync();
         }
     }
 }

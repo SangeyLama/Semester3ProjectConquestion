@@ -16,6 +16,7 @@ namespace WCFConquestion
         PlayerController playerCtr = new PlayerController();
         GameController gameCtr = new GameController();
         QuestionSetController quesCtr = new QuestionSetController();
+        MapController mapCtr = new MapController();
         public Player CreatePlayer(Player player)
         { 
             return playerCtr.CreatePlayer(player);   
@@ -44,6 +45,11 @@ namespace WCFConquestion
         public List<QuestionSet> RetrieveAllQuestionSets()
         {
             return quesCtr.RetrieveAllQuestionSets();
+        }
+
+        public List<Map> RetrieveAllMaps()
+        {
+            return mapCtr.RetrieveAllMaps();
         }
     }
 }

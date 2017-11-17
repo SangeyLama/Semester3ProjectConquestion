@@ -8,11 +8,18 @@
   <xs:element name="Player" nillable="true" type="tns:Player" />
   <xs:complexType name="Game">
     <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentMap" nillable="true" type="tns:Map" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Players" nillable="true" type="tns:ArrayOfPlayer" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Game" nillable="true" type="tns:Game" />
+  <xs:complexType name="Map">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Map" nillable="true" type="tns:Map" />
   <xs:complexType name="ArrayOfPlayer">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Player" nillable="true" type="tns:Player" />
@@ -66,4 +73,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Answer" nillable="true" type="tns:Answer" />
+  <xs:complexType name="ArrayOfMap">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Map" nillable="true" type="tns:Map" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMap" nillable="true" type="tns:ArrayOfMap" />
 </xs:schema>
