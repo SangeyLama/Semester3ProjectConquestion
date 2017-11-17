@@ -15,9 +15,10 @@ namespace WCFConquestion
     {
         PlayerController playerCtr = new PlayerController();
         GameController gameCtr = new GameController();
-        public void CreatePlayer(Player player)
+        QuestionSetController quesCtr = new QuestionSetController();
+        public Player CreatePlayer(Player player)
         { 
-            playerCtr.CreatePlayer(player);   
+            return playerCtr.CreatePlayer(player);   
         }
 
         public void CreateGame(Game game)
@@ -28,6 +29,21 @@ namespace WCFConquestion
         public void AddPlayer(Game game, Player player)
         {
             gameCtr.AddPlayer(game, player);
+        }
+
+        public List<Game> ActiveGames()
+        {
+            return gameCtr.ActiveGames();
+        }
+
+        public Game ChoseGame(string name)
+        {
+            return gameCtr.ChooseGame(name);
+        }
+
+        public List<QuestionSet> RetrieveAllQuestionSets()
+        {
+            return quesCtr.RetrieveAllQuestionSets();
         }
     }
 }

@@ -26,6 +26,7 @@ namespace LogicLayer
             var gameEntity = db.Games.Include("Players").Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
             var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
             if (gameEntity != null)
+
             {
                 if (gameEntity.Players == null)
                     gameEntity.Players = new List<Player>();
