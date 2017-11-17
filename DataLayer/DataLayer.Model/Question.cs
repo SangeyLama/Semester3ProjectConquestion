@@ -1,13 +1,21 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace DataLayer.DataLayer.Model
 {
+    [DataContract]
     public class Question
     {
         public int Id { get; set; }
+        [DataMember]
         public string Text { get; set; }
-        public int QuestionSetId { get; set; }
+        [DataMember]
         public List<Answer> Answers { get; set; }
+
+        public int QuestionSetId { get; set; }
+        public QuestionSet QuestionSet { get; set; }
+        
 
         public override string ToString()
         {

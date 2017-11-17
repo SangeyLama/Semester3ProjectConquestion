@@ -1,11 +1,19 @@
-﻿namespace DataLayer.DataLayer.Model
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
+
+namespace DataLayer.DataLayer.Model
 {
+    [DataContract]
     public class Answer
     {
         public int Id { get; set; }
+        [DataMember]
         public bool IsValid { get; set; }
-        public int QuestionId { get; set; }
+        [DataMember]
         public string Text { get; set; }
+
+        public int QuestionId { get; set; }
+        public Question Question { get; set; }
 
         public override string ToString()
         {
