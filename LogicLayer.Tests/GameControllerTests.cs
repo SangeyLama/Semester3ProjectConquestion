@@ -20,7 +20,7 @@ namespace LogicLayer.Tests
         public void AddAPlayerToAGame()
         {
             //Arrange
-            Game game = new Game { Id = 4, Name = "TestGame", Players = new List<Player>() };
+            Game game = new Game { Id = 1, Name = "TestGame", Players = new List<Player>() };
             //var game = db.Games.Where(g => g.Name.Equals("TestGame")).FirstOrDefault();
             Player player = new Player{ Id = 1, Name = "TestPlayer", Games = new List<Game>()};
 
@@ -28,7 +28,7 @@ namespace LogicLayer.Tests
             ctr.AddPlayer(game, player);
 
             //Assert
-            var dbGame = db.Games.Include("Players").Where(g => g.Id == 4).FirstOrDefault();
+            var dbGame = db.Games.Include("Players").Where(g => g.Id == 1).FirstOrDefault();
             var dbPlayer = db.Players.Where(p => p.Id == 1).FirstOrDefault();
             Assert.Contains(dbPlayer, dbGame.Players);  
         }
@@ -55,7 +55,7 @@ namespace LogicLayer.Tests
             Game chosenGame = new Game();
 
             //Act
-            chosenGame = ctr.ChooseGame("Test");
+            chosenGame = ctr.ChooseGame("TestGame");
             
             //Assert
             Assert.AreEqual(1, chosenGame.Id);
@@ -84,7 +84,7 @@ namespace LogicLayer.Tests
             activeGame = ctr.ActiveGames();
 
             //Assert
-            Assert.AreEqual(2, activeGame.Count);
+            Assert.AreEqual(1, activeGame.Count);
         }
     }
 }

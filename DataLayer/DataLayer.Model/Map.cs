@@ -14,6 +14,6 @@ namespace DataLayer.DataLayer.Model
         [DataMember]
         public string Name { get; set; }
         public List<MapNode> MapNodes { get; set; }
-        public List<Game> Games { get; set; }
+
     }
 }

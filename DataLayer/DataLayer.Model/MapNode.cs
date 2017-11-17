@@ -15,7 +15,5 @@ namespace DataLayer.DataLayer.Model
         public bool IsStartingNode { get; set; }
         public Map Map { get; set; }
         public List<MapNode> NeigbouringNodes { get; set; }
-        [DataMember]
-        public Player OccupiedBy { get; set; }
     }
 }
