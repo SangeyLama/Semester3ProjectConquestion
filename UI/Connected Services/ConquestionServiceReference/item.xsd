@@ -78,4 +78,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RetrieveAllMaps">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveAllMapsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model" minOccurs="0" name="RetrieveAllMapsResult" nillable="true" type="q9:ArrayOfMap" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

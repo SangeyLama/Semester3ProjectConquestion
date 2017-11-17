@@ -48,7 +48,7 @@ namespace UI
             Game game = listBox1.SelectedItem as Game;
             Game game2 = service.ChoseGame(game.Name);
             //label1.Text = CurrentPlayer.Name;
-            //service.AddPlayer(game2, CurrentPlayer);
+            service.AddPlayer(game2, CurrentPlayer);
         }
 
         private void button2_Click(object sender, EventArgs e)
