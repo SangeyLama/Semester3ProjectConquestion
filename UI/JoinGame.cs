@@ -13,8 +13,7 @@ namespace UI
 {
     public partial class JoinGame : Form
     {
-        public static Player CurrentPlayer = new Player();
-        ConquestionServiceClient service = new ConquestionServiceClient();
+        public ConquestionServiceClient client = new ConquestionServiceClient();
         public JoinGame()
         {
             InitializeComponent();
@@ -22,9 +21,10 @@ namespace UI
             //{
             //    listBox1.Items.Add(service.ActiveGames()[i].Name);
             //}
-            listBox1.DataSource = service.ActiveGames();
+            listBox1.DataSource = client.ActiveGames();
             listBox1.DisplayMember = "Name";
             listBox1.ValueMember = "Name";
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.DataSource = service.ActiveGames();
+            listBox1.DataSource = client.ActiveGames();
             listBox1.DisplayMember = "Name";
         }
 
@@ -46,9 +46,9 @@ namespace UI
         private void button4_Click(object sender, EventArgs e)
         {
             Game game = listBox1.SelectedItem as Game;
-            Game game2 = service.ChoseGame(game.Name);
+            Game game2 = client.ChoseGame(game.Name);
             //label1.Text = CurrentPlayer.Name;
-            service.AddPlayer(game2, CurrentPlayer);
+            client.AddPlayer(game2, PlayerCredentials.Instance.Player);
         }
 
         private void button2_Click(object sender, EventArgs e)

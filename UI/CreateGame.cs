@@ -60,7 +60,8 @@ namespace UI
 
         private void CreateGame_Load(object sender, EventArgs e)
         {
-            service.CreateGame(new Game { Name = textBox1.Text});
+            // Not supposed to create a game on loading the page Tamas.
+            //service.CreateGame(new Game { Name = textBox1.Text});
         }
     }
 }

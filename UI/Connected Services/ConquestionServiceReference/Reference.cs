@@ -15,7 +15,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -60,7 +60,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Game", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Game", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Game : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -68,13 +68,16 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Map CurrentMapField;
+        private UI.ConquestionServiceReference.Map MapField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private UI.ConquestionServiceReference.Player[] PlayersField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.QuestionSet QuestionSetField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -87,14 +90,14 @@ namespace UI.ConquestionServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Map CurrentMap {
+        public UI.ConquestionServiceReference.Map Map {
             get {
-                return this.CurrentMapField;
+                return this.MapField;
             }
             set {
-                if ((object.ReferenceEquals(this.CurrentMapField, value) != true)) {
-                    this.CurrentMapField = value;
-                    this.RaisePropertyChanged("CurrentMap");
+                if ((object.ReferenceEquals(this.MapField, value) != true)) {
+                    this.MapField = value;
+                    this.RaisePropertyChanged("Map");
                 }
             }
         }
@@ -125,6 +128,19 @@ namespace UI.ConquestionServiceReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.QuestionSet QuestionSet {
+            get {
+                return this.QuestionSetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.QuestionSetField, value) != true)) {
+                    this.QuestionSetField = value;
+                    this.RaisePropertyChanged("QuestionSet");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -137,7 +153,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Map", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Map", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Map : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -182,7 +198,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="QuestionSet", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="QuestionSet", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class QuestionSet : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -275,7 +291,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Question : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -336,7 +352,7 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://schemas.datacontract.org/2004/07/DataLayer.DataLayer.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Answer", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Answer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         

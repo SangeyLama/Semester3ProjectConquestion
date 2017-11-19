@@ -13,10 +13,11 @@ namespace UI
 {
     public partial class LogIn : Form
     {
-        
+        public PlayerCredentials PC { get; set; }
         public LogIn()
         {
             InitializeComponent();
+            PC = PlayerCredentials.Instance;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,7 +33,7 @@ namespace UI
             {
                 
                 Player newPlayer = service.CreatePlayer(new Player { Name = textBox1.Text }); 
-                JoinGame.CurrentPlayer = newPlayer;
+                PC.Player = newPlayer;
                 this.Hide();
                 (new JoinGame()).Show();
                 
