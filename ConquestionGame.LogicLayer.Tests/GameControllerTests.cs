@@ -86,6 +86,55 @@ namespace ConquestionGame.LogicLayer.Tests
             //Assert
             Assert.AreEqual(1, activeGame.Count);
         }
+
+        [Test]
+        public void createGame_NameIsUniqueToActiveList()
+        {
+            //Arrange 
+            Game game = new Game { Name = "TestGame2" };
+
+            //Act
+            ctr.CreateGame(game);
+
+            //Assert
+            var gameEntity = db.Games.Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
+            Assert.AreEqual(game.Name, gameEntity.Name);
+            db.Games.Remove(gameEntity);
+            db.SaveChanges();
+        }
+
+        [Test]
+        public void createGame_NameIsNotUniqueToActiveList()
+        {
+            //Arrange
+            Game game = new Game { Name = "TestGame" };
+            string msg = "";
+
+            //Act
+            try
+            {
+                ctr.CreateGame(game);
+                Assert.Fail();
+            }
+            catch(Exception e)
+            {
+                msg = e.Message;
+            }
+
+            //Assert
+            Assert.Throws<Exception>(() => ctr.CreateGame(game));
+            Assert.AreEqual("Game name is already taken, please select an unique name.", msg);
+        }
+
+        [Test]
+        public void JoinGame_SuccessfulJoin()
+        {
+            Game game = new Game { Id = 1, Name = "TestGame" };
+            Player player = new Player { Id = 4, Name = "TestPlayer4" };
+            ctr.LeaveGame(game, new Player { Id = 5 });
+            bool success = ctr.JoinGame(game, player);
+            Assert.IsTrue(success);
+        }
     }
 }
 

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.ServiceHost
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.LogicLayer.Tests", "ConquestionGame.LogicLayer.Tests\ConquestionGame.LogicLayer.Tests.csproj", "{73E22113-8B7E-4AF7-90A6-6931CAD47323}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.Domain.Tests", "ConquestionGame.Domain.Tests\ConquestionGame.Domain.Tests.csproj", "{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{73E22113-8B7E-4AF7-90A6-6931CAD47323}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73E22113-8B7E-4AF7-90A6-6931CAD47323}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73E22113-8B7E-4AF7-90A6-6931CAD47323}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

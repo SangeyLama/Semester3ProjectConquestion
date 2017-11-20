@@ -17,7 +17,7 @@ namespace ConquestionGame.Domain
             finished=2
         };
 
-
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         public String Name { get; set; }

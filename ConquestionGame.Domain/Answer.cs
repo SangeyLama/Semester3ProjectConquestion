@@ -6,6 +6,7 @@ namespace ConquestionGame.Domain
     [DataContract]
     public class Answer
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         public bool IsValid { get; set; }

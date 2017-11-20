@@ -10,6 +10,7 @@ namespace ConquestionGame.Domain
     [DataContract]
     public class Map
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         public string Name { get; set; }

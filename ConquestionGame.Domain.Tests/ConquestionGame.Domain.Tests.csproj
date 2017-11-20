@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{73E22113-8B7E-4AF7-90A6-6931CAD47323}</ProjectGuid>
+    <ProjectGuid>{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConquestionGame.LogicLayer.Tests</RootNamespace>
-    <AssemblyName>ConquestionGame.LogicLayer.Tests</AssemblyName>
+    <RootNamespace>ConquestionGame.Domain.Tests</RootNamespace>
+    <AssemblyName>ConquestionGame.Domain.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -33,12 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
@@ -53,25 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameControllerTests.cs" />
+    <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConquestionGame.DataAccessLayer\ConquestionGame.DataAccessLayer.csproj">
-      <Project>{4dcae428-bbb0-4bdd-b1fd-0d49e9893fd5}</Project>
-      <Name>ConquestionGame.DataAccessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConquestionGame.Domain\ConquestionGame.Domain.csproj">
       <Project>{3570510a-2bee-44a4-9b43-4eba35be1604}</Project>
       <Name>ConquestionGame.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ConquestionGame.LogicLayer\ConquestionGame.LogicLayer.csproj">
-      <Project>{fc58f67f-e94c-4504-8be2-597a0bc106ae}</Project>
-      <Name>ConquestionGame.LogicLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
