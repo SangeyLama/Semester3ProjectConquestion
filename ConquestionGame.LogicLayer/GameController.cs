@@ -12,10 +12,17 @@ namespace ConquestionGame.LogicLayer
 
         public Game CreateGame(Game game)
         {
-            game.GameStatus = Game.GameStatusEnum.starting;
-            db.Games.Add(game);
-            db.SaveChanges();
-            return game;
+            if (!ActiveGamesNames().Contains(game.Name))
+            {
+                game.GameStatus = Game.GameStatusEnum.starting;
+                db.Games.Add(game);
+                db.SaveChanges();
+                return game;
+            }
+            else
+            {
+                throw new Exception("Game name is already taken, please select an unique name.");
+            }
 
         }
 
@@ -40,7 +47,7 @@ namespace ConquestionGame.LogicLayer
             {
                 throw new Exception();
             }
-        }
+        }   
 
         public Game ChooseGame(string name)
         {
@@ -59,7 +66,51 @@ namespace ConquestionGame.LogicLayer
             return activeGames;
         }
 
-        
+        public List<string> ActiveGamesNames()
+        {
+            List<Game> activeGames = new List<Game>();
+            activeGames = db.Games.Where(g => g.GameStatus == Game.GameStatusEnum.starting).ToList();
+            List<string> activeGamesNames = new List<string>();
+            foreach(Game g in activeGames)
+            {
+                activeGamesNames.Add(g.Name);
+            }
+            return activeGamesNames;
+        }
 
+        public bool JoinGame(Game game, Player player)
+        {
+            var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+
+            if (gameEntity.Players.Count < 4)
+            {
+                gameEntity.Players.Add(playerEntity);
+                db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool LeaveGame(Game game, Player player)
+        {
+            var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+            try
+            {
+                gameEntity.Players.Remove(playerEntity);
+                db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }     
+        }
     }
 }

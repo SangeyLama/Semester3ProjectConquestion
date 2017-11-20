@@ -10,9 +10,12 @@ namespace ConquestionGame.Domain
     [DataContract]
     public class MapNode
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         public bool IsStartingNode { get; set; }
+
+        public int MapId { get; set; }
         public Map Map { get; set; }
         public List<MapNode> NeigbouringNodes { get; set; }
     }

@@ -7,6 +7,7 @@ namespace ConquestionGame.Domain
     [DataContract]
     public class Question
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         public string Text { get; set; }

@@ -21,6 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnswerQuestionTUI", "Answer
 	ProjectSection(ProjectDependencies) = postProject
 		{99FDCBD7-8D1B-446F-845D-351C4489B926} = {99FDCBD7-8D1B-446F-845D-351C4489B926}
 	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.Domain.Tests", "ConquestionGame.Domain.Tests\ConquestionGame.Domain.Tests.csproj", "{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +61,10 @@ Global
 		{5DC45C9F-15DC-45CB-86FE-18644ACB5D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DC45C9F-15DC-45CB-86FE-18644ACB5D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DC45C9F-15DC-45CB-86FE-18644ACB5D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|Any CPU.Build.0 = Release|Any CP
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
