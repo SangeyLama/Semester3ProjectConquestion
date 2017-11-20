@@ -37,6 +37,27 @@ namespace ConquestionGame.LogicLayer
             db.SaveChanges();
         }
 
+        public Question AskQuestion()
+        {
+            QuestionSet q = RetrieveQuestionSet(1);
+            Question question = q.Questions[0];
+
+            return question;
+        }
+
+        public bool ValidateAnswer(int userAnswer)
+        {
+            bool answer = false;
+            Question q = AskQuestion();
+            foreach(Answer a in q.Answers)
+            {
+                if (a.Id == userAnswer)
+                    if (a.IsValid == true)
+                        return true;
+            }
+            return answer;
+        }
+
         //Not sure we need these
         public void AddQuestionsToQuestionSet(QuestionSet questionSet, List<Question> questionlist)
         {

@@ -25,5 +25,11 @@ namespace ConquestionGame.WCFServiceLibrary
         List<QuestionSet> RetrieveAllQuestionSets();
         [OperationContract]
         List<Map> RetrieveAllMaps();
+        [OperationContract]
+        Question AskQuestion();
+        [OperationContract]
+        bool ValidateAnswer(int userAnswer);
+        [OperationContract]
+        bool CheckPlayerAnswers(Game game, RoundAction roundAction);
     }
 }
