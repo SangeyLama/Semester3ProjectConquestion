@@ -14,6 +14,7 @@ namespace ConquestionGame.WCFServiceLibrary
         GameController gameCtr = new GameController();
         QuestionSetController quesCtr = new QuestionSetController();
         MapController mapCtr = new MapController();
+        RoundController rndActCtr = new RoundController();
         public Player CreatePlayer(Player player)
         {
             return playerCtr.CreatePlayer(player);
@@ -47,6 +48,21 @@ namespace ConquestionGame.WCFServiceLibrary
         public List<Map> RetrieveAllMaps()
         {
             return mapCtr.RetrieveAllMaps();
+        }
+
+        public Question AskQuestion()
+        {
+            return quesCtr.AskQuestion();
+        }
+
+        public bool ValidateAnswer(int userAnswer)
+        {
+            return quesCtr.ValidateAnswer(userAnswer);
+        }
+
+        public bool CheckPlayerAnswers(Game game, RoundAction roundAction)
+        {
+            return rndActCtr.CheckPlayerAnswers(game, roundAction);
         }
     }
 }

@@ -16,9 +16,11 @@ namespace ConquestionGame.DataAccessLayer
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Map> Maps { get; set; }
+        public DbSet<RoundAction> RoundActions { get; set; }
+        public DbSet<PlayerAnswer> PlayerAnswers { get; set; }
 
         public ConquestionDBContext()
-            : base("name=ConquestionConnectionTestDatabase")
+            : base("name=ConquestionConnectionSangey")
         {
 
         }
