@@ -21,9 +21,18 @@ namespace UI
             //{
             //    listBox1.Items.Add(service.ActiveGames()[i].Name);
             //}
-            listBox1.DataSource = client.ActiveGames();
-            listBox1.DisplayMember = "Name";
-            listBox1.ValueMember = "Name";
+            if (client.ActiveGames().Length != 0)
+            {
+                listBox1.DataSource = client.ActiveGames();
+                listBox1.DisplayMember = "Name";
+                listBox1.ValueMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show("No active games found!", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
 
         }
 
@@ -34,8 +43,19 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.DataSource = client.ActiveGames();
-            listBox1.DisplayMember = "Name";
+            //listBox1.DataSource = client.ActiveGames();
+            //listBox1.DisplayMember = "Name";
+            if (client.ActiveGames().Length != 0)
+            {
+                listBox1.DataSource = client.ActiveGames();
+                listBox1.DisplayMember = "Name";
+                listBox1.ValueMember = "Name";
+            }
+            else
+            {
+                MessageBox.Show("No active games found!", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

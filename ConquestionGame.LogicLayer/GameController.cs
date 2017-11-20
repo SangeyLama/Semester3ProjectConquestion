@@ -47,7 +47,50 @@ namespace ConquestionGame.LogicLayer
             {
                 throw new Exception();
             }
-        }   
+        }
+
+        public void AddMap(Game game, Map map)
+        {
+            var gameEntity = db.Games.Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
+            var mapEntity = db.Maps.Where(m => m.Name.Equals(map.Name)).FirstOrDefault();
+            if (gameEntity != null && mapEntity != null)
+            {
+                if (gameEntity.Map == null || gameEntity.Map.Equals(""))
+                {
+                    gameEntity.Map = mapEntity;
+                    db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+
+            }
+            else
+            {
+                throw new Exception();
+            }
+
+        }
+        public void AddQuestionSet(Game game, QuestionSet questionSet)
+        {
+            var gameEntity = db.Games.Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
+            var questionSetEntity = db.QuestionSets.Where(q => q.Title.Equals(questionSet.Title)).FirstOrDefault();
+            if (gameEntity != null && questionSetEntity != null)
+            {
+                if (gameEntity.QuestionSet == null || gameEntity.QuestionSet.Equals(""))
+                {
+                    gameEntity.QuestionSet = questionSetEntity;
+                    db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+
+
+            }
+            else
+            {
+                throw new Exception();
+            }
+
+        }
 
         public Game ChooseGame(string name)
         {

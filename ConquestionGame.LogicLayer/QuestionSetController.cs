@@ -31,6 +31,12 @@ namespace ConquestionGame.LogicLayer
             return questionSet;
         }
 
+        public QuestionSet RetrieveQuestionSetByTitle(string title)
+        {
+            var questionSet = db.QuestionSets.Include("Questions.Answers").Where(x => x.Title == title).FirstOrDefault();
+            return questionSet;
+        }
+
         public void DeleteQuestionSet(QuestionSet questionSet)
         {
             db.QuestionSets.Remove(questionSet);

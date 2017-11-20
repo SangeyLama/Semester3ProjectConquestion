@@ -64,5 +64,36 @@ namespace ConquestionGame.WCFServiceLibrary
         {
             return rndActCtr.CheckPlayerAnswers(game, roundAction);
         }
+
+        public Map ChooseMap(string name)
+        {
+            return mapCtr.ChooseMap(name);
+        }
+
+        public QuestionSet RetrieveQuestionSet(int id)
+        {
+            return quesCtr.RetrieveQuestionSet(id);
+        }
+
+        public void AddMap(Game game, Map map)
+        {
+
+            gameCtr.AddMap(game, map);
+        }
+
+        public void AddQuestionSet(Game game, QuestionSet questionSet)
+        {
+            gameCtr.AddQuestionSet(game, questionSet);
+        }
+
+        public QuestionSet RetrieveQuestionSetByTitle(string title)
+        {
+            return quesCtr.RetrieveQuestionSetByTitle(title);
+        }
+
+        public Player RetrievePlayer(string name)
+        {
+            return playerCtr.RetrievePlayer(name);
+        }
     }
 }
