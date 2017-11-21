@@ -13,7 +13,7 @@ namespace ConquestionGame.Domain.Tests
         [Test]
         public void Validate_Player_Model_Succeed()
         {
-            //assemble
+            //Assemble
             var player = new Player()
             {
                 Id = 1,
@@ -21,11 +21,11 @@ namespace ConquestionGame.Domain.Tests
                 Games = null
             };
 
-            //act
+            //Act
             var validationResults = new List<ValidationResult>();
             var actual = Validator.TryValidateObject(player, new ValidationContext(player), validationResults, true);
 
-            //assert
+            //Assert
             Assert.IsTrue(actual, "Expected Validation to Succeed");
             Assert.AreEqual(0, validationResults.Count, "Unexpected number of validation errors.");
         }
@@ -33,7 +33,7 @@ namespace ConquestionGame.Domain.Tests
         [Test]
         public void Validate_Player_Model_NameExceedsMaxLength()
         {
-            //assemble
+            //Assemble
             var player = new Player()
             {
                 Id = 1,
@@ -41,11 +41,11 @@ namespace ConquestionGame.Domain.Tests
                 Games = null
             };
 
-            //act
+            //Act
             var validationResults = new List<ValidationResult>();
             var actual = Validator.TryValidateObject(player, new ValidationContext(player), validationResults, true);
 
-            //assert
+            //Assert
             Assert.IsFalse(actual, "Expected Validation to Fail");
             Assert.AreEqual(1, validationResults.Count, "Unexpected number of validation errors.");
             var msg = validationResults[0];
@@ -57,7 +57,7 @@ namespace ConquestionGame.Domain.Tests
         [Test]
         public void Validate_Player_Model_NameIsNotEmpty()
         {
-            //assemble
+            //Assemble
             var player = new Player()
             {
                 Id = 1,
@@ -65,11 +65,11 @@ namespace ConquestionGame.Domain.Tests
                 Games = null
             };
 
-            //act
+            //Act
             var validationResults = new List<ValidationResult>();
             var actual = Validator.TryValidateObject(player, new ValidationContext(player), validationResults, true);
 
-            //assert
+            //Assert
             Assert.IsFalse(actual, "Expected Validation to Fail");
             Assert.AreEqual(1, validationResults.Count, "Unexpected number of validation errors.");
             var msg = validationResults[0];

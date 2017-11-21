@@ -116,7 +116,7 @@ namespace ConquestionGame.LogicLayer.Tests
                 ctr.CreateGame(game);
                 Assert.Fail();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 msg = e.Message;
             }
@@ -129,11 +129,59 @@ namespace ConquestionGame.LogicLayer.Tests
         [Test]
         public void JoinGame_SuccessfulJoin()
         {
+            //Arrange
             Game game = new Game { Id = 1, Name = "TestGame" };
-            Player player = new Player { Id = 4, Name = "TestPlayer4" };
-            ctr.LeaveGame(game, new Player { Id = 5 });
+            Player player = new Player { Id = 2, Name = "TestPlayer2" };
+
+            //Act
+            ctr.LeaveGame(game, player);
             bool success = ctr.JoinGame(game, player);
+
+            //Arrange
             Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void JoinGame_InvalidPlayer_Join_Failure()
+        {
+            //Arrange
+            Game game = new Game { Id = 1, Name = "TestGame" };
+            Player player = new Player { Id = 999, Name = "NotARealPlayer" };
+
+            //Act
+            bool success = ctr.JoinGame(game, player);
+
+            //Arrange
+            Assert.IsFalse(success);
+        }
+
+        [Test]
+        public void LeaveGame_SuccessfulLeave()
+        {
+            //Arrange
+            Game game = new Game { Id = 1, Name = "TestGame" };
+            Player player = new Player { Id = 2, Name = "TestPlayer2" };
+
+            //Act
+            ctr.JoinGame(game, player);
+            bool success = ctr.LeaveGame(game, player);
+
+            //Arrange
+            Assert.IsTrue(success);
+        }
+
+        [Test]
+        public void LeaveGame_Null_Player_Failure()
+        {
+            //Arrange
+            Game game = new Game { Id = 1, Name = "TestGame" };
+            Player player = new Player { Id = 999, Name = "NotARealPlayer" };
+
+            //Act
+            bool sucess = ctr.LeaveGame(game, player);
+
+            //Assert
+            Assert.IsFalse(sucess);
         }
 
         //[Test]

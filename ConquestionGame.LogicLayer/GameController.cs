@@ -139,7 +139,7 @@ namespace ConquestionGame.LogicLayer
             var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
             var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
 
-            if (gameEntity.Players.Count < 4)
+            if (gameEntity?.Players.Count < 4 && gameEntity != null && playerEntity != null)
             {
                 gameEntity.Players.Add(playerEntity);
                 db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
@@ -156,17 +156,18 @@ namespace ConquestionGame.LogicLayer
         {
             var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
             var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
-            try
+
+            if (gameEntity != null && playerEntity != null)
             {
                 gameEntity.Players.Remove(playerEntity);
                 db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return true;
             }
-            catch(Exception e)
+            else
             {
-                throw e;
-            }     
+                return false;
+            }
         }
     }
 }

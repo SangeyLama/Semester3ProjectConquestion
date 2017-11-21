@@ -62,9 +62,18 @@ namespace UI
             Game game = listBox1.SelectedItem as Game;
             Game game2 = client.ChooseGame(game.Name, false);
             //label1.Text = CurrentPlayer.Name;
-            client.JoinGame(game2, PlayerCredentials.Instance.Player);
-            this.Hide();
-            (new Lobby(game2)).Show();
+            bool success = client.JoinGame(game2, PlayerCredentials.Instance.Player);
+            if (success)
+            {
+                this.Hide();
+                (new Lobby(game2)).Show();
+            }
+            else
+            {
+                MessageBox.Show("Unable to join game!", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

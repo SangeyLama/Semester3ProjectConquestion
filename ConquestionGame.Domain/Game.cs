@@ -25,11 +25,10 @@ namespace ConquestionGame.Domain
         public List<Player> Players { get; set; }
         public GameStatusEnum GameStatus { get; set; }
 
-        public int MapId { get; set; }
+
         [DataMember]
         public Map Map { get; set; }
 
-        public int QuestionSetId { get; set; }
         [DataMember]
         public QuestionSet QuestionSet { get; set; }
 
