@@ -21,7 +21,7 @@ namespace ConquestionGame.LogicLayer
             Map chosenMap = new Map();
 
             chosenMap = db.Maps.
-                Where(m => m.Name == name).
+                Where(m => m.Name.Equals(name)).
                 FirstOrDefault();
             return chosenMap;
         }

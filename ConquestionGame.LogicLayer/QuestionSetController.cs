@@ -33,7 +33,7 @@ namespace ConquestionGame.LogicLayer
 
         public QuestionSet RetrieveQuestionSetByTitle(string title)
         {
-            var questionSet = db.QuestionSets.Include("Questions.Answers").Where(x => x.Title == title).FirstOrDefault();
+            var questionSet = db.QuestionSets.Include("Questions.Answers").Where(x => x.Title.Equals(title)).FirstOrDefault();
             return questionSet;
         }
 
@@ -45,23 +45,23 @@ namespace ConquestionGame.LogicLayer
 
         public Question AskQuestion()
         {
-            QuestionSet q = RetrieveQuestionSet(1);
+            QuestionSet q = RetrieveQuestionSet(2);
             Question question = q.Questions[0];
 
             return question;
         }
 
-        public bool ValidateAnswer(int userAnswer)
+        public bool ValidateAnswer(Answer answer)
         {
-            bool answer = false;
-            Question q = AskQuestion();
-            foreach(Answer a in q.Answers)
+            var answerEntity = db.Answers.Where(a => a.Id == answer.Id).FirstOrDefault();
+            if (answerEntity.IsValid)
             {
-                if (a.Id == userAnswer)
-                    if (a.IsValid == true)
-                        return true;
+                return true;
             }
-            return answer;
+            else
+            {
+                return false;
+            }         
         }
 
         //Not sure we need these

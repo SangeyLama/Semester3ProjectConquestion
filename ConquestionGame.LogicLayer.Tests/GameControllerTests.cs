@@ -55,7 +55,7 @@ namespace ConquestionGame.LogicLayer.Tests
             Game chosenGame = new Game();
 
             //Act
-            chosenGame = ctr.ChooseGame("TestGame");
+            chosenGame = ctr.ChooseGame("TestGame", false);
 
             //Assert
             Assert.AreEqual(1, chosenGame.Id);
@@ -68,7 +68,7 @@ namespace ConquestionGame.LogicLayer.Tests
             Game chosenGame = new Game();
 
             //Act
-            chosenGame = ctr.ChooseGame("FailTest");
+            chosenGame = ctr.ChooseGame("FailTest", false);
 
             //Assert
             Assert.Null(chosenGame);
@@ -135,6 +135,14 @@ namespace ConquestionGame.LogicLayer.Tests
             bool success = ctr.JoinGame(game, player);
             Assert.IsTrue(success);
         }
+
+        //[Test]
+        //public void NotARealTest()
+        //{
+        //    QuestionSet qs = db.InitializeData();
+        //    db.QuestionSets.Add(qs);
+        //    db.SaveChanges();
+        //}
     }
 }
 

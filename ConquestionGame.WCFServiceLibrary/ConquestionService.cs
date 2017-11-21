@@ -35,9 +35,9 @@ namespace ConquestionGame.WCFServiceLibrary
             return gameCtr.ActiveGames();
         }
 
-        public Game ChoseGame(string name)
+        public Game ChooseGame(string name, bool retrieveAssociation)
         {
-            return gameCtr.ChooseGame(name);
+            return gameCtr.ChooseGame(name, retrieveAssociation);
         }
 
         public List<QuestionSet> RetrieveAllQuestionSets()
@@ -55,9 +55,9 @@ namespace ConquestionGame.WCFServiceLibrary
             return quesCtr.AskQuestion();
         }
 
-        public bool ValidateAnswer(int userAnswer)
+        public bool ValidateAnswer(Answer answer)
         {
-            return quesCtr.ValidateAnswer(userAnswer);
+            return quesCtr.ValidateAnswer(answer);
         }
 
         public bool CheckPlayerAnswers(Game game, RoundAction roundAction)
@@ -94,6 +94,16 @@ namespace ConquestionGame.WCFServiceLibrary
         public Player RetrievePlayer(string name)
         {
             return playerCtr.RetrievePlayer(name);
+        }
+
+        public bool JoinGame(Game game, Player player)
+        {
+            return gameCtr.JoinGame(game, player);
+        }
+
+        public bool LeaveGame(Game game, Player player)
+        {
+            return gameCtr.LeaveGame(game, player);
         }
     }
 }

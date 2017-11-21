@@ -55,7 +55,7 @@ namespace ConquestionGame.LogicLayer
             var mapEntity = db.Maps.Where(m => m.Name.Equals(map.Name)).FirstOrDefault();
             if (gameEntity != null && mapEntity != null)
             {
-                if (gameEntity.Map == null || gameEntity.Map.Equals(""))
+                if (gameEntity.Map == null || gameEntity.Map.Name.Equals(""))
                 {
                     gameEntity.Map = mapEntity;
                     db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
@@ -76,7 +76,7 @@ namespace ConquestionGame.LogicLayer
             var questionSetEntity = db.QuestionSets.Where(q => q.Title.Equals(questionSet.Title)).FirstOrDefault();
             if (gameEntity != null && questionSetEntity != null)
             {
-                if (gameEntity.QuestionSet == null || gameEntity.QuestionSet.Equals(""))
+                if (gameEntity.QuestionSet == null || gameEntity.QuestionSet.Title.Equals(""))
                 {
                     gameEntity.QuestionSet = questionSetEntity;
                     db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
@@ -92,13 +92,26 @@ namespace ConquestionGame.LogicLayer
 
         }
 
-        public Game ChooseGame(string name)
+        public Game ChooseGame(string name, bool retrieveAssociations)
         {
-            Game chosenGame = db.Games
-                .Where(x => x.Name == name)
+            if(retrieveAssociations != true)
+            {
+                Game chosenGame = db.Games
+                .Where(x => x.Name.Equals(name))
                 .FirstOrDefault();
 
-            return chosenGame;
+                return chosenGame;
+            }
+            else
+            {
+                Game chosenGame = db.Games.Include("Players").Include("QuestionSet.Questions.Answers").Include("Map")
+                .Where(x => x.Name.Equals(name))
+                .FirstOrDefault();
+                
+
+                return chosenGame;
+            }
+            
         }
 
         public List<Game> ActiveGames()
@@ -124,7 +137,7 @@ namespace ConquestionGame.LogicLayer
         public bool JoinGame(Game game, Player player)
         {
             var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
-            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
 
             if (gameEntity.Players.Count < 4)
             {
@@ -142,7 +155,7 @@ namespace ConquestionGame.LogicLayer
         public bool LeaveGame(Game game, Player player)
         {
             var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
-            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
             try
             {
                 gameEntity.Players.Remove(playerEntity);

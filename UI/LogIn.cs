@@ -27,14 +27,15 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ConquestionServiceClient service = new ConquestionServiceClient();
+            ConquestionServiceClient client = new ConquestionServiceClient();
 
+            Player foundPlayer = client.RetrievePlayer(textBox1.Text);
             if (textBox1.Text != null && textBox1.Text != String.Empty)
             {
 
-                if (service.RetrievePlayer(textBox1.Text) == null)
+                if (foundPlayer == null)
                 {
-                    Player newPlayer = service.CreatePlayer(new Player { Name = textBox1.Text });
+                    Player newPlayer = client.CreatePlayer(new Player { Name = textBox1.Text });
                     PC.Player = newPlayer;
                     this.Hide();
                     (new JoinGame()).Show();
@@ -42,7 +43,7 @@ namespace UI
                 else
                 {
                     this.Hide();
-                    PC.Player = service.RetrievePlayer(textBox1.Text);
+                    PC.Player = foundPlayer;
                     (new JoinGame()).Show();
                 }
 

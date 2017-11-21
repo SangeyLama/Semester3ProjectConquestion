@@ -19,6 +19,7 @@ namespace ConquestionGame.Domain
         [DataMember]
         public List<Question> Questions { get; set; }
 
+
         public override string ToString()
         {
             string toString = this.Title + "\n"

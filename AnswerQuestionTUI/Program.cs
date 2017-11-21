@@ -1,4 +1,4 @@
-﻿using AnswerQuestionTUI.ConQuestionServiceTest;
+﻿using AnswerQuestionTUI.ConquestionServiceReference;
 using System;
 
 namespace AnswerQuestionTUI
@@ -8,6 +8,7 @@ namespace AnswerQuestionTUI
         public static ConquestionServiceClient client = new ConquestionServiceClient();
         static void Main(string[] args)
         {
+
             ShowQuestion();
             int userAnswer = Convert.ToInt32(Console.ReadLine());
 
@@ -32,10 +33,11 @@ namespace AnswerQuestionTUI
         {
             Question q = client.AskQuestion();
             Console.WriteLine(q.Text);
-
+            int i = 1;
             foreach(Answer a in q.Answers)
             {
-                Console.WriteLine(a.Text);
+                Console.WriteLine(string.Format("{0}: {1}",i , a.Text));
+                i++;
             }
 
         }

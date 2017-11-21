@@ -58,11 +58,23 @@
     <Compile Include="CreateGame.Designer.cs">
       <DependentUpon>CreateGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="QuizTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuizTime.Designer.cs">
+      <DependentUpon>QuizTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="JoinGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JoinGame.Designer.cs">
       <DependentUpon>JoinGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lobby.Designer.cs">
+      <DependentUpon>Lobby.cs</DependentUpon>
     </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -79,6 +91,9 @@
     <EmbeddedResource Include="JoinGame.resx">
       <DependentUpon>JoinGame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lobby.resx">
+      <DependentUpon>Lobby.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +106,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="QuizTime.resx">
+      <DependentUpon>QuizTime.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\ConquestionServiceReference\ConquestionService.wsdl" />
     <None Include="Connected Services\ConquestionServiceReference\item.xsd">
       <SubType>Designer</SubType>

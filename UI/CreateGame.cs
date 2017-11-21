@@ -29,7 +29,7 @@ namespace UI
             {
                 //label4.Text = comboBox1.SelectedText;
                 client.CreateGame(new Game { Name = textBox1.Text });
-                Game game = client.ChoseGame(textBox1.Text);
+                Game game = client.ChooseGame(textBox1.Text,false);
                 Map map = client.ChooseMap(comboBox1.Text);
                 QuestionSet questionSet = client.RetrieveQuestionSetByTitle(comboBox2.Text);
                 client.AddMap(game, map);
@@ -39,6 +39,9 @@ namespace UI
 
                 MessageBox.Show("Game created!", "Info",
                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Hide();
+                (new Lobby(game)).Show();
             }
             else
             {

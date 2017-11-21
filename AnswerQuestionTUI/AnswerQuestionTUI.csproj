@@ -44,7 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\ConQuestionServiceTest\Reference.cs">
+    <Compile Include="Connected Services\ConquestionServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -54,29 +54,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\ConQuestionServiceTest\AnswerQuestionTUI.ConQuestionServiceTest.Game.datasource">
+    <None Include="Connected Services\ConquestionServiceReference\AnswerQuestionTUI.ConquestionServiceReference.Game.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\AnswerQuestionTUI.ConQuestionServiceTest.Map.datasource">
+    <None Include="Connected Services\ConquestionServiceReference\AnswerQuestionTUI.ConquestionServiceReference.Map.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\AnswerQuestionTUI.ConQuestionServiceTest.Player.datasource">
+    <None Include="Connected Services\ConquestionServiceReference\AnswerQuestionTUI.ConquestionServiceReference.Player.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\AnswerQuestionTUI.ConQuestionServiceTest.Question.datasource">
+    <None Include="Connected Services\ConquestionServiceReference\AnswerQuestionTUI.ConquestionServiceReference.Question.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\AnswerQuestionTUI.ConQuestionServiceTest.QuestionSet.datasource">
+    <None Include="Connected Services\ConquestionServiceReference\AnswerQuestionTUI.ConquestionServiceReference.QuestionSet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\ConquestionGame.Domain.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\ConquestionService.wsdl" />
+    <None Include="Connected Services\ConquestionServiceReference\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\service.wsdl" />
-    <None Include="Connected Services\ConQuestionServiceTest\service.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConQuestionServiceTest\service1.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -84,16 +84,19 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ConQuestionServiceTest\" />
+    <WCFMetadataStorage Include="Connected Services\ConquestionServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ConQuestionServiceTest\configuration91.svcinfo" />
+    <None Include="Connected Services\ConquestionServiceReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ConQuestionServiceTest\configuration.svcinfo" />
+    <None Include="Connected Services\ConquestionServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ConQuestionServiceTest\Reference.svcmap">
+    <None Include="Connected Services\ConquestionServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ConquestionServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -17,10 +17,6 @@ namespace UI
         public JoinGame()
         {
             InitializeComponent();
-            //for(int i=0; i<service.ActiveGames().Length; i++)
-            //{
-            //    listBox1.Items.Add(service.ActiveGames()[i].Name);
-            //}
             if (client.ActiveGames().Length != 0)
             {
                 listBox1.DataSource = client.ActiveGames();
@@ -43,8 +39,6 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //listBox1.DataSource = client.ActiveGames();
-            //listBox1.DisplayMember = "Name";
             if (client.ActiveGames().Length != 0)
             {
                 listBox1.DataSource = client.ActiveGames();
@@ -66,15 +60,22 @@ namespace UI
         private void button4_Click(object sender, EventArgs e)
         {
             Game game = listBox1.SelectedItem as Game;
-            Game game2 = client.ChoseGame(game.Name);
+            Game game2 = client.ChooseGame(game.Name, false);
             //label1.Text = CurrentPlayer.Name;
-            client.AddPlayer(game2, PlayerCredentials.Instance.Player);
+            client.JoinGame(game2, PlayerCredentials.Instance.Player);
+            this.Hide();
+            (new Lobby(game2)).Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
             (new CreateGame()).Show();
+        }
+
+        private void JoinGame_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

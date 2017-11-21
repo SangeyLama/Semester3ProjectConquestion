@@ -38,18 +38,19 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(23, 131);
+            this.listBox1.Location = new System.Drawing.Point(15, 85);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(452, 404);
+            this.listBox1.Size = new System.Drawing.Size(303, 264);
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(491, 155);
+            this.button1.Location = new System.Drawing.Point(327, 101);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 32);
+            this.button1.Size = new System.Drawing.Size(50, 21);
             this.button1.TabIndex = 1;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = true;
@@ -57,9 +58,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(31, 599);
+            this.button2.Location = new System.Drawing.Point(21, 389);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 44);
+            this.button2.Size = new System.Drawing.Size(117, 29);
             this.button2.TabIndex = 2;
             this.button2.Text = "Create New Game";
             this.button2.UseVisualStyleBackColor = true;
@@ -67,9 +69,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(690, 599);
+            this.button3.Location = new System.Drawing.Point(460, 389);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 44);
+            this.button3.Size = new System.Drawing.Size(82, 29);
             this.button3.TabIndex = 3;
             this.button3.Text = "Exit";
             this.button3.UseVisualStyleBackColor = true;
@@ -77,9 +80,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(690, 155);
+            this.button4.Location = new System.Drawing.Point(460, 101);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 32);
+            this.button4.Size = new System.Drawing.Size(82, 21);
             this.button4.TabIndex = 4;
             this.button4.Text = "Join Game";
             this.button4.UseVisualStyleBackColor = true;
@@ -87,16 +91,18 @@
             // 
             // JoinGame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 682);
+            this.ClientSize = new System.Drawing.Size(571, 443);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "JoinGame";
             this.Text = "JoinGame";
+            this.Load += new System.EventHandler(this.JoinGame_Load);
             this.ResumeLayout(false);
 
         }

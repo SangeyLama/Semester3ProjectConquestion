@@ -411,9 +411,6 @@ namespace UI.ConquestionServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsValidField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TextField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -435,19 +432,6 @@ namespace UI.ConquestionServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsValid {
-            get {
-                return this.IsValidField;
-            }
-            set {
-                if ((this.IsValidField.Equals(value) != true)) {
-                    this.IsValidField = value;
-                    this.RaisePropertyChanged("IsValid");
                 }
             }
         }
@@ -777,11 +761,11 @@ namespace UI.ConquestionServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ActiveGames", ReplyAction="http://tempuri.org/IConquestionService/ActiveGamesResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Game[]> ActiveGamesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ChoseGame", ReplyAction="http://tempuri.org/IConquestionService/ChoseGameResponse")]
-        UI.ConquestionServiceReference.Game ChoseGame(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ChooseGame", ReplyAction="http://tempuri.org/IConquestionService/ChooseGameResponse")]
+        UI.ConquestionServiceReference.Game ChooseGame(string name, bool retrieveAssociation);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ChoseGame", ReplyAction="http://tempuri.org/IConquestionService/ChoseGameResponse")]
-        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Game> ChoseGameAsync(string name);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ChooseGame", ReplyAction="http://tempuri.org/IConquestionService/ChooseGameResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Game> ChooseGameAsync(string name, bool retrieveAssociation);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllQuestionSets", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllQuestionSetsResponse")]
         UI.ConquestionServiceReference.QuestionSet[] RetrieveAllQuestionSets();
@@ -802,10 +786,10 @@ namespace UI.ConquestionServiceReference {
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Question> AskQuestionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ValidateAnswer", ReplyAction="http://tempuri.org/IConquestionService/ValidateAnswerResponse")]
-        bool ValidateAnswer(int userAnswer);
+        bool ValidateAnswer(UI.ConquestionServiceReference.Answer answer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ValidateAnswer", ReplyAction="http://tempuri.org/IConquestionService/ValidateAnswerResponse")]
-        System.Threading.Tasks.Task<bool> ValidateAnswerAsync(int userAnswer);
+        System.Threading.Tasks.Task<bool> ValidateAnswerAsync(UI.ConquestionServiceReference.Answer answer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckPlayerAnswers", ReplyAction="http://tempuri.org/IConquestionService/CheckPlayerAnswersResponse")]
         bool CheckPlayerAnswers(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
@@ -848,6 +832,18 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrievePlayer", ReplyAction="http://tempuri.org/IConquestionService/RetrievePlayerResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> RetrievePlayerAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/JoinGame", ReplyAction="http://tempuri.org/IConquestionService/JoinGameResponse")]
+        bool JoinGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/JoinGame", ReplyAction="http://tempuri.org/IConquestionService/JoinGameResponse")]
+        System.Threading.Tasks.Task<bool> JoinGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/LeaveGame", ReplyAction="http://tempuri.org/IConquestionService/LeaveGameResponse")]
+        bool LeaveGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/LeaveGame", ReplyAction="http://tempuri.org/IConquestionService/LeaveGameResponse")]
+        System.Threading.Tasks.Task<bool> LeaveGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -909,12 +905,12 @@ namespace UI.ConquestionServiceReference {
             return base.Channel.ActiveGamesAsync();
         }
         
-        public UI.ConquestionServiceReference.Game ChoseGame(string name) {
-            return base.Channel.ChoseGame(name);
+        public UI.ConquestionServiceReference.Game ChooseGame(string name, bool retrieveAssociation) {
+            return base.Channel.ChooseGame(name, retrieveAssociation);
         }
         
-        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Game> ChoseGameAsync(string name) {
-            return base.Channel.ChoseGameAsync(name);
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Game> ChooseGameAsync(string name, bool retrieveAssociation) {
+            return base.Channel.ChooseGameAsync(name, retrieveAssociation);
         }
         
         public UI.ConquestionServiceReference.QuestionSet[] RetrieveAllQuestionSets() {
@@ -941,12 +937,12 @@ namespace UI.ConquestionServiceReference {
             return base.Channel.AskQuestionAsync();
         }
         
-        public bool ValidateAnswer(int userAnswer) {
-            return base.Channel.ValidateAnswer(userAnswer);
+        public bool ValidateAnswer(UI.ConquestionServiceReference.Answer answer) {
+            return base.Channel.ValidateAnswer(answer);
         }
         
-        public System.Threading.Tasks.Task<bool> ValidateAnswerAsync(int userAnswer) {
-            return base.Channel.ValidateAnswerAsync(userAnswer);
+        public System.Threading.Tasks.Task<bool> ValidateAnswerAsync(UI.ConquestionServiceReference.Answer answer) {
+            return base.Channel.ValidateAnswerAsync(answer);
         }
         
         public bool CheckPlayerAnswers(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
@@ -1003,6 +999,22 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> RetrievePlayerAsync(string name) {
             return base.Channel.RetrievePlayerAsync(name);
+        }
+        
+        public bool JoinGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.JoinGame(game, player);
+        }
+        
+        public System.Threading.Tasks.Task<bool> JoinGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.JoinGameAsync(game, player);
+        }
+        
+        public bool LeaveGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.LeaveGame(game, player);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LeaveGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.LeaveGameAsync(game, player);
         }
     }
 }

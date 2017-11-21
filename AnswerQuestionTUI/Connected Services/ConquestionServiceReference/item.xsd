@@ -106,7 +106,7 @@
   <xs:element name="ValidateAnswer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="answer" nillable="true" type="q11:Answer" />
+        <xs:element minOccurs="0" name="userAnswer" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,8 +120,8 @@
   <xs:element name="CheckPlayerAnswers">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q12:Game" />
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q13:RoundAction" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q11:Game" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q12:RoundAction" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,7 +142,7 @@
   <xs:element name="ChooseMapResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="ChooseMapResult" nillable="true" type="q14:Map" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="ChooseMapResult" nillable="true" type="q13:Map" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -156,7 +156,7 @@
   <xs:element name="RetrieveQuestionSetResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrieveQuestionSetResult" nillable="true" type="q15:QuestionSet" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrieveQuestionSetResult" nillable="true" type="q14:QuestionSet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -170,15 +170,15 @@
   <xs:element name="RetrieveQuestionSetByTitleResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrieveQuestionSetByTitleResult" nillable="true" type="q16:QuestionSet" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrieveQuestionSetByTitleResult" nillable="true" type="q15:QuestionSet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddMap">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q17:Game" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="map" nillable="true" type="q18:Map" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q16:Game" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="map" nillable="true" type="q17:Map" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -190,8 +190,8 @@
   <xs:element name="AddQuestionSet">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q19:Game" />
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="questionSet" nillable="true" type="q20:QuestionSet" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q18:Game" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="questionSet" nillable="true" type="q19:QuestionSet" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -210,15 +210,15 @@
   <xs:element name="RetrievePlayerResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrievePlayerResult" nillable="true" type="q21:Player" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrievePlayerResult" nillable="true" type="q20:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="JoinGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q22:Game" />
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="player" nillable="true" type="q23:Player" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q21:Game" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="player" nillable="true" type="q22:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -232,8 +232,8 @@
   <xs:element name="LeaveGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q24:Game" />
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="player" nillable="true" type="q25:Player" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q23:Game" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="player" nillable="true" type="q24:Player" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

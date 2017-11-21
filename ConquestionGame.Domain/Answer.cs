@@ -8,7 +8,6 @@ namespace ConquestionGame.Domain
     {
         [DataMember]
         public int Id { get; set; }
-        [DataMember]
         public bool IsValid { get; set; }
         [DataMember]
         public string Text { get; set; }
