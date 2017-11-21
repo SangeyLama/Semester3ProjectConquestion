@@ -29,18 +29,28 @@ namespace UI
         {
             ConquestionServiceClient service = new ConquestionServiceClient();
 
-            if(textBox1.Text != null && textBox1.Text != String.Empty)
+            if (textBox1.Text != null && textBox1.Text != String.Empty)
             {
-                
-                Player newPlayer = service.CreatePlayer(new Player { Name = textBox1.Text }); 
-                PC.Player = newPlayer;
-                this.Hide();
-                (new JoinGame()).Show();
-                
+
+                if (service.RetrievePlayer(textBox1.Text) == null)
+                {
+                    Player newPlayer = service.CreatePlayer(new Player { Name = textBox1.Text });
+                    PC.Player = newPlayer;
+                    this.Hide();
+                    (new JoinGame()).Show();
+                }
+                else
+                {
+                    this.Hide();
+                    PC.Player = service.RetrievePlayer(textBox1.Text);
+                    (new JoinGame()).Show();
+                }
+
             }
             else
             {
-                label2.Text = "Name can not be empty";
+                MessageBox.Show("Name can not be empty!", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

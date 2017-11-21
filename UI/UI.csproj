@@ -110,6 +110,9 @@
     <None Include="Connected Services\ConquestionServiceReference\UI.ConquestionServiceReference.Player.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ConquestionServiceReference\UI.ConquestionServiceReference.Question.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ConquestionServiceReference\UI.ConquestionServiceReference.QuestionSet.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

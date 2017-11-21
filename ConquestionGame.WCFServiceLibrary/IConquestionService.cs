@@ -31,5 +31,17 @@ namespace ConquestionGame.WCFServiceLibrary
         bool ValidateAnswer(int userAnswer);
         [OperationContract]
         bool CheckPlayerAnswers(Game game, RoundAction roundAction);
+        [OperationContract]
+        Map ChooseMap(string name);
+        [OperationContract]
+        QuestionSet RetrieveQuestionSet(int id);
+        [OperationContract]
+        QuestionSet RetrieveQuestionSetByTitle(string title);
+        [OperationContract]
+        void AddMap(Game game, Map map);
+        [OperationContract]
+        void AddQuestionSet(Game game, QuestionSet questionSet);
+        [OperationContract]
+        Player RetrievePlayer(string name);
     }
 }

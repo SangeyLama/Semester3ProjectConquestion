@@ -13,18 +13,38 @@ namespace UI
 {
     public partial class CreateGame : Form
     {
-        ConquestionServiceClient service = new ConquestionServiceClient();
+        ConquestionServiceClient client = new ConquestionServiceClient();
         public CreateGame()
         {
             InitializeComponent();
-            comboBox1.DataSource = service.RetrieveAllMaps();
+            comboBox1.DataSource = client.RetrieveAllMaps();
             comboBox1.DisplayMember = "Name";
-            comboBox2.DataSource = service.RetrieveAllQuestionSets();
+            comboBox2.DataSource = client.RetrieveAllQuestionSets();
             comboBox2.DisplayMember = "Title";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(textBox1.Text) && comboBox1.SelectedItem != null && comboBox2.SelectedItem != null)
+            {
+                //label4.Text = comboBox1.SelectedText;
+                client.CreateGame(new Game { Name = textBox1.Text });
+                Game game = client.ChoseGame(textBox1.Text);
+                Map map = client.ChooseMap(comboBox1.Text);
+                QuestionSet questionSet = client.RetrieveQuestionSetByTitle(comboBox2.Text);
+                client.AddMap(game, map);
+                client.AddQuestionSet(game, questionSet);
+                client.AddPlayer(game, PlayerCredentials.Instance.Player);
+
+
+                MessageBox.Show("Game created!", "Info",
+                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("All fields must be filled!", "Error",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
