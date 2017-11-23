@@ -23,6 +23,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -32,6 +35,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
             }
         }
         
@@ -68,6 +84,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Game.GameStatusEnum GameStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -89,6 +108,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Game.GameStatusEnum GameStatus {
+            get {
+                return this.GameStatusField;
+            }
+            set {
+                if ((this.GameStatusField.Equals(value) != true)) {
+                    this.GameStatusField = value;
+                    this.RaisePropertyChanged("GameStatus");
+                }
             }
         }
         
@@ -164,6 +196,20 @@ namespace UI.ConquestionServiceReference {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="Game.GameStatusEnum", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+        public enum GameStatusEnum : int {
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            starting = 0,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            ongoing = 1,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            finished = 2,
         }
     }
     
@@ -844,6 +890,12 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/LeaveGame", ReplyAction="http://tempuri.org/IConquestionService/LeaveGameResponse")]
         System.Threading.Tasks.Task<bool> LeaveGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
+        bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
+        System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1015,6 +1067,14 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<bool> LeaveGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
             return base.Channel.LeaveGameAsync(game, player);
+        }
+        
+        public bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.StartGame(game, player);
+        }
+        
+        public System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.StartGameAsync(game, player);
         }
     }
 }

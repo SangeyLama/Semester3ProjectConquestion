@@ -11,6 +11,7 @@ namespace ConquestionGame.Domain
     [DataContract]
     public class Player
     {
+        [DataMember]
         public int Id { get; set; }
         [DataMember]
         [StringLength(20, ErrorMessage ="Name must be between 1 and 20 characters", MinimumLength = 1)]

@@ -47,5 +47,8 @@ namespace ConquestionGame.WCFServiceLibrary
         bool JoinGame(Game game, Player player);
         [OperationContract]
         bool LeaveGame(Game game, Player player);
+        [OperationContract]
+        bool StartGame(Game game, Player player);
+
     }
 }

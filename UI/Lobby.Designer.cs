@@ -35,9 +35,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Start_Game = new System.Windows.Forms.Button();
+            this.Exit_Lobby = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -94,37 +95,41 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Map Placeholder";
             // 
-            // button1
+            // Start_Game
             // 
-            this.button1.Location = new System.Drawing.Point(480, 73);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Start Game";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Start_Game.Location = new System.Drawing.Point(480, 73);
+            this.Start_Game.Name = "Start_Game";
+            this.Start_Game.Size = new System.Drawing.Size(75, 23);
+            this.Start_Game.TabIndex = 6;
+            this.Start_Game.Text = "Start Game";
+            this.Start_Game.UseVisualStyleBackColor = true;
+            this.Start_Game.Click += new System.EventHandler(this.Start_Game_Click);
             // 
-            // button2
+            // Exit_Lobby
             // 
-            this.button2.Location = new System.Drawing.Point(480, 137);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Exit Lobby";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.Exit_Lobby.Location = new System.Drawing.Point(480, 137);
+            this.Exit_Lobby.Name = "Exit_Lobby";
+            this.Exit_Lobby.Size = new System.Drawing.Size(75, 23);
+            this.Exit_Lobby.TabIndex = 7;
+            this.Exit_Lobby.Text = "Exit Lobby";
+            this.Exit_Lobby.UseVisualStyleBackColor = true;
+            this.Exit_Lobby.Click += new System.EventHandler(this.Exit_Lobby_Click);
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Lobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 491);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Exit_Lobby);
+            this.Controls.Add(this.Start_Game);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -147,8 +152,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Start_Game;
+        private System.Windows.Forms.Button Exit_Lobby;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

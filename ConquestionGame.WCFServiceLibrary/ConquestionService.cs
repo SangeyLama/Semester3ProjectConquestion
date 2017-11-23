@@ -105,5 +105,10 @@ namespace ConquestionGame.WCFServiceLibrary
         {
             return gameCtr.LeaveGame(game, player);
         }
+
+        public bool StartGame(Game game, Player player)
+        {
+            return gameCtr.StartGame(game, player);
+        }
     }
 }

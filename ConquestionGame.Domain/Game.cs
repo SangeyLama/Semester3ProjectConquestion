@@ -23,9 +23,8 @@ namespace ConquestionGame.Domain
         public String Name { get; set; }
         [DataMember]
         public List<Player> Players { get; set; }
+        [DataMember]
         public GameStatusEnum GameStatus { get; set; }
-
-
         [DataMember]
         public Map Map { get; set; }
 

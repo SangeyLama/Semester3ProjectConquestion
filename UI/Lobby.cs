@@ -30,6 +30,9 @@ namespace UI
             listBox1.DisplayMember = "Name";
             listBox1.ValueMember = "Name";
 
+            Start_Game.Enabled = false;
+            CheckIfLobbyHost();
+
         }
 
         public void refreshPlayerList()
@@ -49,26 +52,56 @@ namespace UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             refreshPlayerList();
+            CheckIfLobbyHost();
         }
 
         private void Lobby_Load(object sender, EventArgs e)
         {
-            timer1.Interval = (5 * 1000); // 5 secs
+            timer1.Interval = (1 * 1000); // 5 secs
             timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Tick += new EventHandler(timer2_Tick);
             timer1.Start();
+            //timer2.Interval = (1 * 1000); // 1 Sec
+            //timer2.Tick += new EventHandler(timer2_Tick);
+            //timer2.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Start_Game_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            client.StartGame(currentGame, PlayerCredentials.Instance.Player);
+            this.Close();
             (new QuizTime(currentGame)).Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Exit_Lobby_Click(object sender, EventArgs e)
         {
             client.LeaveGame(currentGame, PlayerCredentials.Instance.Player);
             this.Hide();
             (new JoinGame()).Show();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //Checks to see if the game has been started by the lobby host
+            var gameEntity = client.ChooseGame(currentGame.Name, false);
+            if(gameEntity.GameStatus == Game.GameStatusEnum.ongoing)
+            {
+                this.Close();
+                (new QuizTime(currentGame)).Show();
+            }
+        }
+
+        private void CheckIfLobbyHost()
+        {
+            var gameEntity = client.ChooseGame(currentGame.Name, true);
+            if (PlayerCredentials.Instance.Player.Name.Equals(gameEntity.Players[0].Name))
+            {
+                Start_Game.Enabled = true;
+            }
+            else
+            {
+                Start_Game.Enabled = false;
+            }
         }
     }
 }

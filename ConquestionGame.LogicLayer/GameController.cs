@@ -169,5 +169,23 @@ namespace ConquestionGame.LogicLayer
                 return false;
             }
         }
+
+        public bool StartGame(Game game, Player player)
+        {
+            var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
+            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+
+            //&& gameEntity.GameStatus == Game.GameStatusEnum.starting
+            if (playerEntity.Name.Equals(gameEntity.Players[0].Name))
+            {
+                gameEntity.GameStatus = Game.GameStatusEnum.ongoing;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

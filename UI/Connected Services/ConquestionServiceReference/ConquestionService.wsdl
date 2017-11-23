@@ -115,6 +115,12 @@
   <wsdl:message name="IConquestionService_LeaveGame_OutputMessage">
     <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
   </wsdl:message>
+  <wsdl:message name="IConquestionService_StartGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartGame" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_StartGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartGameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IConquestionService">
     <wsdl:operation name="CreatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayer" message="tns:IConquestionService_CreatePlayer_InputMessage" />
@@ -187,6 +193,10 @@
     <wsdl:operation name="LeaveGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/LeaveGame" message="tns:IConquestionService_LeaveGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/LeaveGameResponse" message="tns:IConquestionService_LeaveGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/StartGame" message="tns:IConquestionService_StartGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/StartGameResponse" message="tns:IConquestionService_StartGame_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
@@ -346,6 +356,15 @@
     </wsdl:operation>
     <wsdl:operation name="LeaveGame">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/LeaveGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartGame">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/StartGame" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -97,5 +97,10 @@ namespace UI
             index++;
             (new QuizTime(currentGame)).Show();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
