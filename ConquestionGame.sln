@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{36ADF593-96BA-44EA-9EB5-DE26CBB0E098}"
+	ProjectSection(ProjectDependencies) = postProject
+		{99FDCBD7-8D1B-446F-845D-351C4489B926} = {99FDCBD7-8D1B-446F-845D-351C4489B926}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.DataAccessLayer", "ConquestionGame.DataAccessLayer\ConquestionGame.DataAccessLayer.csproj", "{4DCAE428-BBB0-4BDD-B1FD-0D49E9893FD5}"
 EndProject

@@ -14,7 +14,7 @@ namespace ConquestionGame.WCFServiceLibrary
         GameController gameCtr = new GameController();
         QuestionSetController quesCtr = new QuestionSetController();
         MapController mapCtr = new MapController();
-        RoundController rndActCtr = new RoundController();
+        RoundController roundCtr = new RoundController();
         public Player CreatePlayer(Player player)
         {
             return playerCtr.CreatePlayer(player);
@@ -62,7 +62,7 @@ namespace ConquestionGame.WCFServiceLibrary
 
         public bool CheckPlayerAnswers(Game game, RoundAction roundAction)
         {
-            return rndActCtr.CheckPlayerAnswers(game, roundAction);
+            return roundCtr.CheckPlayerAnswers(game, roundAction);
         }
 
         public Map ChooseMap(string name)
@@ -110,5 +110,27 @@ namespace ConquestionGame.WCFServiceLibrary
         {
             return gameCtr.StartGame(game, player);
         }
+
+        //public Round GetRound(Game game, string roundType)
+        //{
+        //    Round.RoundTypeEnum type;
+        //    if (roundType.Equals("starting"))
+        //    {
+        //        type = Round.RoundTypeEnum.starting;
+        //    }
+        //    else if (roundType.Equals("expansion"))
+        //    {
+        //        type = Round.RoundTypeEnum.expansion;
+        //    }
+        //    else if (roundType.Equals("conquest"))
+        //    {
+        //        type = Round.RoundTypeEnum.conquest;
+        //    }
+        //    else
+        //    {
+        //        throw new Exception();
+        //    }
+        //    return roundCtr.GetRound(game, type);
+        //}
     }
 }

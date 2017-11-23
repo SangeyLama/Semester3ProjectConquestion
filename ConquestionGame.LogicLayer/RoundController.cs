@@ -18,7 +18,7 @@ namespace ConquestionGame.LogicLayer
 
             var gameEntity = db.Games.Include("Players").Where(g => g.Name.Equals(game.Name)).FirstOrDefault();
 
-            var roundActionEntity = db.RoundActions.Include("PlayerAnswers").Where(p => p.Id==(roundAction.Id)).FirstOrDefault();
+            var roundActionEntity = db.RoundActions.Include("PlayerAnswers").Where(p => p.Id == (roundAction.Id)).FirstOrDefault();
 
             while (gameEntity.Players.Count != roundActionEntity.PlayerAnswers.Count)
             {
@@ -26,6 +26,43 @@ namespace ConquestionGame.LogicLayer
             }
             ready = true;
             return ready;
-        } 
+        }
+
+        public void CreateStartingRound(Game game)
+        {
+            var gameEntity = db.Games.Include("Players").Include("QuestionSet.Questions.Answers").Include("Map").Include("Rounds.RoundActions.Question.Answers")
+                .Where(x => x.Name.Equals(game.Name))
+                .FirstOrDefault();
+            Round starting = new Round { RoundType = Round.RoundTypeEnum.starting };
+            if (gameEntity.Rounds == null)
+            {
+                gameEntity.Rounds = new List<Round>();
+            }
+            CreateFirstRoundAction(game.QuestionSet, starting);
+            gameEntity.Rounds.Add(starting);
+            db.SaveChanges();
+        }
+
+        public Round GetRound(Game game, Round.RoundTypeEnum roundType)
+        {
+            Round roundEntity = game.Rounds.Where(r => r.RoundType == roundType).FirstOrDefault();
+            return roundEntity;
+        }
+
+        public void CreateFirstRoundAction(QuestionSet questionSet, Round round)
+        {
+            Question question = questionSet.Questions[0];
+            RoundAction firstRoundAction = new RoundAction
+            {
+                QuestionStartTime = DateTime.Now,
+                MapStartTime = DateTime.Now,
+                Question = question
+            };
+            if (round.RoundActions == null)
+            {
+                round.RoundActions = new List<RoundAction>();
+            }
+            round.RoundActions.Add(firstRoundAction);
+        }
     }
 }

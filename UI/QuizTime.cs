@@ -18,12 +18,15 @@ namespace UI
         PlayerAnswer pa = new PlayerAnswer();
         Question q = null;
         Game currentGame = null;
+        Round currentRound = null;
         public QuizTime(Game game)
         {
             InitializeComponent();
             Game gameEntity = client.ChooseGame(game.Name, true);
             currentGame = gameEntity;
-            q = gameEntity.QuestionSet.Questions[index];
+            //q = gameEntity.QuestionSet.Questions[index];
+            //currentRound = client.GetRound(currentGame, "starting");
+            //q = currentRound.RoundActions.LastOrDefault().Question;
             label1.Text = string.Format("Question number: {0}", index + 1);
             richTextBox1.Text = q.Text;
             button1.Text = q.Answers[0].Text;
@@ -69,7 +72,7 @@ namespace UI
         public void CheckButton(Button button)
         {
             int buttonNo = button.TabIndex - 1;
-            bool correct = client.ValidateAnswer(q.Answers[buttonNo -1]);
+            bool correct = client.ValidateAnswer(q.Answers[buttonNo - 1]);
             if (correct)
             {
                 button.BackColor = Color.Lime;

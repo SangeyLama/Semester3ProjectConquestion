@@ -129,14 +129,14 @@
     <EmbeddedResource Include="QuizTime.resx">
       <DependentUpon>QuizTime.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\ConquestionServiceReference\ConquestionService.wsdl" />
-    <None Include="Connected Services\ConquestionServiceReference\item.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\ConquestionGame.Domain.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConquestionServiceReference\item1.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\service.wsdl" />
+    <None Include="Connected Services\ConquestionServiceReference\service.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ConquestionServiceReference\item2.xsd">
+    <None Include="Connected Services\ConquestionServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ConquestionServiceReference\UI.ConquestionServiceReference.Game.datasource">
@@ -172,9 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ConquestionServiceReference\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Connected Services\ConquestionServiceReference\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ConquestionServiceReference\configuration91.svcinfo" />

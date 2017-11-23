@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="554J2oAlwHr/UXJsuy91w54Ns7s=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="b6QXc6k6tWBv9KgJB5DajVPf/us=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IConquestionService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IConquestionService" contract="ConquestionServiceReference.IConquestionService" bindingType="basicHttpBinding" address="http://localhost:1234/" bindingConfiguration="BasicHttpBinding_IConquestionService">
+    <endpoint name="BasicHttpBinding_IConquestionService" contract="ConquestionServiceReference.IConquestionService" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/" bindingConfiguration="BasicHttpBinding_IConquestionService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:1234/</serializedValue>
+          <serializedValue>http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
