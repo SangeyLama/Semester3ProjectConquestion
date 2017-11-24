@@ -177,15 +177,10 @@ namespace ConquestionGame.LogicLayer
             var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
 
 
-            if (playerEntity.Name.Equals(gameEntity.Players[0].Name) && gameEntity.GameStatus == Game.GameStatusEnum.starting)
+            if (playerEntity.Name.Equals(gameEntity.Players[0].Name) && gameEntity.GameStatus.Equals(Game.GameStatusEnum.starting))
             {
                 gameEntity.GameStatus = Game.GameStatusEnum.ongoing;
-
-                //PROBLEM HERE HANDLE IT LATER!!!!!
-                // roundCtr.CreateStartingRound(gameEntity); 
-                //PROBLEM HERE HANDLE IT LATER!!!!
-
-
+                roundCtr.CreateStartingRound(gameEntity); 
                 db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return true;

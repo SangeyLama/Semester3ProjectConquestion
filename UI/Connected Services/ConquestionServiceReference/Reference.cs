@@ -747,16 +747,16 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Answer AnswerGivenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.RoundAction RoundActionField;
+        private UI.ConquestionServiceReference.Player PlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Answer answerGivenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Player playerField;
+        private System.DateTime PlayerAnswerTimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -765,6 +765,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Answer AnswerGiven {
+            get {
+                return this.AnswerGivenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnswerGivenField, value) != true)) {
+                    this.AnswerGivenField = value;
+                    this.RaisePropertyChanged("AnswerGiven");
+                }
             }
         }
         
@@ -782,40 +795,27 @@ namespace UI.ConquestionServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.RoundAction RoundAction {
+        public UI.ConquestionServiceReference.Player Player {
             get {
-                return this.RoundActionField;
+                return this.PlayerField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoundActionField, value) != true)) {
-                    this.RoundActionField = value;
-                    this.RaisePropertyChanged("RoundAction");
+                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
+                    this.PlayerField = value;
+                    this.RaisePropertyChanged("Player");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Answer answerGiven {
+        public System.DateTime PlayerAnswerTime {
             get {
-                return this.answerGivenField;
+                return this.PlayerAnswerTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.answerGivenField, value) != true)) {
-                    this.answerGivenField = value;
-                    this.RaisePropertyChanged("answerGiven");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Player player {
-            get {
-                return this.playerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.playerField, value) != true)) {
-                    this.playerField = value;
-                    this.RaisePropertyChanged("player");
+                if ((this.PlayerAnswerTimeField.Equals(value) != true)) {
+                    this.PlayerAnswerTimeField = value;
+                    this.RaisePropertyChanged("PlayerAnswerTime");
                 }
             }
         }
@@ -947,6 +947,24 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
         System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SubmitAnswer", ReplyAction="http://tempuri.org/IConquestionService/SubmitAnswerResponse")]
+        void SubmitAnswer(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SubmitAnswer", ReplyAction="http://tempuri.org/IConquestionService/SubmitAnswerResponse")]
+        System.Threading.Tasks.Task SubmitAnswerAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered", ReplyAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnsweredResponse")]
+        bool CheckIfAllPlayersAnswered(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered", ReplyAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnsweredResponse")]
+        System.Threading.Tasks.Task<bool> CheckIfAllPlayersAnsweredAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
+        UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.RoundAction roundAction);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1126,6 +1144,30 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
             return base.Channel.StartGameAsync(game, player);
+        }
+        
+        public void SubmitAnswer(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer) {
+            base.Channel.SubmitAnswer(roundAction, playerAnswer);
+        }
+        
+        public System.Threading.Tasks.Task SubmitAnswerAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer) {
+            return base.Channel.SubmitAnswerAsync(roundAction, playerAnswer);
+        }
+        
+        public bool CheckIfAllPlayersAnswered(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.CheckIfAllPlayersAnswered(game, roundAction);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckIfAllPlayersAnsweredAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.CheckIfAllPlayersAnsweredAsync(game, roundAction);
+        }
+        
+        public UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrder(roundAction);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrderAsync(roundAction);
         }
     }
 }

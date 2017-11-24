@@ -15,13 +15,12 @@ namespace UI
     {
         ConquestionServiceClient client = new ConquestionServiceClient();
 
-        Game currentGame = null;
         public Lobby(Game game)
         {
             InitializeComponent();
-
+            
             Game gameEntity = client.ChooseGame(game.Name, true);
-            currentGame = gameEntity;
+            CurrentGame.Instance.Game = gameEntity;
             label1.Text = gameEntity.Name;
             label3.Text = gameEntity.QuestionSet.Title;
             label5.Text = gameEntity.Map.Name;
@@ -37,7 +36,7 @@ namespace UI
 
         public void refreshPlayerList()
         {
-                Game gameEntity = client.ChooseGame(currentGame.Name, true);
+                Game gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
                 listBox1.DataSource = gameEntity.Players;
                 listBox1.DisplayMember = "Name";
                 listBox1.ValueMember = "Name";
@@ -68,14 +67,22 @@ namespace UI
 
         private void Start_Game_Click(object sender, EventArgs e)
         {
-            client.StartGame(currentGame, PlayerCredentials.Instance.Player);
+            client.StartGame(CurrentGame.Instance.Game, PlayerCredentials.Instance.Player);
+            StartGameWindow();
+        }
+
+        public void StartGameWindow()
+        {
+            CurrentGame.Instance.UpdateCurrentGame();
+            CurrentRound.Instance.Round = CurrentGame.Instance.Game.Rounds[0];
             this.Close();
-            (new QuizTime(currentGame)).Show();
+            (new QuizTime(CurrentGame.Instance.Game)).Show();
         }
 
         private void Exit_Lobby_Click(object sender, EventArgs e)
         {
-            client.LeaveGame(currentGame, PlayerCredentials.Instance.Player);
+            client.LeaveGame(CurrentGame.Instance.Game, PlayerCredentials.Instance.Player);
+            CurrentGame.Instance.Game = null;
             this.Hide();
             (new JoinGame()).Show();
         }
@@ -83,17 +90,16 @@ namespace UI
         private void timer2_Tick(object sender, EventArgs e)
         {
             //Checks to see if the game has been started by the lobby host
-            var gameEntity = client.ChooseGame(currentGame.Name, false);
+            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, false);
             if(gameEntity.GameStatus == Game.GameStatusEnum.ongoing)
             {
-                this.Close();
-                (new QuizTime(currentGame)).Show();
+                StartGameWindow();
             }
         }
 
         private void CheckIfLobbyHost()
         {
-            var gameEntity = client.ChooseGame(currentGame.Name, true);
+            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
             if (PlayerCredentials.Instance.Player.Name.Equals(gameEntity.Players[0].Name))
             {
                 Start_Game.Enabled = true;

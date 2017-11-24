@@ -121,6 +121,24 @@
   <wsdl:message name="IConquestionService_StartGame_OutputMessage">
     <wsdl:part name="parameters" element="tns:StartGameResponse" />
   </wsdl:message>
+  <wsdl:message name="IConquestionService_SubmitAnswer_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitAnswer" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_SubmitAnswer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitAnswerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CheckIfAllPlayersAnswered_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfAllPlayersAnswered" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CheckIfAllPlayersAnswered_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfAllPlayersAnsweredResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_GetPlayerOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerOrder" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_GetPlayerOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerOrderResponse" />
+  </wsdl:message>
   <wsdl:portType name="IConquestionService">
     <wsdl:operation name="CreatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayer" message="tns:IConquestionService_CreatePlayer_InputMessage" />
@@ -197,6 +215,18 @@
     <wsdl:operation name="StartGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/StartGame" message="tns:IConquestionService_StartGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/StartGameResponse" message="tns:IConquestionService_StartGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAnswer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/SubmitAnswer" message="tns:IConquestionService_SubmitAnswer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/SubmitAnswerResponse" message="tns:IConquestionService_SubmitAnswer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfAllPlayersAnswered">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered" message="tns:IConquestionService_CheckIfAllPlayersAnswered_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnsweredResponse" message="tns:IConquestionService_CheckIfAllPlayersAnswered_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrder" message="tns:IConquestionService_GetPlayerOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrderResponse" message="tns:IConquestionService_GetPlayerOrder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
@@ -365,6 +395,33 @@
     </wsdl:operation>
     <wsdl:operation name="StartGame">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/StartGame" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitAnswer">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/SubmitAnswer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfAllPlayersAnswered">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlayerOrder">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/GetPlayerOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

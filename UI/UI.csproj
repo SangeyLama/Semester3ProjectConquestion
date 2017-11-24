@@ -78,6 +78,8 @@
     <Compile Include="CreateGame.Designer.cs">
       <DependentUpon>CreateGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="CurrentGame.cs" />
+    <Compile Include="CurrentRound.cs" />
     <Compile Include="QuizTime.cs">
       <SubType>Form</SubType>
     </Compile>

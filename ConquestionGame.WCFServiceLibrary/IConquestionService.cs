@@ -49,8 +49,12 @@ namespace ConquestionGame.WCFServiceLibrary
         bool LeaveGame(Game game, Player player);
         [OperationContract]
         bool StartGame(Game game, Player player);
-        //[OperationContract]
-        //Round GetRound(Game game, string roundType);
+        [OperationContract]
+        void SubmitAnswer(RoundAction roundAction, PlayerAnswer playerAnswer);
+        [OperationContract]
+        bool CheckIfAllPlayersAnswered(Game game, RoundAction roundAction);
+        [OperationContract]
+        List<Player> GetPlayerOrder(RoundAction roundAction);
 
     }
 }

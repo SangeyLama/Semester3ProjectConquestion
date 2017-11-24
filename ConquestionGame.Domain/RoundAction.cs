@@ -20,7 +20,6 @@ namespace ConquestionGame.Domain
         public DateTime MapStartTime { get; set; }
         [DataMember]
         public Question Question { get; set; }
-        public int RoundId { get; set; }
         public Round Round { get; set; }
         [DataMember]
         public List<PlayerAnswer> PlayerAnswers { get; set; }

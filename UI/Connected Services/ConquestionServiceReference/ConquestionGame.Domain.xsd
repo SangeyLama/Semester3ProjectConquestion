@@ -115,10 +115,10 @@
   <xs:element name="ArrayOfPlayerAnswer" nillable="true" type="tns:ArrayOfPlayerAnswer" />
   <xs:complexType name="PlayerAnswer">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AnswerGiven" nillable="true" type="tns:Answer" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="RoundAction" nillable="true" type="tns:RoundAction" />
-      <xs:element minOccurs="0" name="answerGiven" nillable="true" type="tns:Answer" />
-      <xs:element minOccurs="0" name="player" nillable="true" type="tns:Player" />
+      <xs:element minOccurs="0" name="Player" nillable="true" type="tns:Player" />
+      <xs:element minOccurs="0" name="PlayerAnswerTime" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PlayerAnswer" nillable="true" type="tns:PlayerAnswer" />

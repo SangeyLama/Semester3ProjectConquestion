@@ -259,4 +259,46 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SubmitAnswer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q28:RoundAction" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="playerAnswer" nillable="true" type="q29:PlayerAnswer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitAnswerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckIfAllPlayersAnswered">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q30:Game" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q31:RoundAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckIfAllPlayersAnsweredResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckIfAllPlayersAnsweredResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlayerOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q32:RoundAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPlayerOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="GetPlayerOrderResult" nillable="true" type="q33:ArrayOfPlayer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

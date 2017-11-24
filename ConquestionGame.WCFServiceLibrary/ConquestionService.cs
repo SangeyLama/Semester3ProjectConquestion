@@ -57,7 +57,7 @@ namespace ConquestionGame.WCFServiceLibrary
 
         public bool ValidateAnswer(Answer answer)
         {
-            return quesCtr.ValidateAnswer(answer);
+            return roundCtr.ValidateAnswer(answer);
         }
 
         public bool CheckPlayerAnswers(Game game, RoundAction roundAction)
@@ -109,6 +109,21 @@ namespace ConquestionGame.WCFServiceLibrary
         public bool StartGame(Game game, Player player)
         {
             return gameCtr.StartGame(game, player);
+        }
+
+        public void SubmitAnswer(RoundAction roundAction, PlayerAnswer playerAnswer)
+        {
+            roundCtr.SubmitAnswer(roundAction, playerAnswer);
+        }
+
+        public bool CheckIfAllPlayersAnswered(Game game, RoundAction roundAction)
+        {
+            return roundCtr.CheckIfAllPlayersAnswered(game, roundAction);
+        }
+
+        public List<Player> GetPlayerOrder(RoundAction roundAction)
+        {
+            return roundCtr.GetPlayerOrder(roundAction);
         }
 
         //public Round GetRound(Game game, string roundType)
