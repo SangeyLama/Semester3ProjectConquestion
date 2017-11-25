@@ -25,13 +25,12 @@ namespace ConquestionGame.Domain
         public List<Player> Players { get; set; }
         public GameStatusEnum GameStatus { get; set; }
 
-
         [DataMember]
         public Map Map { get; set; }
 
         [DataMember]
         public QuestionSet QuestionSet { get; set; }
 
-
+        public List<MapNodeOwner> MapNodeOwners { get; set; }
     }
 }

@@ -47,5 +47,11 @@ namespace ConquestionGame.WCFServiceLibrary
         bool JoinGame(Game game, Player player);
         [OperationContract]
         bool LeaveGame(Game game, Player player);
+        [OperationContract]
+        bool CheckIfNodeIsFree(Game game, int mapNodeId);
+        [OperationContract]
+        List<Player> RetrieveAllPlayersByGameId(Game game);
+        [OperationContract]
+        Player ReturnNodeOwner(Game game, int mapNodeId);
     }
 }

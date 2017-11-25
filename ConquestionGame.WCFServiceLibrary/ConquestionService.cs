@@ -15,6 +15,8 @@ namespace ConquestionGame.WCFServiceLibrary
         QuestionSetController quesCtr = new QuestionSetController();
         MapController mapCtr = new MapController();
         RoundController rndActCtr = new RoundController();
+        NodeController nodeCtr = new NodeController();
+
         public Player CreatePlayer(Player player)
         {
             return playerCtr.CreatePlayer(player);
@@ -104,6 +106,21 @@ namespace ConquestionGame.WCFServiceLibrary
         public bool LeaveGame(Game game, Player player)
         {
             return gameCtr.LeaveGame(game, player);
+        }
+
+        public bool CheckIfNodeIsFree(Game game, int mapNodeId)
+        {
+            return nodeCtr.CheckIfNodeIsFree(game, mapNodeId);
+        }
+
+        public List<Player> RetrieveAllPlayersByGameId(Game game)
+        {
+            return gameCtr.RetrieveAllPlayersByGameId(game);
+        }
+
+        public Player ReturnNodeOwner(Game game, int mapNodeId)
+        {
+            return nodeCtr.ReturnNodeOwner(game, mapNodeId);
         }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="MapNode.cs" />
+    <Compile Include="MapNodeOwner.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

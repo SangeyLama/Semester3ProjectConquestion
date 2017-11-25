@@ -12,6 +12,5 @@ namespace ConquestionGame.Domain
         public Player player { get; set; }
         public Answer answerGiven { get; set; }
         public RoundAction RoundAction { get; set; }
-
     }
 }

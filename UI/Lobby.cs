@@ -61,7 +61,8 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            (new QuizTime(currentGame)).Show();
+            (new MapScreen(currentGame)).Show();
+            //(new QuizTime(currentGame)).Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
