@@ -96,7 +96,7 @@ namespace UI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             index++;
             (new QuizTime(CurrentGame.Instance.Game)).Show();
         }
@@ -115,7 +115,7 @@ namespace UI
                 //int[] order = client.GetPlayerOrder(currentRoundAction);
                 Player[] playerOrder = client.GetPlayerOrder(currentRoundAction);
                 timerLabel.Text = String.Format("1stPlayer: {0} 2ndPlayer: {1} 3rdPlayer: {2} 4thPlayer {3}", 
-                    playerOrder[0]?.Id, playerOrder[1]?.Id, 0, 0);
+                    playerOrder[0]?.Id, playerOrder[1]?.Id, playerOrder[2]?.Id, playerOrder[3]?.Id);
                 //, playerOrder[2]?.Id, playerOrder[3]?.Id
             }
         }

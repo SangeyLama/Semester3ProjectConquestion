@@ -65,7 +65,7 @@ namespace UI
             bool success = client.JoinGame(game2, PlayerCredentials.Instance.Player);
             if (success)
             {
-                this.Close();
+                this.Hide();
                 (new Lobby(game2)).Show();
             }
             else
@@ -78,7 +78,7 @@ namespace UI
 
         private void CreateGame_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             (new CreateGame()).Show();
         }
 

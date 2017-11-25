@@ -40,7 +40,7 @@ namespace UI
                 MessageBox.Show("Game created!", "Info",
                  MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.Close();
+                this.Hide();
                 (new Lobby(game)).Show();
             }
             else

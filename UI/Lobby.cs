@@ -76,7 +76,7 @@ namespace UI
         {
             CurrentGame.Instance.UpdateCurrentGame();
             CurrentRound.Instance.Round = CurrentGame.Instance.Game.Rounds[0];
-            this.Close();
+            this.Hide();
             (new QuizTime(CurrentGame.Instance.Game)).Show();
         }
 
@@ -84,7 +84,7 @@ namespace UI
         {
             client.LeaveGame(CurrentGame.Instance.Game, PlayerCredentials.Instance.Player);
             CurrentGame.Instance.Game = null;
-            this.Close();
+            this.Hide();
             (new JoinGame()).Show();
         }
 
