@@ -96,7 +96,7 @@ namespace UI
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             index++;
             (new QuizTime(CurrentGame.Instance.Game)).Show();
         }
@@ -124,6 +124,7 @@ namespace UI
         {
             timer1.Start();
             startTime = DateTime.Now;
+            label2.Text = PlayerCredentials.Instance.Player.Name;
         }
     }
 }
