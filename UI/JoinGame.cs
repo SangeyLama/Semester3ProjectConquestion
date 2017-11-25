@@ -65,7 +65,7 @@ namespace UI
             bool success = client.JoinGame(game2, PlayerCredentials.Instance.Player);
             if (success)
             {
-                this.Hide();
+                this.Close();
                 (new Lobby(game2)).Show();
             }
             else
@@ -78,13 +78,13 @@ namespace UI
 
         private void CreateGame_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             (new CreateGame()).Show();
         }
 
         private void JoinGame_Load(object sender, EventArgs e)
         {
-
+            label1.Text = PlayerCredentials.Instance.Player.Name;
         }
     }
 }

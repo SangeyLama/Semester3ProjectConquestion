@@ -37,12 +37,12 @@ namespace UI
                 {
                     Player newPlayer = client.CreatePlayer(new Player { Name = textBox1.Text });
                     PC.Player = newPlayer;
-                    this.Hide();
+                    this.Close();
                     (new JoinGame()).Show();
                 }
                 else
                 {
-                    this.Hide();
+                    this.Close();
                     PC.Player = foundPlayer;
                     (new JoinGame()).Show();
                 }
@@ -62,7 +62,7 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             (new JoinGame()).Show();
 
         }
