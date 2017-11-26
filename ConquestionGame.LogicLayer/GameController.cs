@@ -35,7 +35,9 @@ namespace ConquestionGame.LogicLayer
 
             {
                 if (gameEntity.Players == null)
+                {
                     gameEntity.Players = new List<Player>();
+                }
                 if (!gameEntity.Players.Contains(playerEntity))
                 {
                     gameEntity.Players.Add(playerEntity);
@@ -140,12 +142,23 @@ namespace ConquestionGame.LogicLayer
             var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
             var playerEntity = db.Players.Where(p => p.Name.Equals(player.Name)).FirstOrDefault();
 
-            if (gameEntity?.Players.Count < 4 && gameEntity != null && playerEntity != null)
+            if (gameEntity != null && playerEntity != null)
             {
-                gameEntity.Players.Add(playerEntity);
-                db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
-                db.SaveChanges();
-                return true;
+                if (gameEntity.Players.Count < 4)
+                {
+                    gameEntity.Players.Add(playerEntity);
+                    db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    return true;
+                }
+                else if(gameEntity.Players.Contains(playerEntity))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {

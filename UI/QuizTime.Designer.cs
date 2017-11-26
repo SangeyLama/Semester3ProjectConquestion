@@ -44,26 +44,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 35);
+            this.label1.Location = new System.Drawing.Point(68, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 13);
+            this.label1.Size = new System.Drawing.Size(217, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Question number placeholder";
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(45, 64);
+            this.richTextBox1.Location = new System.Drawing.Point(68, 98);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(429, 107);
+            this.richTextBox1.Size = new System.Drawing.Size(642, 162);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(48, 177);
+            this.button1.Location = new System.Drawing.Point(72, 272);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(425, 50);
+            this.button1.Size = new System.Drawing.Size(638, 77);
             this.button1.TabIndex = 2;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -71,9 +74,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(48, 233);
+            this.button2.Location = new System.Drawing.Point(72, 358);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(425, 50);
+            this.button2.Size = new System.Drawing.Size(638, 77);
             this.button2.TabIndex = 3;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(48, 289);
+            this.button3.Location = new System.Drawing.Point(72, 445);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(425, 50);
+            this.button3.Size = new System.Drawing.Size(638, 77);
             this.button3.TabIndex = 4;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
@@ -91,9 +96,10 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(48, 345);
+            this.button4.Location = new System.Drawing.Point(72, 531);
+            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(425, 50);
+            this.button4.Size = new System.Drawing.Size(638, 77);
             this.button4.TabIndex = 5;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
@@ -102,9 +108,10 @@
             // button5
             // 
             this.button5.Enabled = false;
-            this.button5.Location = new System.Drawing.Point(211, 418);
+            this.button5.Location = new System.Drawing.Point(316, 643);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(98, 23);
+            this.button5.Size = new System.Drawing.Size(147, 35);
             this.button5.TabIndex = 6;
             this.button5.Text = "Next Question";
             this.button5.UseVisualStyleBackColor = true;
@@ -114,9 +121,10 @@
             // timerLabel
             // 
             this.timerLabel.AutoSize = true;
-            this.timerLabel.Location = new System.Drawing.Point(99, 418);
+            this.timerLabel.Location = new System.Drawing.Point(148, 643);
+            this.timerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.timerLabel.Name = "timerLabel";
-            this.timerLabel.Size = new System.Drawing.Size(55, 13);
+            this.timerLabel.Size = new System.Drawing.Size(83, 20);
             this.timerLabel.TabIndex = 7;
             this.timerLabel.Text = "timerLabel";
             // 
@@ -127,17 +135,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(421, 9);
+            this.label2.Location = new System.Drawing.Point(632, 14);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "label2";
             // 
             // QuizTime
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 453);
+            this.ClientSize = new System.Drawing.Size(783, 697);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.timerLabel);
             this.Controls.Add(this.button5);
@@ -147,8 +156,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "QuizTime";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuizTime_Closing);
             this.Load += new System.EventHandler(this.QuizTime_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

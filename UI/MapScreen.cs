@@ -234,5 +234,10 @@ namespace UI
         {
             ColorOccupiedNodes(NodeButtons);
         }
+
+        private void MapScreen_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

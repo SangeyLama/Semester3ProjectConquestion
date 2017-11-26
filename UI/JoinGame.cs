@@ -37,26 +37,6 @@ namespace UI
 
         }
 
-        private void UpdateGameList_Click(object sender, EventArgs e)
-        {
-            if (client.ActiveGames().Length != 0)
-            {
-                listBox1.DataSource = client.ActiveGames();
-                listBox1.DisplayMember = "Name";
-                listBox1.ValueMember = "Name";
-            }
-            else
-            {
-                MessageBox.Show("No active games found!", "Error",
-                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void Exit_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
         private void JoinGame_Click(object sender, EventArgs e)
         {
             Game game = listBox1.SelectedItem as Game;
@@ -85,6 +65,42 @@ namespace UI
         private void JoinGame_Load(object sender, EventArgs e)
         {
             label1.Text = PlayerCredentials.Instance.Player.Name;
+
+            timer1.Interval = (1 * 1000); // 5 secs
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+        }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            PlayerCredentials.Instance.Player = null;
+            this.Hide();
+            (new LogIn()).Show();
+        }
+
+        private void refreshGameList()
+        {
+            if (client.ActiveGames().Length != 0)
+            {
+                listBox1.DataSource = client.ActiveGames();
+                listBox1.DisplayMember = "Name";
+                listBox1.ValueMember = "Name";
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            refreshGameList();
+        }
+
+        private void JoinGame_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void JoinGame_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }
