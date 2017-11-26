@@ -9,6 +9,7 @@ namespace ConquestionGame.LogicLayer
     public class GameController
     {
         ConquestionDBContext db = new ConquestionDBContext();
+        RoundController roundCtr = new RoundController();
 
         public Game CreateGame(Game game)
         {
@@ -104,7 +105,7 @@ namespace ConquestionGame.LogicLayer
             }
             else
             {
-                Game chosenGame = db.Games.Include("Players").Include("QuestionSet.Questions.Answers").Include("Map")
+                Game chosenGame = db.Games.Include("Players").Include("QuestionSet.Questions.Answers").Include("Map").Include("Rounds.RoundActions.Question.Answers")
                 .Where(x => x.Name.Equals(name))
                 .FirstOrDefault();
                 
@@ -191,6 +192,26 @@ namespace ConquestionGame.LogicLayer
                 throw new Exception();
             }
             return foundPlayers;
+
+        public bool StartGame(Game game, Player player)
+        {
+            var gameEntity = ChooseGame(game.Name, true);
+            var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+
+
+            if (playerEntity.Name.Equals(gameEntity.Players[0].Name) && gameEntity.GameStatus.Equals(Game.GameStatusEnum.starting))
+            {
+                gameEntity.GameStatus = Game.GameStatusEnum.ongoing;
+                roundCtr.CreateStartingRound(gameEntity); 
+                db.Entry(gameEntity).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
     }
 }

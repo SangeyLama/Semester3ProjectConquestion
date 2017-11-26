@@ -17,9 +17,7 @@ namespace ConquestionGame.LogicLayer
         public Player RetrievePlayer(string name)
         {
             var playerEntity = new Player();
-
             playerEntity = db.Players.Where(p => p.Name.Equals(name)).FirstOrDefault();
-
             return playerEntity;
         }
     }

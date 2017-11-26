@@ -83,6 +83,7 @@ namespace UI
 
         private void CreateGame_Load(object sender, EventArgs e)
         {
+            label4.Text = PlayerCredentials.Instance.Player.Name;
             // Not supposed to create a game on loading the page Tamas.
             //service.CreateGame(new Game { Name = textBox1.Text});
         }

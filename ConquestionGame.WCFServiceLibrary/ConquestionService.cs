@@ -16,7 +16,7 @@ namespace ConquestionGame.WCFServiceLibrary
         MapController mapCtr = new MapController();
         RoundController rndActCtr = new RoundController();
         NodeController nodeCtr = new NodeController();
-
+        RoundController roundCtr = new RoundController();
         public Player CreatePlayer(Player player)
         {
             return playerCtr.CreatePlayer(player);
@@ -59,12 +59,12 @@ namespace ConquestionGame.WCFServiceLibrary
 
         public bool ValidateAnswer(Answer answer)
         {
-            return quesCtr.ValidateAnswer(answer);
+            return roundCtr.ValidateAnswer(answer);
         }
 
         public bool CheckPlayerAnswers(Game game, RoundAction roundAction)
         {
-            return rndActCtr.CheckPlayerAnswers(game, roundAction);
+            return roundCtr.CheckPlayerAnswers(game, roundAction);
         }
 
         public Map ChooseMap(string name)
@@ -108,6 +108,7 @@ namespace ConquestionGame.WCFServiceLibrary
             return gameCtr.LeaveGame(game, player);
         }
 
+
         public bool CheckIfNodeIsFree(Game game, int mapNodeId)
         {
             return nodeCtr.CheckIfNodeIsFree(game, mapNodeId);
@@ -122,5 +123,47 @@ namespace ConquestionGame.WCFServiceLibrary
         {
             return nodeCtr.ReturnNodeOwner(game, mapNodeId);
         }
+
+        public bool StartGame(Game game, Player player)
+        {
+            return gameCtr.StartGame(game, player);
+        }
+
+        public void SubmitAnswer(RoundAction roundAction, PlayerAnswer playerAnswer)
+        {
+            roundCtr.SubmitAnswer(roundAction, playerAnswer);
+        }
+
+        public bool CheckIfAllPlayersAnswered(Game game, RoundAction roundAction)
+        {
+            return roundCtr.CheckIfAllPlayersAnswered(game, roundAction);
+        }
+
+        public List<Player> GetPlayerOrder(Game game, RoundAction roundAction)
+        {
+            return roundCtr.GetPlayerOrder(game, roundAction);
+        }
+
+        //public Round GetRound(Game game, string roundType)
+        //{
+        //    Round.RoundTypeEnum type;
+        //    if (roundType.Equals("starting"))
+        //    {
+        //        type = Round.RoundTypeEnum.starting;
+        //    }
+        //    else if (roundType.Equals("expansion"))
+        //    {
+        //        type = Round.RoundTypeEnum.expansion;
+        //    }
+        //    else if (roundType.Equals("conquest"))
+        //    {
+        //        type = Round.RoundTypeEnum.conquest;
+        //    }
+        //    else
+        //    {
+        //        throw new Exception();
+        //    }
+        //    return roundCtr.GetRound(game, type);
+        //}
     }
 }

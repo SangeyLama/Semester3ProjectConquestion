@@ -51,19 +51,6 @@ namespace ConquestionGame.LogicLayer
             return question;
         }
 
-        public bool ValidateAnswer(Answer answer)
-        {
-            var answerEntity = db.Answers.Where(a => a.Id == answer.Id).FirstOrDefault();
-            if (answerEntity.IsValid)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }         
-        }
-
         //Not sure we need these
         public void AddQuestionsToQuestionSet(QuestionSet questionSet, List<Question> questionlist)
         {

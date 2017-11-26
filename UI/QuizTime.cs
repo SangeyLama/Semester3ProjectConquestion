@@ -15,15 +15,16 @@ namespace UI
     {
         ConquestionServiceClient client = new ConquestionServiceClient();
         static int index = 0;
-        PlayerAnswer pa = new PlayerAnswer();
+        PlayerAnswer pa = new PlayerAnswer { Player = PlayerCredentials.Instance.Player};
+        RoundAction currentRoundAction;
+        DateTime startTime;
         Question q = null;
-        Game currentGame = null;
+        private int TimerCountdown = 30;
         public QuizTime(Game game)
         {
             InitializeComponent();
-            Game gameEntity = client.ChooseGame(game.Name, true);
-            currentGame = gameEntity;
-            q = gameEntity.QuestionSet.Questions[index];
+            currentRoundAction = CurrentRound.Instance.Round.RoundActions.LastOrDefault();
+            q = currentRoundAction.Question;
             label1.Text = string.Format("Question number: {0}", index + 1);
             richTextBox1.Text = q.Text;
             button1.Text = q.Answers[0].Text;
@@ -32,32 +33,36 @@ namespace UI
             button4.Text = q.Answers[3].Text;
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void Answer1_Click(object sender, EventArgs e)
         {
-            CheckAllButtons();
-            pa.answerGiven = q.Answers[0];
+            DisableButtons();
+            pa.AnswerGiven = q.Answers[0];
+            client.SubmitAnswer(currentRoundAction, pa);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Answer2_Click(object sender, EventArgs e)
         {
-            CheckAllButtons();
-            pa.answerGiven = q.Answers[1];
+            DisableButtons();
+            pa.AnswerGiven = q.Answers[1];
+            client.SubmitAnswer(currentRoundAction, pa);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Answer3_Click(object sender, EventArgs e)
         {
-            CheckAllButtons();
-            pa.answerGiven = q.Answers[2];
+            DisableButtons();
+            pa.AnswerGiven = q.Answers[2];
+            client.SubmitAnswer(currentRoundAction, pa);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Answer4_Click(object sender, EventArgs e)
         {
-            CheckAllButtons();
-            pa.answerGiven = q.Answers[3];
+            DisableButtons();
+            pa.AnswerGiven = q.Answers[3];
+            client.SubmitAnswer(currentRoundAction, pa);
         }
 
-        public void disableButtons()
+        public void DisableButtons()
         {
             button1.Enabled = false;
             button2.Enabled = false;
@@ -69,7 +74,7 @@ namespace UI
         public void CheckButton(Button button)
         {
             int buttonNo = button.TabIndex - 1;
-            bool correct = client.ValidateAnswer(q.Answers[buttonNo -1]);
+            bool correct = client.ValidateAnswer(q.Answers[buttonNo - 1]);
             if (correct)
             {
                 button.BackColor = Color.Lime;
@@ -86,16 +91,40 @@ namespace UI
             CheckButton(button2);
             CheckButton(button3);
             CheckButton(button4);
-            disableButtons();
-            button5.Visible = true;
-            button5.Enabled = true;
+            DisableButtons();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
             index++;
-            (new QuizTime(currentGame)).Show();
+            (new QuizTime(CurrentGame.Instance.Game)).Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int elaspedSeconds = (int)(DateTime.Now - startTime).TotalSeconds;
+            int remainingSeconds = TimerCountdown - elaspedSeconds;
+
+            timerLabel.Text = String.Format("{0}", remainingSeconds);
+
+            if (remainingSeconds <= 0 || client.CheckIfAllPlayersAnswered(CurrentGame.Instance.Game, currentRoundAction))
+            {
+                CheckAllButtons();
+                timer1.Stop();
+                //int[] order = client.GetPlayerOrder(currentRoundAction);
+                Player[] playerOrder = client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
+                timerLabel.Text = String.Format("1stPlayer: {0} 2ndPlayer: {1} 3rdPlayer: {2} 4thPlayer {3}", 
+                    playerOrder[0]?.Id, playerOrder[1]?.Id, playerOrder[2]?.Id, playerOrder[3]?.Id);
+
+            }
+        }
+
+        private void QuizTime_Load(object sender, EventArgs e)
+        {
+            timer1.Start();
+            startTime = DateTime.Now;
+            label2.Text = PlayerCredentials.Instance.Player.Name;
         }
     }
 }

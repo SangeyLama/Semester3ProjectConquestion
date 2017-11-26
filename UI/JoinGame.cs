@@ -37,7 +37,7 @@ namespace UI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void UpdateGameList_Click(object sender, EventArgs e)
         {
             if (client.ActiveGames().Length != 0)
             {
@@ -52,12 +52,12 @@ namespace UI
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void JoinGame_Click(object sender, EventArgs e)
         {
             Game game = listBox1.SelectedItem as Game;
             Game game2 = client.ChooseGame(game.Name, false);
@@ -76,7 +76,7 @@ namespace UI
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CreateGame_Click(object sender, EventArgs e)
         {
             this.Hide();
             (new CreateGame()).Show();
@@ -84,7 +84,7 @@ namespace UI
 
         private void JoinGame_Load(object sender, EventArgs e)
         {
-
+            label1.Text = PlayerCredentials.Instance.Player.Name;
         }
     }
 }

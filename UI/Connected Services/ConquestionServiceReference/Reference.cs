@@ -23,6 +23,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -32,6 +35,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
             }
         }
         
@@ -68,6 +84,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Game.GameStatusEnum GameStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -82,6 +101,9 @@ namespace UI.ConquestionServiceReference {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private UI.ConquestionServiceReference.QuestionSet QuestionSetField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Round[] RoundsField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -89,6 +111,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Game.GameStatusEnum GameStatus {
+            get {
+                return this.GameStatusField;
+            }
+            set {
+                if ((this.GameStatusField.Equals(value) != true)) {
+                    this.GameStatusField = value;
+                    this.RaisePropertyChanged("GameStatus");
+                }
             }
         }
         
@@ -157,6 +192,19 @@ namespace UI.ConquestionServiceReference {
             }
         }
         
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Round[] Rounds {
+            get {
+                return this.RoundsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoundsField, value) != true)) {
+                    this.RoundsField = value;
+                    this.RaisePropertyChanged("Rounds");
+                }
+            }
+        }
+        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -164,6 +212,20 @@ namespace UI.ConquestionServiceReference {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="Game.GameStatusEnum", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+        public enum GameStatusEnum : int {
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            starting = 0,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            ongoing = 1,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            finished = 2,
         }
     }
     
@@ -323,6 +385,97 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Round", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+    [System.SerializableAttribute()]
+    public partial class Round : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.RoundAction[] RoundActionsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Round.RoundTypeEnum RoundTypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.RoundAction[] RoundActions {
+            get {
+                return this.RoundActionsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoundActionsField, value) != true)) {
+                    this.RoundActionsField = value;
+                    this.RaisePropertyChanged("RoundActions");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Round.RoundTypeEnum RoundType {
+            get {
+                return this.RoundTypeField;
+            }
+            set {
+                if ((this.RoundTypeField.Equals(value) != true)) {
+                    this.RoundTypeField = value;
+                    this.RaisePropertyChanged("RoundType");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+        [System.Runtime.Serialization.DataContractAttribute(Name="Round.RoundTypeEnum", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+        public enum RoundTypeEnum : int {
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            starting = 0,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            expansion = 1,
+            
+            [System.Runtime.Serialization.EnumMemberAttribute()]
+            conquest = 2,
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Question", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class Question : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -472,13 +625,19 @@ namespace UI.ConquestionServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime MapStartTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private UI.ConquestionServiceReference.PlayerAnswer[] PlayerAnswersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private UI.ConquestionServiceReference.Question QuestionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Round RoundField;
+        private System.DateTime QuestionStartTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Player RoundActionWinnerField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -499,6 +658,19 @@ namespace UI.ConquestionServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime MapStartTime {
+            get {
+                return this.MapStartTimeField;
+            }
+            set {
+                if ((this.MapStartTimeField.Equals(value) != true)) {
+                    this.MapStartTimeField = value;
+                    this.RaisePropertyChanged("MapStartTime");
                 }
             }
         }
@@ -530,14 +702,27 @@ namespace UI.ConquestionServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Round Round {
+        public System.DateTime QuestionStartTime {
             get {
-                return this.RoundField;
+                return this.QuestionStartTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoundField, value) != true)) {
-                    this.RoundField = value;
-                    this.RaisePropertyChanged("Round");
+                if ((this.QuestionStartTimeField.Equals(value) != true)) {
+                    this.QuestionStartTimeField = value;
+                    this.RaisePropertyChanged("QuestionStartTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Player RoundActionWinner {
+            get {
+                return this.RoundActionWinnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoundActionWinnerField, value) != true)) {
+                    this.RoundActionWinnerField = value;
+                    this.RaisePropertyChanged("RoundActionWinner");
                 }
             }
         }
@@ -549,94 +734,6 @@ namespace UI.ConquestionServiceReference {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Round", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
-    [System.SerializableAttribute()]
-    public partial class Round : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.RoundAction[] RoundActionsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Round.RoundTypeEnum RoundTypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.RoundAction[] RoundActions {
-            get {
-                return this.RoundActionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoundActionsField, value) != true)) {
-                    this.RoundActionsField = value;
-                    this.RaisePropertyChanged("RoundActions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Round.RoundTypeEnum RoundType {
-            get {
-                return this.RoundTypeField;
-            }
-            set {
-                if ((this.RoundTypeField.Equals(value) != true)) {
-                    this.RoundTypeField = value;
-                    this.RaisePropertyChanged("RoundType");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-        
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-        [System.Runtime.Serialization.DataContractAttribute(Name="Round.RoundTypeEnum", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
-        public enum RoundTypeEnum : int {
-            
-            [System.Runtime.Serialization.EnumMemberAttribute()]
-            expansion = 0,
-            
-            [System.Runtime.Serialization.EnumMemberAttribute()]
-            conquest = 1,
         }
     }
     
@@ -650,16 +747,16 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Answer AnswerGivenField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.RoundAction RoundActionField;
+        private UI.ConquestionServiceReference.Player PlayerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Answer answerGivenField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private UI.ConquestionServiceReference.Player playerField;
+        private System.DateTime PlayerAnswerTimeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -668,6 +765,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Answer AnswerGiven {
+            get {
+                return this.AnswerGivenField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AnswerGivenField, value) != true)) {
+                    this.AnswerGivenField = value;
+                    this.RaisePropertyChanged("AnswerGiven");
+                }
             }
         }
         
@@ -685,40 +795,27 @@ namespace UI.ConquestionServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.RoundAction RoundAction {
+        public UI.ConquestionServiceReference.Player Player {
             get {
-                return this.RoundActionField;
+                return this.PlayerField;
             }
             set {
-                if ((object.ReferenceEquals(this.RoundActionField, value) != true)) {
-                    this.RoundActionField = value;
-                    this.RaisePropertyChanged("RoundAction");
+                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
+                    this.PlayerField = value;
+                    this.RaisePropertyChanged("Player");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Answer answerGiven {
+        public System.DateTime PlayerAnswerTime {
             get {
-                return this.answerGivenField;
+                return this.PlayerAnswerTimeField;
             }
             set {
-                if ((object.ReferenceEquals(this.answerGivenField, value) != true)) {
-                    this.answerGivenField = value;
-                    this.RaisePropertyChanged("answerGiven");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public UI.ConquestionServiceReference.Player player {
-            get {
-                return this.playerField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.playerField, value) != true)) {
-                    this.playerField = value;
-                    this.RaisePropertyChanged("player");
+                if ((this.PlayerAnswerTimeField.Equals(value) != true)) {
+                    this.PlayerAnswerTimeField = value;
+                    this.RaisePropertyChanged("PlayerAnswerTime");
                 }
             }
         }
@@ -862,6 +959,31 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ReturnNodeOwner", ReplyAction="http://tempuri.org/IConquestionService/ReturnNodeOwnerResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> ReturnNodeOwnerAsync(UI.ConquestionServiceReference.Game game, int mapNodeId);
+
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
+        bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
+        System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SubmitAnswer", ReplyAction="http://tempuri.org/IConquestionService/SubmitAnswerResponse")]
+        void SubmitAnswer(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SubmitAnswer", ReplyAction="http://tempuri.org/IConquestionService/SubmitAnswerResponse")]
+        System.Threading.Tasks.Task SubmitAnswerAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered", ReplyAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnsweredResponse")]
+        bool CheckIfAllPlayersAnswered(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered", ReplyAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnsweredResponse")]
+        System.Threading.Tasks.Task<bool> CheckIfAllPlayersAnsweredAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
+        UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1035,6 +1157,7 @@ namespace UI.ConquestionServiceReference {
             return base.Channel.LeaveGameAsync(game, player);
         }
         
+
         public bool CheckIfNodeIsFree(UI.ConquestionServiceReference.Game game, int mapNodeId) {
             return base.Channel.CheckIfNodeIsFree(game, mapNodeId);
         }
@@ -1057,6 +1180,38 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> ReturnNodeOwnerAsync(UI.ConquestionServiceReference.Game game, int mapNodeId) {
             return base.Channel.ReturnNodeOwnerAsync(game, mapNodeId);
+
+        public bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.StartGame(game, player);
+        }
+        
+        public System.Threading.Tasks.Task<bool> StartGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
+            return base.Channel.StartGameAsync(game, player);
+        }
+        
+        public void SubmitAnswer(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer) {
+            base.Channel.SubmitAnswer(roundAction, playerAnswer);
+        }
+        
+        public System.Threading.Tasks.Task SubmitAnswerAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.PlayerAnswer playerAnswer) {
+            return base.Channel.SubmitAnswerAsync(roundAction, playerAnswer);
+        }
+        
+        public bool CheckIfAllPlayersAnswered(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.CheckIfAllPlayersAnswered(game, roundAction);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckIfAllPlayersAnsweredAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.CheckIfAllPlayersAnsweredAsync(game, roundAction);
+        }
+        
+        public UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrder(game, roundAction);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrderAsync(game, roundAction);
+
         }
     }
 }

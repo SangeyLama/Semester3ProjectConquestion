@@ -12,13 +12,13 @@ namespace ConquestionGame.ServiceHostConsole
     {
         static void Main(string[] args)
         {
-            ServiceHost host = new ServiceHost(typeof(ConquestionService));
+            using (ServiceHost host = new ServiceHost(typeof(ConquestionService)))
+            {
+                host.Open();
+                Console.WriteLine("Running Conquestion service host...");
 
-            host.Open();
-            Console.WriteLine("Running Conquestion service host...");
-
-            Console.ReadLine();
-            host.Close();
+                Console.ReadLine();
+            }
         }
     }
 }

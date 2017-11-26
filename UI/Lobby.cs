@@ -15,13 +15,12 @@ namespace UI
     {
         ConquestionServiceClient client = new ConquestionServiceClient();
 
-        Game currentGame = null;
         public Lobby(Game game)
         {
             InitializeComponent();
-
+            
             Game gameEntity = client.ChooseGame(game.Name, true);
-            currentGame = gameEntity;
+            CurrentGame.Instance.Game = gameEntity;
             label1.Text = gameEntity.Name;
             label3.Text = gameEntity.QuestionSet.Title;
             label5.Text = gameEntity.Map.Name;
@@ -30,11 +29,14 @@ namespace UI
             listBox1.DisplayMember = "Name";
             listBox1.ValueMember = "Name";
 
+            Start_Game.Enabled = false;
+            CheckIfLobbyHost();
+
         }
 
         public void refreshPlayerList()
         {
-                Game gameEntity = client.ChooseGame(currentGame.Name, true);
+                Game gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
                 listBox1.DataSource = gameEntity.Players;
                 listBox1.DisplayMember = "Name";
                 listBox1.ValueMember = "Name";
@@ -49,27 +51,67 @@ namespace UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             refreshPlayerList();
+            CheckIfLobbyHost();
         }
 
         private void Lobby_Load(object sender, EventArgs e)
         {
-            timer1.Interval = (5 * 1000); // 5 secs
+            timer1.Interval = (1 * 1000); // 5 secs
             timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Tick += new EventHandler(timer2_Tick);
             timer1.Start();
+            label6.Text = PlayerCredentials.Instance.Player.Name;
+            //timer2.Interval = (1 * 1000); // 1 Sec
+            //timer2.Tick += new EventHandler(timer2_Tick);
+            //timer2.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Start_Game_Click(object sender, EventArgs e)
         {
+            client.StartGame(CurrentGame.Instance.Game, PlayerCredentials.Instance.Player);
+            StartGameWindow();
+        }
+
+        public void StartGameWindow()
+        {
+            CurrentGame.Instance.UpdateCurrentGame();
+            CurrentRound.Instance.Round = CurrentGame.Instance.Game.Rounds[0];
             this.Hide();
+
             (new MapScreen(currentGame)).Show();
-            //(new QuizTime(currentGame)).Show();
+            (new QuizTime(CurrentGame.Instance.Game)).Show();
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Exit_Lobby_Click(object sender, EventArgs e)
         {
-            client.LeaveGame(currentGame, PlayerCredentials.Instance.Player);
+            client.LeaveGame(CurrentGame.Instance.Game, PlayerCredentials.Instance.Player);
+            CurrentGame.Instance.Game = null;
             this.Hide();
             (new JoinGame()).Show();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //Checks to see if the game has been started by the lobby host
+            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, false);
+            if(gameEntity.GameStatus == Game.GameStatusEnum.ongoing)
+            {
+                StartGameWindow();
+            }
+        }
+
+        private void CheckIfLobbyHost()
+        {
+            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
+            if (PlayerCredentials.Instance.Player.Name.Equals(gameEntity.Players[0].Name))
+            {
+                Start_Game.Enabled = true;
+            }
+            else
+            {
+                Start_Game.Enabled = false;
+            }
         }
     }
 }
