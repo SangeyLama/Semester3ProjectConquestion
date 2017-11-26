@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.2">
-  <zoom_level>10</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>640</y>
-      <w>240</w>
-      <h>140</h>
+      <x>720</x>
+      <y>712</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>MapNode
 --
@@ -20,10 +20,10 @@ mapNodeIndex
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>470</y>
-      <w>240</w>
-      <h>140</h>
+      <x>456</x>
+      <y>576</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Player
 --
@@ -36,10 +36,10 @@ name
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>310</y>
-      <w>240</w>
-      <h>140</h>
+      <x>456</x>
+      <y>448</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Round
 --
@@ -51,10 +51,10 @@ expansion / conquest)</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>640</y>
-      <w>240</w>
-      <h>140</h>
+      <x>456</x>
+      <y>712</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Map
 --
@@ -65,10 +65,10 @@ name</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>300</x>
-      <y>80</y>
-      <w>240</w>
-      <h>140</h>
+      <x>456</x>
+      <y>264</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Game
 --
@@ -82,25 +82,26 @@ isActive
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>630</x>
-      <y>310</y>
-      <w>240</w>
-      <h>140</h>
+      <x>720</x>
+      <y>448</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>RoundAction
 --
 id
 questionStartTime
-MapStartTime</panel_attributes>
+MapStartTime
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1060</x>
-      <y>400</y>
-      <w>240</w>
-      <h>140</h>
+      <x>1064</x>
+      <y>520</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>PlayerAnswer
 --
@@ -111,10 +112,10 @@ playerAnswerTime</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1340</x>
-      <y>110</y>
-      <w>240</w>
-      <h>140</h>
+      <x>1288</x>
+      <y>288</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Answers
 --
@@ -127,10 +128,10 @@ Text
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1020</x>
-      <y>110</y>
-      <w>240</w>
-      <h>140</h>
+      <x>1032</x>
+      <y>288</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>Question
 --
@@ -141,10 +142,10 @@ text</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>410</x>
-      <y>210</y>
-      <w>70</w>
-      <h>120</h>
+      <x>544</x>
+      <y>368</y>
+      <w>56</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -155,10 +156,10 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>360</y>
-      <w>120</w>
-      <h>50</h>
+      <x>640</x>
+      <y>488</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -169,10 +170,10 @@ has &gt;</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>680</x>
-      <y>110</y>
-      <w>240</w>
-      <h>140</h>
+      <x>760</x>
+      <y>288</y>
+      <w>192</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>QuestionSet
 --
@@ -184,10 +185,10 @@ description</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>910</x>
-      <y>160</y>
-      <w>130</w>
-      <h>50</h>
+      <x>944</x>
+      <y>328</y>
+      <w>104</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -198,10 +199,10 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1250</x>
-      <y>160</y>
-      <w>110</w>
-      <h>50</h>
+      <x>1216</x>
+      <y>328</y>
+      <w>88</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -212,10 +213,10 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>410</y>
-      <w>220</w>
-      <h>80</h>
+      <x>904</x>
+      <y>528</y>
+      <w>176</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -226,10 +227,10 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>240</y>
-      <w>180</w>
-      <h>140</h>
+      <x>904</x>
+      <y>392</y>
+      <w>144</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -240,10 +241,10 @@ has &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>690</y>
-      <w>120</w>
-      <h>50</h>
+      <x>640</x>
+      <y>752</y>
+      <w>96</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -254,10 +255,10 @@ contains &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>440</y>
-      <w>170</w>
-      <h>160</h>
+      <x>904</x>
+      <y>552</y>
+      <w>136</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -268,10 +269,10 @@ involves v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>560</y>
-      <w>210</w>
-      <h>100</h>
+      <x>640</x>
+      <y>648</y>
+      <w>168</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..1
@@ -282,10 +283,10 @@ occupies &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>160</y>
-      <w>160</w>
-      <h>580</h>
+      <x>344</x>
+      <y>328</y>
+      <w>128</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -296,10 +297,10 @@ uses v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>440</y>
-      <w>210</w>
-      <h>110</h>
+      <x>640</x>
+      <y>552</y>
+      <w>168</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -310,10 +311,10 @@ winner v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>220</x>
-      <y>200</y>
-      <w>100</w>
-      <h>370</h>
+      <x>392</x>
+      <y>360</y>
+      <w>80</w>
+      <h>296</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -324,10 +325,10 @@ has v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>150</y>
-      <w>170</w>
-      <h>50</h>
+      <x>640</x>
+      <y>320</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -338,10 +339,10 @@ uses &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>710</y>
-      <w>170</w>
-      <h>90</h>
+      <x>904</x>
+      <y>768</y>
+      <w>136</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -352,10 +353,10 @@ connects to v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>530</x>
-      <y>480</y>
-      <w>550</w>
-      <h>100</h>
+      <x>640</x>
+      <y>584</y>
+      <w>440</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -366,10 +367,10 @@ m2=1
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1010</x>
-      <y>580</y>
-      <w>220</w>
-      <h>130</h>
+      <x>1024</x>
+      <y>664</y>
+      <w>176</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>AcquiredMapNode
 --
@@ -382,10 +383,10 @@ Player
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1290</x>
-      <y>240</y>
-      <w>200</w>
-      <h>180</h>
+      <x>1248</x>
+      <y>392</y>
+      <w>160</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -396,10 +397,10 @@ contains &gt;</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>860</x>
-      <y>660</y>
-      <w>170</w>
-      <h>50</h>
+      <x>904</x>
+      <y>728</y>
+      <w>136</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1
@@ -410,10 +411,10 @@ m2=0..*
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>740</y>
-      <w>220</w>
-      <h>130</h>
+      <x>216</x>
+      <y>792</y>
+      <w>176</w>
+      <h>104</h>
     </coordinates>
     <panel_attributes>CurrentMapNodeOwner
 --
@@ -426,10 +427,10 @@ Player
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>80</x>
-      <y>110</y>
-      <w>240</w>
-      <h>650</h>
+      <x>280</x>
+      <y>288</y>
+      <w>192</w>
+      <h>520</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*
@@ -440,10 +441,10 @@ tracks v</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>210</x>
-      <y>770</y>
-      <w>570</w>
-      <h>100</h>
+      <x>384</x>
+      <y>816</y>
+      <w>456</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..*

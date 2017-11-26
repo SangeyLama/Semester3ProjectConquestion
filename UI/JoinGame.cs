@@ -84,7 +84,7 @@ namespace UI
 
         private void JoinGame_Load(object sender, EventArgs e)
         {
-
+            label1.Text = PlayerCredentials.Instance.Player.Name;
         }
     }
 }

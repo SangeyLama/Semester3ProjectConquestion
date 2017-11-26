@@ -60,6 +60,7 @@ namespace UI
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Tick += new EventHandler(timer2_Tick);
             timer1.Start();
+            label6.Text = PlayerCredentials.Instance.Player.Name;
             //timer2.Interval = (1 * 1000); // 1 Sec
             //timer2.Tick += new EventHandler(timer2_Tick);
             //timer2.Start();
@@ -75,7 +76,7 @@ namespace UI
         {
             CurrentGame.Instance.UpdateCurrentGame();
             CurrentRound.Instance.Round = CurrentGame.Instance.Game.Rounds[0];
-            this.Close();
+            this.Hide();
             (new QuizTime(CurrentGame.Instance.Game)).Show();
         }
 
