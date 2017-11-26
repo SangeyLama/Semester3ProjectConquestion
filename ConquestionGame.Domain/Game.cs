@@ -36,6 +36,9 @@ namespace ConquestionGame.Domain
         [DataMember]
         public List<Round> Rounds { get; set; }
 
+        [DataMember]
+        public List<PlayerOrder> PlayerOrder { get; set; }
+
         public List<MapNodeOwner> MapNodeOwners { get; set; }
     }
 }

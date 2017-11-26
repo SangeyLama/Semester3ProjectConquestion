@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4286cd9c-c384-4c71-b1dc-1d687274476d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f9c14efd-0ef6-4693-8ccd-7f03f5f8cd58" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="fcbe85c0-d5f6-4eda-a659-2d1d792b6ef8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0ada39da-44ca-45d4-827c-7b255f9ff83d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3995454f-f835-4678-990c-0b744c085b73" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
-    <MetadataFile FileName="ConquestionGame.Domain.xsd" MetadataType="Schema" ID="e0d755ad-0702-4b47-b47d-c7fcebfb64d9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="61f1fe1e-92c3-4c3b-905f-81f0b1e95951" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="35ebed71-6bac-494a-8b4f-7a5a8fed92c9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="91cbc756-f713-4e62-b6eb-f60637cc248c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
+    <MetadataFile FileName="ConquestionGame.Domain.xsd" MetadataType="Schema" ID="e5d5c8bd-693d-4b0e-a7ab-e25e423b5bc5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/ConquestionGame.WCFServiceLibrary/ConquestionService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

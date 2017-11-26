@@ -94,7 +94,7 @@ namespace ConquestionGame.LogicLayer
             RoundAction raEntity = db.RoundActions.Where(ra => ra.Id == roundAction.Id).FirstOrDefault();
 
             // Check is the list has been initialised, if not intialise it
-            if(raEntity.PlayerAnswers == null)
+            if (raEntity.PlayerAnswers == null)
             {
                 raEntity.PlayerAnswers = new List<PlayerAnswer>();
             }
@@ -102,7 +102,7 @@ namespace ConquestionGame.LogicLayer
             //Checking if the player answers in time and that they haven't already submitted an answer
             int elapsedSeconds = (int)(playerAnswer.PlayerAnswerTime - raEntity.QuestionStartTime).TotalSeconds;
             bool playerHasntAnswered = true;
-            if(raEntity.PlayerAnswers.Where(pa=> pa.Player.Id == playerAnswer.Player.Id).FirstOrDefault() != null)
+            if (raEntity.PlayerAnswers.Where(pa => pa.Player.Id == playerAnswer.Player.Id).FirstOrDefault() != null)
             {
                 playerHasntAnswered = false;
             }
@@ -137,7 +137,7 @@ namespace ConquestionGame.LogicLayer
             int noOfPlayers = game.Players.Count;
             var raEntity = db.RoundActions.Include("PlayerAnswers").Where(ra => ra.Id == roundAction.Id).FirstOrDefault();
             int? noOfAnswers = raEntity.PlayerAnswers?.Count;
-            if(noOfPlayers == noOfAnswers)
+            if (noOfPlayers == noOfAnswers)
             {
                 allPlayersAnswered = true;
             }
@@ -167,9 +167,10 @@ namespace ConquestionGame.LogicLayer
             }
 
             List<Player> playersWithoutValidAnswer = new List<Player>();
-            foreach(Player p in game.Players)
+            foreach (Player p in game.Players)
             {
-                if (!playerOrder.Contains(p))
+                Player found = playerOrder.Where(po => po.Id == p.Id).FirstOrDefault();
+                if (found == null)
                 {
                     playersWithoutValidAnswer.Add(p);
                 }
@@ -181,11 +182,27 @@ namespace ConquestionGame.LogicLayer
                 playerOrder.Add(p);
             }
 
+
+            //for (int i = 0; i < playerOrder.Count; i++)
+            //{
+            //    int pId = playerOrder[i].Id;
+            //    if (!db.PlayerOrders.Any(p => p.GameId == game.Id && p.PlayerId == pId))
+            //    {
+            //        PlayerOrder po = new PlayerOrder { GameId = game.Id, PlayerId = pId, Position = (i + 1) };
+            //        db.PlayerOrders.Add(po);
+            //    }
+            //}
+
+            int i = 0;
+            foreach (Player p in playerOrder)
+            {
+                PlayerOrder po = new PlayerOrder { GameId = game.Id, PlayerId = playerOrder[i].Id, Position = (i + 1) };
+                db.PlayerOrders.Add(po);
+                i++;
+            }
+            db.SaveChanges();
+
             return playerOrder;
-
         }
-
     }
-
-    
 }

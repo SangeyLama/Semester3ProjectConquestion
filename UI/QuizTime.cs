@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.ConquestionServiceReference;
@@ -112,11 +113,21 @@ namespace UI
             {
                 CheckAllButtons();
                 timer1.Stop();
-                //int[] order = client.GetPlayerOrder(currentRoundAction);
-                Player[] playerOrder = new Player[4];
-                playerOrder = client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
-                timerLabel.Text = String.Format("1stPlayer: {0} 2ndPlayer: {1} 3rdPlayer: {2} 4thPlayer {3}", 
-                    playerOrder[0]?.Id, playerOrder[1]?.Id, playerOrder[2]?.Id, playerOrder[3]?.Id);
+                //Temp fix
+                if(CurrentGame.Instance.Game.Players.First().Id == PlayerCredentials.Instance.Player.Id)
+                {
+                    client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
+                }
+                Thread.Sleep(4000);
+                PlayerOrder[] playerOrder = client.getGamePlayerOrder(CurrentGame.Instance.Game);
+                var sortedList = playerOrder.OrderBy(x => x.Position).ToList();
+                timerLabel.Text = "";
+                int i = 1;
+                foreach(PlayerOrder p in sortedList)
+                {
+                    timerLabel.Text += string.Format("{0}. {1}  ", i, p.Player.Name);
+                    i++;
+                }
 
             }
         }

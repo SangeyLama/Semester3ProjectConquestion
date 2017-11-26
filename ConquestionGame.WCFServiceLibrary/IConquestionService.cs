@@ -61,6 +61,8 @@ namespace ConquestionGame.WCFServiceLibrary
         bool CheckIfAllPlayersAnswered(Game game, RoundAction roundAction);
         [OperationContract]
         List<Player> GetPlayerOrder(Game game, RoundAction roundAction);
+        [OperationContract]
+        List<PlayerOrder> getGamePlayerOrder(Game game);
 
     }
 }

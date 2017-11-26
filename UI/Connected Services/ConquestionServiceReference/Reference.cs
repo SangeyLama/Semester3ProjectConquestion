@@ -96,6 +96,9 @@ namespace UI.ConquestionServiceReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.PlayerOrder[] PlayerOrderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private UI.ConquestionServiceReference.Player[] PlayersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -162,6 +165,19 @@ namespace UI.ConquestionServiceReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.PlayerOrder[] PlayerOrder {
+            get {
+                return this.PlayerOrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerOrderField, value) != true)) {
+                    this.PlayerOrderField = value;
+                    this.RaisePropertyChanged("PlayerOrder");
                 }
             }
         }
@@ -369,6 +385,83 @@ namespace UI.ConquestionServiceReference {
                 if ((object.ReferenceEquals(this.TitleField, value) != true)) {
                     this.TitleField = value;
                     this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlayerOrder", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+    [System.SerializableAttribute()]
+    public partial class PlayerOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Game GameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Player PlayerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PositionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Game Game {
+            get {
+                return this.GameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GameField, value) != true)) {
+                    this.GameField = value;
+                    this.RaisePropertyChanged("Game");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Player Player {
+            get {
+                return this.PlayerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
+                    this.PlayerField = value;
+                    this.RaisePropertyChanged("Player");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Position {
+            get {
+                return this.PositionField;
+            }
+            set {
+                if ((this.PositionField.Equals(value) != true)) {
+                    this.PositionField = value;
+                    this.RaisePropertyChanged("Position");
                 }
             }
         }
@@ -983,6 +1076,12 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/getGamePlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/getGamePlayerOrderResponse")]
+        UI.ConquestionServiceReference.PlayerOrder[] getGamePlayerOrder(UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/getGamePlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/getGamePlayerOrderResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.PlayerOrder[]> getGamePlayerOrderAsync(UI.ConquestionServiceReference.Game game);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1210,6 +1309,14 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
             return base.Channel.GetPlayerOrderAsync(game, roundAction);
+        }
+        
+        public UI.ConquestionServiceReference.PlayerOrder[] getGamePlayerOrder(UI.ConquestionServiceReference.Game game) {
+            return base.Channel.getGamePlayerOrder(game);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.PlayerOrder[]> getGamePlayerOrderAsync(UI.ConquestionServiceReference.Game game) {
+            return base.Channel.getGamePlayerOrderAsync(game);
         }
     }
 }

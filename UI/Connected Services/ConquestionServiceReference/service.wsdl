@@ -157,6 +157,12 @@
   <wsdl:message name="IConquestionService_GetPlayerOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayerOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IConquestionService_getGamePlayerOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:getGamePlayerOrder" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_getGamePlayerOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getGamePlayerOrderResponse" />
+  </wsdl:message>
   <wsdl:portType name="IConquestionService">
     <wsdl:operation name="CreatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayer" message="tns:IConquestionService_CreatePlayer_InputMessage" />
@@ -257,6 +263,10 @@
     <wsdl:operation name="GetPlayerOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrder" message="tns:IConquestionService_GetPlayerOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrderResponse" message="tns:IConquestionService_GetPlayerOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getGamePlayerOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/getGamePlayerOrder" message="tns:IConquestionService_getGamePlayerOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/getGamePlayerOrderResponse" message="tns:IConquestionService_getGamePlayerOrder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
@@ -479,6 +489,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlayerOrder">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/GetPlayerOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGamePlayerOrder">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/getGamePlayerOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

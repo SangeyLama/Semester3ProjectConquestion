@@ -144,26 +144,10 @@ namespace ConquestionGame.WCFServiceLibrary
             return roundCtr.GetPlayerOrder(game, roundAction);
         }
 
-        //public Round GetRound(Game game, string roundType)
-        //{
-        //    Round.RoundTypeEnum type;
-        //    if (roundType.Equals("starting"))
-        //    {
-        //        type = Round.RoundTypeEnum.starting;
-        //    }
-        //    else if (roundType.Equals("expansion"))
-        //    {
-        //        type = Round.RoundTypeEnum.expansion;
-        //    }
-        //    else if (roundType.Equals("conquest"))
-        //    {
-        //        type = Round.RoundTypeEnum.conquest;
-        //    }
-        //    else
-        //    {
-        //        throw new Exception();
-        //    }
-        //    return roundCtr.GetRound(game, type);
-        //}
+        public List<PlayerOrder> getGamePlayerOrder(Game game)
+        {
+            return gameCtr.getGamePlayerOrder(game);
+        }
+
     }
 }

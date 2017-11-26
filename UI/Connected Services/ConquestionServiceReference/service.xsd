@@ -346,4 +346,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getGamePlayerOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q40:Game" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getGamePlayerOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="getGamePlayerOrderResult" nillable="true" type="q41:ArrayOfPlayerOrder" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

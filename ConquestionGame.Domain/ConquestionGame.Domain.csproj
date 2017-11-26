@@ -49,6 +49,7 @@
     <Compile Include="MapNodeOwner.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerAnswer.cs" />
+    <Compile Include="PlayerOrder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="QuestionSet.cs" />

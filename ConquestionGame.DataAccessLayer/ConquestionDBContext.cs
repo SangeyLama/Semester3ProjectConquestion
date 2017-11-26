@@ -20,6 +20,7 @@ namespace ConquestionGame.DataAccessLayer
         public DbSet<PlayerAnswer> PlayerAnswers { get; set; }
         public DbSet<MapNode> MapNodes { get; set; }
         public DbSet<MapNodeOwner> MapNodeOwners { get; set; }
+        public DbSet<PlayerOrder> PlayerOrders { get; set; }
 
         public ConquestionDBContext()
             : base("name=ConquestionConnectionTestDatabase")
@@ -51,6 +52,7 @@ namespace ConquestionGame.DataAccessLayer
                         c.MapRightKey("NeighbourMapNodeId");
                         c.ToTable("NeighbouringNodes");
                     });
+
         }
 
         public QuestionSet InitializeData()

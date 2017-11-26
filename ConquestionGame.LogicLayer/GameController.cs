@@ -105,7 +105,10 @@ namespace ConquestionGame.LogicLayer
             }
             else
             {
-                Game chosenGame = db.Games.Include("Players").Include("QuestionSet.Questions.Answers").Include("Map").Include("Rounds.RoundActions.Question.Answers")
+                Game chosenGame = db.Games.Include("Players")
+                    .Include("QuestionSet.Questions.Answers")
+                    .Include("Map")
+                    .Include("Rounds.RoundActions.Question.Answers")
                 .Where(x => x.Name.Equals(name))
                 .FirstOrDefault();
                 
@@ -212,6 +215,13 @@ namespace ConquestionGame.LogicLayer
                 return false;
             }
 
+        }
+
+        public List<PlayerOrder> getGamePlayerOrder(Game game)
+        {
+            var playerOrder = db.PlayerOrders.Include("Player").Where(g => g.GameId == game.Id).ToList();
+            playerOrder.OrderBy(po => po.Position);
+            return playerOrder;
         }
     }
 }
