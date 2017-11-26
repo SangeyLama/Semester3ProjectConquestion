@@ -961,10 +961,10 @@ namespace UI.ConquestionServiceReference {
         System.Threading.Tasks.Task<bool> CheckIfAllPlayersAnsweredAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
-        UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.RoundAction roundAction);
+        UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
-        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.RoundAction roundAction);
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1162,12 +1162,12 @@ namespace UI.ConquestionServiceReference {
             return base.Channel.CheckIfAllPlayersAnsweredAsync(game, roundAction);
         }
         
-        public UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.RoundAction roundAction) {
-            return base.Channel.GetPlayerOrder(roundAction);
+        public UI.ConquestionServiceReference.Player[] GetPlayerOrder(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrder(game, roundAction);
         }
         
-        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.RoundAction roundAction) {
-            return base.Channel.GetPlayerOrderAsync(roundAction);
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.GetPlayerOrderAsync(game, roundAction);
         }
     }
 }

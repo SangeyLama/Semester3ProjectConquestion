@@ -144,64 +144,39 @@ namespace ConquestionGame.LogicLayer
             return allPlayersAnswered;
         }
 
-        public List<Player> GetPlayerOrder(RoundAction roundAction)
+        public List<Player> GetPlayerOrder(Game game, RoundAction roundAction)
         {
-            //int[] order = new int[4];
-            //var raEntity = db.RoundActions.Include("PlayerAnswers.Player").Where(r => r.Id == roundAction.Id).FirstOrDefault();
-            //List<PlayerAnswer> validAnswer = raEntity.PlayerAnswers;
-            //validAnswer.OrderBy(pa => pa.PlayerAnswerTime.Ticks).ToList();
-            //int i = 0;
-            //foreach(PlayerAnswer pa in validAnswer)
-            //{
-            //    order[i] = pa.Player.Id;
-            //    i++;
-            //}
-
-            //return order;
-
             List<Player> playerOrder = new List<Player>();
             var raEntity = db.RoundActions.Include("PlayerAnswers.Player").Where(r => r.Id == roundAction.Id).FirstOrDefault();
-            List<PlayerAnswer> validAnswer = raEntity.PlayerAnswers;
-            validAnswer.OrderBy(pa => pa.PlayerAnswerTime.Ticks).ToList();
-            foreach (PlayerAnswer pa in validAnswer)
+            List<PlayerAnswer> playersWithValidAnswer = raEntity.PlayerAnswers;
+
+            //Orders the playerAnswers by the fastest valid answer first to the slowest
+            playersWithValidAnswer.OrderBy(pa => pa.PlayerAnswerTime.Ticks).ToList();
+            foreach (PlayerAnswer pa in playersWithValidAnswer)
             {
                 playerOrder.Add(pa.Player);
             }
 
+            List<Player> playersWithoutValidAnswer = new List<Player>();
+            foreach(Player p in game.Players)
+            {
+                if (!playerOrder.Contains(p))
+                {
+                    playersWithoutValidAnswer.Add(p);
+                }
+            }
+
+            playersWithoutValidAnswer.Shuffle();
+            foreach (Player p in playersWithoutValidAnswer)
+            {
+                playerOrder.Add(p);
+            }
+
             return playerOrder;
 
-
-            //foreach(PlayerAnswer pa in roundAction.PlayerAnswers)
-            //{
-            //    if(pa.AnswerGiven.IsValid == true)
-            //    {
-            //        validAnswer.Add(pa);
-            //    }
-            //}
-
-
-
-            //int index = 0;
-            //while(validAnswer != null)
-            //{
-            //    PlayerAnswer fastestPlayer = null;
-            //    foreach (PlayerAnswer pa in validAnswer)
-            //    {
-
-            //        if (fastestPlayer != null)
-            //        {
-            //            if (pa.PlayerAnswerTime.Ticks < fastestPlayer.PlayerAnswerTime.Ticks)
-            //            {
-            //                fastestPlayer = pa;
-            //            }
-            //        }
-            //        pa.Player = fastestPlayer.Player;
-            //    }
-            //    order[index] = fastestPlayer.Player.Id;
-            //}
-
-
-
         }
+
     }
+
+    
 }
