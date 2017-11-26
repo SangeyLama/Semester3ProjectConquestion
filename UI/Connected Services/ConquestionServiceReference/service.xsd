@@ -244,6 +244,49 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+:UI/Connected Services/ConquestionServiceReference/item.xsd
+  <xs:element name="CheckIfNodeIsFree">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q26:Game" />
+        <xs:element minOccurs="0" name="mapNodeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckIfNodeIsFreeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckIfNodeIsFreeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveAllPlayersByGameId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q27:Game" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveAllPlayersByGameIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="RetrieveAllPlayersByGameIdResult" nillable="true" type="q28:ArrayOfPlayer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnNodeOwner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q29:Game" />
+        <xs:element minOccurs="0" name="mapNodeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnNodeOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="ReturnNodeOwnerResult" nillable="true" type="q30:Player" />
+
   <xs:element name="StartGame">
     <xs:complexType>
       <xs:sequence>
@@ -299,6 +342,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="GetPlayerOrderResult" nillable="true" type="q34:ArrayOfPlayer" />
+:UI/Connected Services/ConquestionServiceReference/service.xsd
       </xs:sequence>
     </xs:complexType>
   </xs:element>

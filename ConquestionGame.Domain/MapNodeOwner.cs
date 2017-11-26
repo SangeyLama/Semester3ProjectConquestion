@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,16 +9,17 @@ using System.Threading.Tasks;
 namespace ConquestionGame.Domain
 {
     [DataContract]
-    public class PlayerAnswer
+    public class MapNodeOwner
     {
         [DataMember]
-        public int Id { get; set; }
+        public int GameId { get; set; }
+        [DataMember]
+        public Game Game { get; set; }
+        [DataMember]
+        public int MapNodeId { get; set; }
+        [DataMember]
+        public MapNode MapNode {get;set; }
         [DataMember]
         public Player Player { get; set; }
-        [DataMember]
-        public Answer AnswerGiven { get; set; }
-        [DataMember]
-        public DateTime PlayerAnswerTime { get; set; }
-        public RoundAction RoundAction { get; set; }
     }
 }

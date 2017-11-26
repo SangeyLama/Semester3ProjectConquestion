@@ -171,6 +171,28 @@ namespace ConquestionGame.LogicLayer
             }
         }
 
+        // Returns a list of players so we can display their names on the map screen and determine what map nodes they own
+        public List<Player> RetrieveAllPlayersByGameId(Game game)
+        {
+            List<Player> foundPlayers = new List<Player>();
+            var gameEntity = db.Games.Include("Players").Where(g => g.Id == game.Id).FirstOrDefault();
+            if (gameEntity != null)
+            {
+                if (gameEntity.Players != null)
+                {
+                    foundPlayers = gameEntity.Players;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+            return foundPlayers;
+
         public bool StartGame(Game game, Player player)
         {
             var gameEntity = ChooseGame(game.Name, true);
@@ -189,6 +211,7 @@ namespace ConquestionGame.LogicLayer
             {
                 return false;
             }
+
         }
     }
 }

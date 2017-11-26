@@ -28,6 +28,7 @@ namespace ConquestionGame.Domain
         public List<Player> Players { get; set; }
         [DataMember]
         public GameStatusEnum GameStatus { get; set; }
+
         [DataMember]
         public Map Map { get; set; }
         [DataMember]
@@ -35,6 +36,6 @@ namespace ConquestionGame.Domain
         [DataMember]
         public List<Round> Rounds { get; set; }
 
-
+        public List<MapNodeOwner> MapNodeOwners { get; set; }
     }
 }

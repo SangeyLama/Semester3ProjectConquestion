@@ -942,6 +942,24 @@ namespace UI.ConquestionServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/LeaveGame", ReplyAction="http://tempuri.org/IConquestionService/LeaveGameResponse")]
         System.Threading.Tasks.Task<bool> LeaveGameAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfNodeIsFree", ReplyAction="http://tempuri.org/IConquestionService/CheckIfNodeIsFreeResponse")]
+        bool CheckIfNodeIsFree(UI.ConquestionServiceReference.Game game, int mapNodeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckIfNodeIsFree", ReplyAction="http://tempuri.org/IConquestionService/CheckIfNodeIsFreeResponse")]
+        System.Threading.Tasks.Task<bool> CheckIfNodeIsFreeAsync(UI.ConquestionServiceReference.Game game, int mapNodeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameId", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameIdResponse")]
+        UI.ConquestionServiceReference.Player[] RetrieveAllPlayersByGameId(UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameId", ReplyAction="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameIdResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> RetrieveAllPlayersByGameIdAsync(UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ReturnNodeOwner", ReplyAction="http://tempuri.org/IConquestionService/ReturnNodeOwnerResponse")]
+        UI.ConquestionServiceReference.Player ReturnNodeOwner(UI.ConquestionServiceReference.Game game, int mapNodeId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/ReturnNodeOwner", ReplyAction="http://tempuri.org/IConquestionService/ReturnNodeOwnerResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> ReturnNodeOwnerAsync(UI.ConquestionServiceReference.Game game, int mapNodeId);
+
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/StartGame", ReplyAction="http://tempuri.org/IConquestionService/StartGameResponse")]
         bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player);
         
@@ -965,6 +983,7 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/GetPlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/GetPlayerOrderResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction);
+
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1138,6 +1157,30 @@ namespace UI.ConquestionServiceReference {
             return base.Channel.LeaveGameAsync(game, player);
         }
         
+
+        public bool CheckIfNodeIsFree(UI.ConquestionServiceReference.Game game, int mapNodeId) {
+            return base.Channel.CheckIfNodeIsFree(game, mapNodeId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckIfNodeIsFreeAsync(UI.ConquestionServiceReference.Game game, int mapNodeId) {
+            return base.Channel.CheckIfNodeIsFreeAsync(game, mapNodeId);
+        }
+        
+        public UI.ConquestionServiceReference.Player[] RetrieveAllPlayersByGameId(UI.ConquestionServiceReference.Game game) {
+            return base.Channel.RetrieveAllPlayersByGameId(game);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> RetrieveAllPlayersByGameIdAsync(UI.ConquestionServiceReference.Game game) {
+            return base.Channel.RetrieveAllPlayersByGameIdAsync(game);
+        }
+        
+        public UI.ConquestionServiceReference.Player ReturnNodeOwner(UI.ConquestionServiceReference.Game game, int mapNodeId) {
+            return base.Channel.ReturnNodeOwner(game, mapNodeId);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> ReturnNodeOwnerAsync(UI.ConquestionServiceReference.Game game, int mapNodeId) {
+            return base.Channel.ReturnNodeOwnerAsync(game, mapNodeId);
+
         public bool StartGame(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player) {
             return base.Channel.StartGame(game, player);
         }
@@ -1168,6 +1211,7 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player[]> GetPlayerOrderAsync(UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.RoundAction roundAction) {
             return base.Channel.GetPlayerOrderAsync(game, roundAction);
+
         }
     }
 }

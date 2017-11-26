@@ -115,6 +115,25 @@
   <wsdl:message name="IConquestionService_LeaveGame_OutputMessage">
     <wsdl:part name="parameters" element="tns:LeaveGameResponse" />
   </wsdl:message>
+:UI/Connected Services/ConquestionServiceReference/ConquestionService.wsdl
+  <wsdl:message name="IConquestionService_CheckIfNodeIsFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfNodeIsFree" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CheckIfNodeIsFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfNodeIsFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_RetrieveAllPlayersByGameId_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAllPlayersByGameId" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_RetrieveAllPlayersByGameId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAllPlayersByGameIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ReturnNodeOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnNodeOwner" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_ReturnNodeOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnNodeOwnerResponse" />
+
   <wsdl:message name="IConquestionService_StartGame_InputMessage">
     <wsdl:part name="parameters" element="tns:StartGame" />
   </wsdl:message>
@@ -138,6 +157,7 @@
   </wsdl:message>
   <wsdl:message name="IConquestionService_GetPlayerOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPlayerOrderResponse" />
+:UI/Connected Services/ConquestionServiceReference/service.wsdl
   </wsdl:message>
   <wsdl:portType name="IConquestionService">
     <wsdl:operation name="CreatePlayer">
@@ -212,6 +232,19 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/LeaveGame" message="tns:IConquestionService_LeaveGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/LeaveGameResponse" message="tns:IConquestionService_LeaveGame_OutputMessage" />
     </wsdl:operation>
+:UI/Connected Services/ConquestionServiceReference/ConquestionService.wsdl
+    <wsdl:operation name="CheckIfNodeIsFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CheckIfNodeIsFree" message="tns:IConquestionService_CheckIfNodeIsFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/CheckIfNodeIsFreeResponse" message="tns:IConquestionService_CheckIfNodeIsFree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAllPlayersByGameId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameId" message="tns:IConquestionService_RetrieveAllPlayersByGameId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameIdResponse" message="tns:IConquestionService_RetrieveAllPlayersByGameId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnNodeOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/ReturnNodeOwner" message="tns:IConquestionService_ReturnNodeOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/ReturnNodeOwnerResponse" message="tns:IConquestionService_ReturnNodeOwner_OutputMessage" />
+
     <wsdl:operation name="StartGame">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/StartGame" message="tns:IConquestionService_StartGame_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/StartGameResponse" message="tns:IConquestionService_StartGame_OutputMessage" />
@@ -227,6 +260,7 @@
     <wsdl:operation name="GetPlayerOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrder" message="tns:IConquestionService_GetPlayerOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/GetPlayerOrderResponse" message="tns:IConquestionService_GetPlayerOrder_OutputMessage" />
+:UI/Connected Services/ConquestionServiceReference/service.wsdl
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
@@ -393,8 +427,13 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+:UI/Connected Services/ConquestionServiceReference/ConquestionService.wsdl
+    <wsdl:operation name="CheckIfNodeIsFree">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/CheckIfNodeIsFree" style="document" />
+
     <wsdl:operation name="StartGame">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/StartGame" style="document" />
+:UI/Connected Services/ConquestionServiceReference/service.wsdl
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -402,8 +441,13 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+:UI/Connected Services/ConquestionServiceReference/ConquestionService.wsdl
+    <wsdl:operation name="RetrieveAllPlayersByGameId">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/RetrieveAllPlayersByGameId" style="document" />
+
     <wsdl:operation name="SubmitAnswer">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/SubmitAnswer" style="document" />
+:UI/Connected Services/ConquestionServiceReference/service.wsdl
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -411,6 +455,10 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+:UI/Connected Services/ConquestionServiceReference/ConquestionService.wsdl
+    <wsdl:operation name="ReturnNodeOwner">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/ReturnNodeOwner" style="document" />
+
     <wsdl:operation name="CheckIfAllPlayersAnswered">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/CheckIfAllPlayersAnswered" style="document" />
       <wsdl:input>
@@ -422,6 +470,7 @@
     </wsdl:operation>
     <wsdl:operation name="GetPlayerOrder">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/GetPlayerOrder" style="document" />
+:UI/Connected Services/ConquestionServiceReference/service.wsdl
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

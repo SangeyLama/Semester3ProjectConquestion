@@ -18,11 +18,39 @@ namespace ConquestionGame.DataAccessLayer
         public DbSet<Map> Maps { get; set; }
         public DbSet<RoundAction> RoundActions { get; set; }
         public DbSet<PlayerAnswer> PlayerAnswers { get; set; }
+        public DbSet<MapNode> MapNodes { get; set; }
+        public DbSet<MapNodeOwner> MapNodeOwners { get; set; }
 
         public ConquestionDBContext()
-            : base("name=ConquestionConnectionTestDatabase")
+            : base("name=ConquestionConnection")
         {
 
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MapNodeOwner>()
+                .HasKey(mno => new { mno.GameId, mno.MapNodeId });
+
+            modelBuilder.Entity<MapNodeOwner>()
+                .HasRequired(mno => mno.Game)
+                .WithMany(g => g.MapNodeOwners)
+                .HasForeignKey(mno => mno.GameId);
+
+            modelBuilder.Entity<MapNodeOwner>()
+                .HasRequired(mno => mno.MapNode)
+                .WithMany(m => m.MapNodeOwners)
+                .HasForeignKey(mno => mno.MapNodeId);
+
+            modelBuilder.Entity<MapNode>()
+                    .HasMany(mn => mn.NeighbouringNodes)
+                    .WithMany(mn => mn.NeighboringNodes)
+                    .Map(c =>
+                    {
+                        c.MapLeftKey("MapNodeId");
+                        c.MapRightKey("NeighbourMapNodeId");
+                        c.ToTable("NeighbouringNodes");
+                    });
         }
 
         public QuestionSet InitializeData()
@@ -389,14 +417,14 @@ namespace ConquestionGame.DataAccessLayer
             //AddAnswersToQuestion(q5, q5a1, q5a2, q5a3, q5a4);
         }
 
-        //Say why this method
+        //creates and returns a questionset object
         public static QuestionSet MakeQuestionSet(string title, string description)
         {
             QuestionSet qs = new QuestionSet { Title = title, Description = description };
             qs.Questions = new List<Question>();
             return qs;
         }
-        //say why this method
+        // creates a question object then adds it to a questionset and returns the object
         public static Question MakeQuestion(string text, QuestionSet qs)
         {
             Question q = new Question { Text = text };
@@ -404,13 +432,13 @@ namespace ConquestionGame.DataAccessLayer
             qs.Questions.Add(q);
             return q;
         }
-        //say why this method
+        // creates an answer and returns the object
         public static Answer MakeAnswer(bool isValid, string text)
         {
             Answer a = new Answer { IsValid = isValid, Text = text };
             return a;
         }
-        //say why this method
+        // adds four answers to a question that owns a list of answers
         public static void AddAnswersToQuestion(Question q, Answer a1, Answer a2, Answer a3, Answer a4)
         {
             q.Answers.Add(a1);

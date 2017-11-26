@@ -48,6 +48,11 @@ namespace ConquestionGame.WCFServiceLibrary
         [OperationContract]
         bool LeaveGame(Game game, Player player);
         [OperationContract]
+        bool CheckIfNodeIsFree(Game game, int mapNodeId);
+        [OperationContract]
+        List<Player> RetrieveAllPlayersByGameId(Game game);
+        [OperationContract]
+        Player ReturnNodeOwner(Game game, int mapNodeId);
         bool StartGame(Game game, Player player);
         [OperationContract]
         void SubmitAnswer(RoundAction roundAction, PlayerAnswer playerAnswer);
