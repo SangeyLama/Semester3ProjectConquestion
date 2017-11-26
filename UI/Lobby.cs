@@ -36,10 +36,15 @@ namespace UI
 
         public void refreshPlayerList()
         {
+            if (CurrentGame.Instance.Game != null)
+            {
                 Game gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
+               
                 listBox1.DataSource = gameEntity.Players;
                 listBox1.DisplayMember = "Name";
                 listBox1.ValueMember = "Name";
+               
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -94,24 +99,40 @@ namespace UI
         private void timer2_Tick(object sender, EventArgs e)
         {
             //Checks to see if the game has been started by the lobby host
-            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, false);
-            if(gameEntity.GameStatus == Game.GameStatusEnum.ongoing)
+            if (CurrentGame.Instance.Game != null)
             {
-                StartGameWindow();
+                var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, false);
+                if (gameEntity.GameStatus == Game.GameStatusEnum.ongoing)
+                {
+                    StartGameWindow();
+                }
             }
         }
 
         private void CheckIfLobbyHost()
         {
-            var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
-            if (PlayerCredentials.Instance.Player.Name.Equals(gameEntity.Players[0].Name))
+            if (CurrentGame.Instance.Game != null)
             {
-                Start_Game.Enabled = true;
+                var gameEntity = client.ChooseGame(CurrentGame.Instance.Game.Name, true);
+                if (PlayerCredentials.Instance.Player.Name.Equals(gameEntity.Players[0].Name))
+                {
+                    Start_Game.Enabled = true;
+                }
+                else
+                {
+                    Start_Game.Enabled = false;
+                }
             }
-            else
-            {
-                Start_Game.Enabled = false;
-            }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Lobby_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

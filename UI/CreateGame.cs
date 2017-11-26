@@ -87,5 +87,16 @@ namespace UI
             // Not supposed to create a game on loading the page Tamas.
             //service.CreateGame(new Game { Name = textBox1.Text});
         }
+
+        private void back_button_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            (new JoinGame()).Show();
+        }
+
+        private void CreateGame_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

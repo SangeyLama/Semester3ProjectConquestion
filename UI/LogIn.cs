@@ -66,5 +66,15 @@ namespace UI
             (new JoinGame()).Show();
 
         }
+
+        private void exit_button_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void Login_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

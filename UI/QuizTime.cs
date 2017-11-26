@@ -138,5 +138,10 @@ namespace UI
             startTime = DateTime.Now;
             label2.Text = PlayerCredentials.Instance.Player.Name;
         }
+
+        private void QuizTime_Closing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }
