@@ -113,7 +113,8 @@ namespace UI
                 CheckAllButtons();
                 timer1.Stop();
                 //int[] order = client.GetPlayerOrder(currentRoundAction);
-                Player[] playerOrder = client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
+                Player[] playerOrder = new Player[4];
+                playerOrder = client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
                 timerLabel.Text = String.Format("1stPlayer: {0} 2ndPlayer: {1} 3rdPlayer: {2} 4thPlayer {3}", 
                     playerOrder[0]?.Id, playerOrder[1]?.Id, playerOrder[2]?.Id, playerOrder[3]?.Id);
 

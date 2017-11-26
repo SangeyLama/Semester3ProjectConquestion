@@ -53,6 +53,7 @@ namespace ConquestionGame.WCFServiceLibrary
         List<Player> RetrieveAllPlayersByGameId(Game game);
         [OperationContract]
         Player ReturnNodeOwner(Game game, int mapNodeId);
+        [OperationContract]
         bool StartGame(Game game, Player player);
         [OperationContract]
         void SubmitAnswer(RoundAction roundAction, PlayerAnswer playerAnswer);

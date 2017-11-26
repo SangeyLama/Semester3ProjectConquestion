@@ -22,7 +22,7 @@ namespace ConquestionGame.DataAccessLayer
         public DbSet<MapNodeOwner> MapNodeOwners { get; set; }
 
         public ConquestionDBContext()
-            : base("name=ConquestionConnection")
+            : base("name=ConquestionConnectionTestDatabase")
         {
 
         }

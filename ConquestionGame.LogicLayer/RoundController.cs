@@ -147,8 +147,17 @@ namespace ConquestionGame.LogicLayer
         public List<Player> GetPlayerOrder(Game game, RoundAction roundAction)
         {
             List<Player> playerOrder = new List<Player>();
-            var raEntity = db.RoundActions.Include("PlayerAnswers.Player").Where(r => r.Id == roundAction.Id).FirstOrDefault();
-            List<PlayerAnswer> playersWithValidAnswer = raEntity.PlayerAnswers;
+            var raEntity = db.RoundActions.Include("PlayerAnswers.Player").Include("PlayerAnswers.AnswerGiven").Where(r => r.Id == roundAction.Id).FirstOrDefault();
+            List<PlayerAnswer> playersWithValidAnswer = new List<PlayerAnswer>();
+
+            //Creates a list of valid player answers
+            foreach (PlayerAnswer pa in raEntity.PlayerAnswers)
+            {
+                if (pa.AnswerGiven.IsValid)
+                {
+                    playersWithValidAnswer.Add(pa);
+                }
+            }
 
             //Orders the playerAnswers by the fastest valid answer first to the slowest
             playersWithValidAnswer.OrderBy(pa => pa.PlayerAnswerTime.Ticks).ToList();

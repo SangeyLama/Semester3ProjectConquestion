@@ -76,9 +76,9 @@ namespace UI
         {
             CurrentGame.Instance.UpdateCurrentGame();
             CurrentRound.Instance.Round = CurrentGame.Instance.Game.Rounds[0];
-            this.Hide();
+            this.Close();
 
-            (new MapScreen(currentGame)).Show();
+            //(new MapScreen(CurrentGame.Instance.Game)).Show();
             (new QuizTime(CurrentGame.Instance.Game)).Show();
 
         }

@@ -78,7 +78,6 @@
     <Compile Include="CreateGame.Designer.cs">
       <DependentUpon>CreateGame.cs</DependentUpon>
     </Compile>
-
     <Compile Include="MapScreen.cs">
       <SubType>Form</SubType>
     </Compile>

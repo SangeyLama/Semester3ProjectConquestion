@@ -192,7 +192,7 @@ namespace ConquestionGame.LogicLayer
                 throw new Exception();
             }
             return foundPlayers;
-
+        }
         public bool StartGame(Game game, Player player)
         {
             var gameEntity = ChooseGame(game.Name, true);
