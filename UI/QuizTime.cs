@@ -20,7 +20,7 @@ namespace UI
         RoundAction currentRoundAction;
         DateTime startTime;
         Question q = null;
-        private int TimerCountdown = 30;
+        private int TimerCountdown = 5;
         public QuizTime(Game game)
         {
             InitializeComponent();
@@ -118,7 +118,6 @@ namespace UI
                 {
                     client.GetPlayerOrder(CurrentGame.Instance.Game, currentRoundAction);
                 }
-                Thread.Sleep(4000);
                 PlayerOrder[] playerOrder = client.getGamePlayerOrder(CurrentGame.Instance.Game);
                 var sortedList = playerOrder.OrderBy(x => x.Position).ToList();
                 timerLabel.Text = "";
@@ -128,7 +127,12 @@ namespace UI
                     timerLabel.Text += string.Format("{0}. {1}  ", i, p.Player.Name);
                     i++;
                 }
-
+                if (CurrentGame.Instance.Game.Players.First().Id == PlayerCredentials.Instance.Player.Id)
+                {
+                    client.SetMapStartTime(currentRoundAction);
+                }
+                this.Hide();
+                (new MapScreen(CurrentGame.Instance.Game)).Show();
             }
         }
 

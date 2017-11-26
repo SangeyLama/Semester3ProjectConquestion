@@ -715,6 +715,9 @@ namespace UI.ConquestionServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.AcquiredMapNode[] AcquiredMapNodesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -739,6 +742,19 @@ namespace UI.ConquestionServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.AcquiredMapNode[] AcquiredMapNodes {
+            get {
+                return this.AcquiredMapNodesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AcquiredMapNodesField, value) != true)) {
+                    this.AcquiredMapNodesField = value;
+                    this.RaisePropertyChanged("AcquiredMapNodes");
+                }
             }
         }
         
@@ -832,6 +848,83 @@ namespace UI.ConquestionServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AcquiredMapNode", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+    [System.SerializableAttribute()]
+    public partial class AcquiredMapNode : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.MapNode MapNodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.Player PlayerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private UI.ConquestionServiceReference.RoundAction RoundActionField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.MapNode MapNode {
+            get {
+                return this.MapNodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MapNodeField, value) != true)) {
+                    this.MapNodeField = value;
+                    this.RaisePropertyChanged("MapNode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.Player Player {
+            get {
+                return this.PlayerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PlayerField, value) != true)) {
+                    this.PlayerField = value;
+                    this.RaisePropertyChanged("Player");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public UI.ConquestionServiceReference.RoundAction RoundAction {
+            get {
+                return this.RoundActionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoundActionField, value) != true)) {
+                    this.RoundActionField = value;
+                    this.RaisePropertyChanged("RoundAction");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PlayerAnswer", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
     [System.SerializableAttribute()]
     public partial class PlayerAnswer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -909,6 +1002,51 @@ namespace UI.ConquestionServiceReference {
                 if ((this.PlayerAnswerTimeField.Equals(value) != true)) {
                     this.PlayerAnswerTimeField = value;
                     this.RaisePropertyChanged("PlayerAnswerTime");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MapNode", Namespace="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain")]
+    [System.SerializableAttribute()]
+    public partial class MapNode : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -1082,6 +1220,24 @@ namespace UI.ConquestionServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/getGamePlayerOrder", ReplyAction="http://tempuri.org/IConquestionService/getGamePlayerOrderResponse")]
         System.Threading.Tasks.Task<UI.ConquestionServiceReference.PlayerOrder[]> getGamePlayerOrderAsync(UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SetMapStartTime", ReplyAction="http://tempuri.org/IConquestionService/SetMapStartTimeResponse")]
+        void SetMapStartTime(UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SetMapStartTime", ReplyAction="http://tempuri.org/IConquestionService/SetMapStartTimeResponse")]
+        System.Threading.Tasks.Task SetMapStartTimeAsync(UI.ConquestionServiceReference.RoundAction roundAction);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckPlayerTurn", ReplyAction="http://tempuri.org/IConquestionService/CheckPlayerTurnResponse")]
+        UI.ConquestionServiceReference.Player CheckPlayerTurn(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/CheckPlayerTurn", ReplyAction="http://tempuri.org/IConquestionService/CheckPlayerTurnResponse")]
+        System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> CheckPlayerTurnAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SelectMapNode", ReplyAction="http://tempuri.org/IConquestionService/SelectMapNodeResponse")]
+        bool SelectMapNode(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player, int MapNodeIndex);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IConquestionService/SelectMapNode", ReplyAction="http://tempuri.org/IConquestionService/SelectMapNodeResponse")]
+        System.Threading.Tasks.Task<bool> SelectMapNodeAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player, int MapNodeIndex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1317,6 +1473,30 @@ namespace UI.ConquestionServiceReference {
         
         public System.Threading.Tasks.Task<UI.ConquestionServiceReference.PlayerOrder[]> getGamePlayerOrderAsync(UI.ConquestionServiceReference.Game game) {
             return base.Channel.getGamePlayerOrderAsync(game);
+        }
+        
+        public void SetMapStartTime(UI.ConquestionServiceReference.RoundAction roundAction) {
+            base.Channel.SetMapStartTime(roundAction);
+        }
+        
+        public System.Threading.Tasks.Task SetMapStartTimeAsync(UI.ConquestionServiceReference.RoundAction roundAction) {
+            return base.Channel.SetMapStartTimeAsync(roundAction);
+        }
+        
+        public UI.ConquestionServiceReference.Player CheckPlayerTurn(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game) {
+            return base.Channel.CheckPlayerTurn(roundAction, game);
+        }
+        
+        public System.Threading.Tasks.Task<UI.ConquestionServiceReference.Player> CheckPlayerTurnAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game) {
+            return base.Channel.CheckPlayerTurnAsync(roundAction, game);
+        }
+        
+        public bool SelectMapNode(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player, int MapNodeIndex) {
+            return base.Channel.SelectMapNode(roundAction, game, player, MapNodeIndex);
+        }
+        
+        public System.Threading.Tasks.Task<bool> SelectMapNodeAsync(UI.ConquestionServiceReference.RoundAction roundAction, UI.ConquestionServiceReference.Game game, UI.ConquestionServiceReference.Player player, int MapNodeIndex) {
+            return base.Channel.SelectMapNodeAsync(roundAction, game, player, MapNodeIndex);
         }
     }
 }

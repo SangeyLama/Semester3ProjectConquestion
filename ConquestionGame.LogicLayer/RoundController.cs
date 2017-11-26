@@ -204,5 +204,64 @@ namespace ConquestionGame.LogicLayer
 
             return playerOrder;
         }
+
+        public void SetMapStartTime(RoundAction roundAction)
+        {
+            var raEntity = db.RoundActions.Where(ra => ra.Id == roundAction.Id).FirstOrDefault();
+            raEntity.MapStartTime = DateTime.Now;
+            db.Entry(raEntity).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public Player CheckPlayerTurn(RoundAction roundAction, Game game)
+        {
+            var playerOrder = db.PlayerOrders.Include("Player").Where(g => g.GameId == game.Id).ToList();
+            playerOrder = playerOrder.OrderBy(po => po.Position).ToList();
+
+            int elaspedSeconds = (int)(DateTime.Now - roundAction.MapStartTime).TotalSeconds;
+            if (elaspedSeconds <= 22)
+            {
+                return playerOrder.Where(po => po.Position == 1).FirstOrDefault()?.Player;
+            }
+            else if (elaspedSeconds <= 23)
+            {
+                return playerOrder.Where(po => po.Position == 2).FirstOrDefault()?.Player;
+            }
+            else if (elaspedSeconds <= 33)
+            {
+                return playerOrder.Where(po => po.Position == 3).FirstOrDefault()?.Player;
+            }
+            else if (elaspedSeconds <= 43)
+            {
+                return playerOrder.Where(po=> po.Position == 4).FirstOrDefault()?.Player;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool SelectMapNode(RoundAction roundAction, Game game, Player player, int MapNodeIndex)
+        {
+            bool success = false;
+            Player choosingPlayer = CheckPlayerTurn(roundAction, game);
+            var checkIfSelected = db.AcquiredMapNodes.Any(x => x.RoundAction.Id == roundAction.Id && x.Player.Id == player.Id);
+            var currentMapNodeOwnerEntity = db.MapNodeOwners.Include("Player").Where(y => y.Game.Id == game.Id && y.MapNode.Id == MapNodeIndex).FirstOrDefault();
+
+            if (player.Id == choosingPlayer.Id && !checkIfSelected && currentMapNodeOwnerEntity.Player == null)
+            {
+                var playerEntity = db.Players.Where(p => p.Id == player.Id).FirstOrDefault();
+                var mapNodeEntity = db.MapNodes.Where(mn => mn.Id == MapNodeIndex).FirstOrDefault();
+                var raEntity = db.RoundActions.Where(ra => ra.Id == roundAction.Id).FirstOrDefault();
+                AcquiredMapNode amn = new AcquiredMapNode { MapNode = mapNodeEntity, RoundAction = raEntity, Player = playerEntity };
+                db.AcquiredMapNodes.Add(amn);
+                currentMapNodeOwnerEntity.Player = playerEntity;
+                db.Entry(currentMapNodeOwnerEntity).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                success = true;
+            }
+
+            return success;
+        }
     }
 }

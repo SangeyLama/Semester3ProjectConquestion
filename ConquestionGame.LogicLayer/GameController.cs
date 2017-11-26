@@ -233,7 +233,7 @@ namespace ConquestionGame.LogicLayer
         public List<PlayerOrder> getGamePlayerOrder(Game game)
         {
             var playerOrder = db.PlayerOrders.Include("Player").Where(g => g.GameId == game.Id).ToList();
-            playerOrder.OrderBy(po => po.Position);
+            playerOrder = playerOrder.OrderBy(po => po.Position).ToList();
             return playerOrder;
         }
     }

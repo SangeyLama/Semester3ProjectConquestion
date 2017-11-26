@@ -360,4 +360,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetMapStartTime">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q42:RoundAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetMapStartTimeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPlayerTurn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q43:RoundAction" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q44:Game" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckPlayerTurnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="CheckPlayerTurnResult" nillable="true" type="q45:Player" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectMapNode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="roundAction" nillable="true" type="q46:RoundAction" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="game" nillable="true" type="q47:Game" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ConquestionGame.Domain" minOccurs="0" name="player" nillable="true" type="q48:Player" />
+        <xs:element minOccurs="0" name="MapNodeIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectMapNodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SelectMapNodeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

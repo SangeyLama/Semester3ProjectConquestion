@@ -163,6 +163,24 @@
   <wsdl:message name="IConquestionService_getGamePlayerOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:getGamePlayerOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IConquestionService_SetMapStartTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetMapStartTime" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_SetMapStartTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetMapStartTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CheckPlayerTurn_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPlayerTurn" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_CheckPlayerTurn_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckPlayerTurnResponse" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_SelectMapNode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SelectMapNode" />
+  </wsdl:message>
+  <wsdl:message name="IConquestionService_SelectMapNode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SelectMapNodeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IConquestionService">
     <wsdl:operation name="CreatePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CreatePlayer" message="tns:IConquestionService_CreatePlayer_InputMessage" />
@@ -267,6 +285,18 @@
     <wsdl:operation name="getGamePlayerOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/getGamePlayerOrder" message="tns:IConquestionService_getGamePlayerOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/getGamePlayerOrderResponse" message="tns:IConquestionService_getGamePlayerOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMapStartTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/SetMapStartTime" message="tns:IConquestionService_SetMapStartTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/SetMapStartTimeResponse" message="tns:IConquestionService_SetMapStartTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckPlayerTurn">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/CheckPlayerTurn" message="tns:IConquestionService_CheckPlayerTurn_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/CheckPlayerTurnResponse" message="tns:IConquestionService_CheckPlayerTurn_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SelectMapNode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IConquestionService/SelectMapNode" message="tns:IConquestionService_SelectMapNode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IConquestionService/SelectMapNodeResponse" message="tns:IConquestionService_SelectMapNode_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IConquestionService" type="tns:IConquestionService">
@@ -498,6 +528,33 @@
     </wsdl:operation>
     <wsdl:operation name="getGamePlayerOrder">
       <soap:operation soapAction="http://tempuri.org/IConquestionService/getGamePlayerOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMapStartTime">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/SetMapStartTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckPlayerTurn">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/CheckPlayerTurn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SelectMapNode">
+      <soap:operation soapAction="http://tempuri.org/IConquestionService/SelectMapNode" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

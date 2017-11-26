@@ -21,6 +21,7 @@ namespace ConquestionGame.DataAccessLayer
         public DbSet<MapNode> MapNodes { get; set; }
         public DbSet<MapNodeOwner> MapNodeOwners { get; set; }
         public DbSet<PlayerOrder> PlayerOrders { get; set; }
+        public DbSet<AcquiredMapNode> AcquiredMapNodes { get; set; }
 
         public ConquestionDBContext()
             : base("name=ConquestionConnectionTestDatabase")

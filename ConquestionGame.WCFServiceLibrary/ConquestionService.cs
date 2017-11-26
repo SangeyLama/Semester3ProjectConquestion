@@ -149,5 +149,19 @@ namespace ConquestionGame.WCFServiceLibrary
             return gameCtr.getGamePlayerOrder(game);
         }
 
+        public void SetMapStartTime(RoundAction roundAction)
+        {
+            roundCtr.SetMapStartTime(roundAction);
+        }
+
+        public Player CheckPlayerTurn(RoundAction roundAction, Game game)
+        {
+            return roundCtr.CheckPlayerTurn(roundAction, game);
+        }
+
+        public bool SelectMapNode(RoundAction roundAction, Game game, Player player, int MapNodeIndex)
+        {
+            return roundCtr.SelectMapNode(roundAction, game, player, MapNodeIndex);
+        }
     }
 }

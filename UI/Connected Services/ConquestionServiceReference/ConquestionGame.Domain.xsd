@@ -113,6 +113,7 @@
   <xs:element name="ArrayOfRoundAction" nillable="true" type="tns:ArrayOfRoundAction" />
   <xs:complexType name="RoundAction">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AcquiredMapNodes" nillable="true" type="tns:ArrayOfAcquiredMapNode" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="MapStartTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="PlayerAnswers" nillable="true" type="tns:ArrayOfPlayerAnswer" />
@@ -122,6 +123,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RoundAction" nillable="true" type="tns:RoundAction" />
+  <xs:complexType name="ArrayOfAcquiredMapNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AcquiredMapNode" nillable="true" type="tns:AcquiredMapNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAcquiredMapNode" nillable="true" type="tns:ArrayOfAcquiredMapNode" />
+  <xs:complexType name="AcquiredMapNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MapNode" nillable="true" type="tns:MapNode" />
+      <xs:element minOccurs="0" name="Player" nillable="true" type="tns:Player" />
+      <xs:element minOccurs="0" name="RoundAction" nillable="true" type="tns:RoundAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AcquiredMapNode" nillable="true" type="tns:AcquiredMapNode" />
+  <xs:complexType name="MapNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MapNode" nillable="true" type="tns:MapNode" />
   <xs:complexType name="ArrayOfPlayerAnswer">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PlayerAnswer" nillable="true" type="tns:PlayerAnswer" />

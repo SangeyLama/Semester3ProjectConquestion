@@ -26,6 +26,8 @@ namespace ConquestionGame.Domain
         [DataMember]
         [ConcurrencyCheck]
         public Player RoundActionWinner { get; set; }
+        [DataMember]
+        public List<AcquiredMapNode> AcquiredMapNodes { get; set; }
         //[DataMember]
         //public List<AcquiredMapNode> AcquiredMapNodes { get; set; }
     }

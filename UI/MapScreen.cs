@@ -16,7 +16,8 @@ namespace UI
         ConquestionServiceClient client = new ConquestionServiceClient();
 
         Game CurrentGame = null;
-
+        RoundAction currentRoundAction;
+        PlayerOrder[] playerOrder = null;
         List<Button> NodeButtons = new List<Button>();
         // contains a list of all the buttons that represent map nodes
         IList<Player> ourPlayers = new List<Player>();
@@ -25,11 +26,16 @@ namespace UI
         public MapScreen(Game Game)
         {
             InitializeComponent();
+            currentRoundAction = CurrentRound.Instance.Round.RoundActions.LastOrDefault();
             Game GameEntity = client.ChooseGame(Game.Name, true);
             CurrentGame = GameEntity;
+            playerOrder = client.getGamePlayerOrder(CurrentGame).OrderBy(x => x.Position).ToArray();
             AddAllNodeButtonsToList();
+            AddEventHandlersToButtons();
             AssignPlayerColors();
             ColorOccupiedNodes(NodeButtons);
+
+           
         }
 
         // adds all the map nodes buttons to the list of node buttons for easier management 
@@ -53,11 +59,20 @@ namespace UI
             NodeButtons.Add(MapNode_16);
         }
 
+        private void AddEventHandlersToButtons()
+        {
+            foreach(Button b in NodeButtons)
+            {
+                b.Click += Button_Click;
+            }
+        }
+
         // initialises the timer when the screen loads
         private void MapScreen_Load(object sender, EventArgs e)
         {
-            timer1.Interval = (5 * 1000); // 5 secs
+            timer1.Interval = (1 * 1000); // 5 secs
             timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Tick += new EventHandler(CheckPlayerTurn_Tick);
             timer1.Start();
         }
 
@@ -66,16 +81,17 @@ namespace UI
         {
             ourPlayers = client.RetrieveAllPlayersByGameId(CurrentGame);
 
+
             if(ourPlayers[0] != null)
             {
-                PlayerLabel1.Text = ourPlayers[0].Name;
+                PlayerLabel1.Text = playerOrder[0].Player.Name;
                 PlayerLabel1.ForeColor = Color.Red;
                 PlayerLabel1.Visible = true;
             }
 
             if (ourPlayers[1] != null)
             {
-                PlayerLabel2.Text = ourPlayers[1].Name;
+                PlayerLabel2.Text = playerOrder[1].Player.Name;
                 PlayerLabel2.ForeColor = Color.Yellow;
                 PlayerLabel2.Visible = true;
             }
@@ -84,7 +100,7 @@ namespace UI
             {
                 if (ourPlayers[2] != null)
                 {
-                    PlayerLabel3.Text = ourPlayers[2].Name;
+                    PlayerLabel3.Text = playerOrder[2].Player.Name;
                     PlayerLabel3.ForeColor = Color.Green;
                     PlayerLabel3.Visible = true;
                 }
@@ -98,7 +114,7 @@ namespace UI
             {
                 if (ourPlayers[3] != null)
                 {
-                    PlayerLabel4.Text = ourPlayers[3].Name;
+                    PlayerLabel4.Text = playerOrder[3].Player.Name;
                     PlayerLabel4.ForeColor = Color.Blue;
                     PlayerLabel4.Visible = true;
                 }
@@ -167,6 +183,7 @@ namespace UI
 
         private void MapNode_1_Click(object sender, EventArgs e)
         {
+
         }
 
         private void MapNode_2_Click(object sender, EventArgs e)
@@ -223,6 +240,8 @@ namespace UI
 
         private void MapNode_15_Click(object sender, EventArgs e)
         {
+            int index = Convert.ToInt32(MapNode_15.Text);
+            SelectMapNode(index);
         }
 
         private void MapNode_16_Click(object sender, EventArgs e)
@@ -235,9 +254,37 @@ namespace UI
             ColorOccupiedNodes(NodeButtons);
         }
 
+        private void CheckPlayerTurn_Tick(object sender, EventArgs e)
+        {
+            Player player = client.CheckPlayerTurn(currentRoundAction, CurrentGame);
+            if(player != null)
+            {
+                StatusMessage.Text = String.Format("Player {0} is now selecting.", player.Name);
+                StatusMessage.Visible = true;
+            }
+            else
+            {
+                StatusMessage.Visible = false;
+            }
+        }
+
+        private void SelectMapNode(int MapNodeIndex)
+        {
+            client.SelectMapNode(currentRoundAction, CurrentGame, PlayerCredentials.Instance.Player, MapNodeIndex);
+        }
+
+        void Button_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            int index = Convert.ToInt32(button.Text);
+            SelectMapNode(index);
+        }
+
         private void MapScreen_Closing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
         }
+
+
     }
 }

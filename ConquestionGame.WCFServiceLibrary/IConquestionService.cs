@@ -63,6 +63,12 @@ namespace ConquestionGame.WCFServiceLibrary
         List<Player> GetPlayerOrder(Game game, RoundAction roundAction);
         [OperationContract]
         List<PlayerOrder> getGamePlayerOrder(Game game);
+        [OperationContract]
+        void SetMapStartTime(RoundAction roundAction);
+        [OperationContract]
+        Player CheckPlayerTurn(RoundAction roundAction, Game game);
+        [OperationContract]
+        bool SelectMapNode(RoundAction roundAction, Game game, Player player, int MapNodeIndex);
 
     }
 }

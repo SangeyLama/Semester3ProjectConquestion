@@ -30,7 +30,7 @@ namespace ConquestionGame.LogicLayer
         {
             MapNodeOwner Owner = new MapNodeOwner();
             Owner = db.MapNodeOwners.Include("Player").Where(m => m.GameId == game.Id && m.MapNodeId == mapNodeId).FirstOrDefault();
-            return Owner.Player;
+            return Owner?.Player;
         }
     }
 }
