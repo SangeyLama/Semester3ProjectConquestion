@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnswerQuestionTUI", "Answer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConquestionGame.Domain.Tests", "ConquestionGame.Domain.Tests\ConquestionGame.Domain.Tests.csproj", "{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -108,14 +106,6 @@ Global
 		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|x86.ActiveCfg = Release|Any CPU
 		{086CF640-706F-4DD1-B6AD-5CE2CAC455EB}.Release|x86.Build.0 = Release|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Debug|x86.Build.0 = Debug|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Release|x86.ActiveCfg = Release|Any CPU
-		{F7760B64-34D6-4997-ACC1-3B29B6BB9E10}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
