@@ -121,9 +121,9 @@ namespace ConquestionGame.WCFServiceLibrary
             return roundCtr.CheckIfAllPlayersAnswered(game, roundAction);
         }
 
-        public List<Player> GetPlayerOrder(RoundAction roundAction)
+        public List<Player> GetPlayerOrder(Game game, RoundAction roundAction)
         {
-            return roundCtr.GetPlayerOrder(roundAction);
+            return roundCtr.GetPlayerOrder(game, roundAction);
         }
 
         //public Round GetRound(Game game, string roundType)
